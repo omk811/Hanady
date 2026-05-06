@@ -3,54 +3,65 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>البرامج المقترحة — هنادي موسى البلوشي — دليل 2026/2027</title>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+<title>البرامج المقترحة — هنادي موسى البلوشي — مع الشروط الخاصة</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
   --navy:#1C2E4A;--gold:#C8932A;--gold-lt:#F5E9CE;
-  --bg:#F5F2EC;--card:#FFF;--border:#DDD5C0;
-  --text:#1A2636;--muted:#6B7585;
-  --g1:#1B6B42;--g2:#1A4B8A;--g3:#6B3A00;--g4:#4A2080;--g5:#8A4A00;--g6:#5A1A1A;
+  --bg:#F5F2EC;--card:#FFF;--border:#DDD5C0;--text:#1A2636;--muted:#6B7585;
+  --g1:#1B6B42;--g2:#1A4B8A;--g3:#6B3A00;--g4:#4A2080;--g5:#8A4A00;--gray:#6B7585;
+  /* شروط */
+  --cond-ielts:#8A1A6B;--cond-ielts-bg:#FFF0FA;
+  --cond-inter:#1A6B6B;--cond-inter-bg:#E8FAFA;
+  --cond-medical:#C83A00;--cond-medical-bg:#FFF0E8;
+  --cond-art:#6B3A8A;--cond-art-bg:#F5EAFA;
+  --cond-girls:#8A6B00;--cond-girls-bg:#FFFAE8;
 }
-body{font-family:'Cairo','Tajawal',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+body{font-family:'Cairo',sans-serif;background:var(--bg);color:var(--text)}
 
-/* HEADER */
-.hdr{background:linear-gradient(135deg,#1C2E4A 0%,#2A4870 55%,#1A3C60 100%);padding:28px 36px 24px;position:relative;overflow:hidden}
-.hdr::before{content:'';position:absolute;top:-80px;left:-80px;width:360px;height:360px;background:radial-gradient(circle,rgba(200,147,42,.16) 0%,transparent 70%);border-radius:50%}
-.hdr::after{content:'';position:absolute;bottom:-60px;right:60px;width:220px;height:220px;background:radial-gradient(circle,rgba(200,147,42,.08) 0%,transparent 70%);border-radius:50%}
-.hi{position:relative;z-index:1;max-width:1180px;margin:0 auto}
+.hdr{background:linear-gradient(135deg,#1C2E4A 0%,#2A4870 60%,#1A3C60 100%);padding:28px 36px 24px;position:relative;overflow:hidden}
+.hdr::before{content:'';position:absolute;top:-80px;left:-80px;width:360px;height:360px;background:radial-gradient(circle,rgba(200,147,42,.15)0%,transparent 70%);border-radius:50%}
+.hi{position:relative;z-index:1;max-width:1200px;margin:0 auto}
 .htop{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;flex-wrap:wrap}
 .hbadge{font-size:10px;font-weight:700;letter-spacing:1.5px;color:var(--gold);background:rgba(200,147,42,.15);border:1px solid rgba(200,147,42,.3);padding:4px 12px;border-radius:20px;white-space:nowrap;align-self:flex-start}
-.htitle{font-size:22px;font-weight:800;color:#fff;margin:10px 0 4px;line-height:1.3}
+.htitle{font-size:22px;font-weight:800;color:#fff;margin:10px 0 4px}
 .hsub{font-size:12px;color:rgba(255,255,255,.6);margin-bottom:18px}
 .hcards{display:flex;gap:10px;flex-wrap:wrap}
-.hcard{background:rgba(255,255,255,.08);border:1px solid rgba(200,147,42,.25);border-radius:10px;padding:9px 15px;min-width:115px}
+.hcard{background:rgba(255,255,255,.08);border:1px solid rgba(200,147,42,.25);border-radius:10px;padding:9px 15px}
 .hcard .lbl{font-size:10px;color:rgba(255,255,255,.5);margin-bottom:2px}
 .hcard .val{font-size:13px;font-weight:700;color:#fff}
 .avg{background:var(--gold);color:var(--navy);font-size:13px;font-weight:800;padding:10px 16px;border-radius:10px;align-self:center;text-align:center;line-height:1.5}
 
 /* GRADES */
 .gbar{background:var(--gold-lt);border-bottom:2px solid var(--gold);padding:12px 36px}
-.gbari{max-width:1180px;margin:0 auto}
+.gbari{max-width:1200px;margin:0 auto}
 .gtitle{font-size:11px;font-weight:700;color:#6B4500;margin-bottom:8px}
 .grow{display:flex;gap:8px;flex-wrap:wrap}
 .gchip{background:#fff;border:1px solid rgba(200,147,42,.35);border-radius:8px;padding:5px 12px;display:flex;flex-direction:column;align-items:center;gap:2px}
-.gchip .gn{color:var(--muted);font-size:10px}
-.gchip .gv{font-weight:700;color:var(--navy);font-size:13px}
+.gchip .gn{color:var(--muted);font-size:10px;text-align:center}
+.gchip .gv{font-weight:700;font-size:13px}
 
-/* INFO */
-.ibar{background:var(--navy);padding:8px 36px}
-.ibari{max-width:1180px;margin:0 auto;display:flex;gap:18px;flex-wrap:wrap;font-size:11px;color:rgba(255,255,255,.65)}
-.ii{display:flex;align-items:center;gap:5px}
-.idot{width:5px;height:5px;border-radius:50%;background:var(--gold);flex-shrink:0}
+/* LEGEND CONDS */
+.legend-bar{background:#2A3A54;padding:10px 36px}
+.legend-bari{max-width:1200px;margin:0 auto}
+.legend-title{font-size:11px;color:rgba(255,255,255,.6);margin-bottom:7px;font-weight:600}
+.legend-row{display:flex;gap:10px;flex-wrap:wrap}
+.lbadge{display:inline-flex;align-items:center;gap:5px;font-size:11px;padding:4px 10px;border-radius:20px;font-weight:600;white-space:nowrap}
+.lb-ielts{background:var(--cond-ielts-bg);color:var(--cond-ielts);border:1px solid rgba(138,26,107,.3)}
+.lb-inter{background:var(--cond-inter-bg);color:var(--cond-inter);border:1px solid rgba(26,107,107,.3)}
+.lb-medical{background:var(--cond-medical-bg);color:var(--cond-medical);border:1px solid rgba(200,58,0,.3)}
+.lb-art{background:var(--cond-art-bg);color:var(--cond-art);border:1px solid rgba(107,58,138,.3)}
+.lb-girls{background:var(--cond-girls-bg);color:var(--cond-girls);border:1px solid rgba(138,107,0,.3)}
+.lb-new{background:#E8F5EE;color:#1B6B42;border:1px solid #A0D8B0}
+.lb-ok{background:#EAECF0;color:#445;border:1px solid #C8D0D8}
 
 /* FORMULA */
 .fbar{background:#EFF3FA;border-bottom:1px solid var(--border);padding:8px 36px}
-.fbari{max-width:1180px;margin:0 auto;font-size:11.5px;color:#1A3D6B;font-weight:600;display:flex;align-items:center;gap:8px}
+.fbari{max-width:1200px;margin:0 auto;font-size:11.5px;color:#1A3D6B;font-weight:600}
 
 /* CONTROLS */
-.controls{max-width:1180px;margin:0 auto;padding:14px 36px 10px;display:flex;gap:7px;flex-wrap:wrap;align-items:center}
+.controls{max-width:1200px;margin:0 auto;padding:14px 36px 10px;display:flex;gap:7px;flex-wrap:wrap;align-items:center}
 .cl{font-size:11.5px;color:var(--muted);font-weight:600}
 .fb{font-family:'Cairo',sans-serif;font-size:11.5px;padding:5px 14px;border-radius:20px;border:1.5px solid var(--border);background:var(--card);color:var(--muted);cursor:pointer;transition:all .15s;font-weight:500}
 .fb:hover{border-color:var(--navy);color:var(--navy)}
@@ -58,72 +69,85 @@ body{font-family:'Cairo','Tajawal',sans-serif;background:var(--bg);color:var(--t
 .clbl{margin-right:auto;font-size:11px;color:var(--muted);background:var(--bg);border:1px solid var(--border);border-radius:20px;padding:4px 14px}
 
 /* TABLE */
-.wrap{max-width:1180px;margin:0 auto 14px;padding:0 36px;overflow-x:auto}
-table{width:100%;border-collapse:collapse;background:var(--card);border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.07),0 0 0 1px var(--border);font-size:12.5px}
+.wrap{max-width:1200px;margin:0 auto 14px;padding:0 36px;overflow-x:auto}
+table{width:100%;border-collapse:collapse;background:var(--card);border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.07),0 0 0 1px var(--border);font-size:12px}
 thead tr{background:var(--navy)}
-thead th{padding:10px 12px;text-align:right;font-size:11px;font-weight:600;color:rgba(255,255,255,.75);white-space:nowrap;letter-spacing:.3px}
-thead th:first-child{text-align:center;width:36px;color:var(--gold)}
+thead th{padding:10px 11px;text-align:right;font-size:11px;font-weight:600;color:rgba(255,255,255,.75);white-space:nowrap}
+thead th:first-child{text-align:center;width:34px;color:var(--gold)}
 tbody tr{border-bottom:1px solid var(--border);transition:background .1s}
 tbody tr:last-child{border-bottom:none}
 tbody tr:hover{background:#FAFAF5}
-tbody td{padding:9px 12px;vertical-align:middle}
+tbody td{padding:8px 11px;vertical-align:middle}
 tbody td:first-child{text-align:center}
 
-/* rank */
+/* Highlighted rows */
+tbody tr.row-ielts{background:rgba(138,26,107,.04)}
+tbody tr.row-medical{background:rgba(200,58,0,.04)}
+tbody tr.row-art{background:rgba(107,58,138,.04)}
+tbody tr.row-inter{background:rgba(26,107,107,.04)}
+
 .rk{display:inline-flex;align-items:center;justify-content:center;width:23px;height:23px;border-radius:50%;font-size:10.5px;font-weight:700}
 .r1{background:#F0D060;color:#5A3800}.r2{background:#D0D0D0;color:#333}.r3{background:#E8A878;color:#5A2000}.ro{background:#EAECF0;color:#667}
 
-/* cat */
-.cat{display:inline-block;font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px;margin-bottom:3px}
-.ct{background:#E8F5EE;color:#1B5E3A}
-.cs{background:#FDF0EA;color:#7A2A0A}
-.ci{background:#E8F0FA;color:#1A3D6B}
-.ch{background:#F5F0E0;color:#5A3800}
-.cn{background:#F0EAFA;color:#4A2080}
-.cd{background:#E8F5F5;color:#1A5A5A}
-.cf{background:#FFF0E8;color:#8A3A00}
+.cat{display:inline-block;font-size:10px;font-weight:700;padding:2px 7px;border-radius:10px;margin-bottom:2px}
+.ct{background:#E8F5EE;color:#1B5E3A}.cs{background:#FDF0EA;color:#7A2A0A}
+.ci{background:#E8F0FA;color:#1A3D6B}.ch{background:#F5F0E0;color:#5A3800}
+.cn{background:#F0EAFA;color:#4A2080}.cd{background:#E8F5F5;color:#1A5A5A}.ce{background:#FFF0F0;color:#8A1A1A}
 
 .spn{font-weight:600;font-size:12.5px;line-height:1.35}
-.spc{display:inline-block;margin-top:3px;font-size:10px;font-weight:700;padding:2px 8px;border-radius:6px;background:var(--navy);color:#fff;letter-spacing:.5px;direction:ltr}
+.spc{display:inline-block;margin-top:2px;font-size:10px;font-weight:700;padding:2px 7px;border-radius:5px;background:var(--navy);color:#fff;letter-spacing:.5px;direction:ltr}
+.tag{display:inline-block;font-size:10px;padding:2px 5px;border-radius:7px;background:#EAECF0;color:#445;margin:1px}
 
-/* correction badge */
-.fix-badge{display:inline-block;font-size:9px;font-weight:700;padding:1px 6px;border-radius:6px;background:#FFF0E8;color:#8A3A00;border:1px solid #F0B878;margin-right:4px;vertical-align:middle}
+/* Condition badges inline */
+.cb{display:inline-flex;align-items:center;gap:3px;font-size:10px;font-weight:700;padding:2px 7px;border-radius:8px;margin:1px;white-space:nowrap}
+.cb-ielts{background:var(--cond-ielts-bg);color:var(--cond-ielts);border:1px solid rgba(138,26,107,.25)}
+.cb-inter{background:var(--cond-inter-bg);color:var(--cond-inter);border:1px solid rgba(26,107,107,.25)}
+.cb-medical{background:var(--cond-medical-bg);color:var(--cond-medical);border:1px solid rgba(200,58,0,.25)}
+.cb-art{background:var(--cond-art-bg);color:var(--cond-art);border:1px solid rgba(107,58,138,.25)}
+.cb-girls{background:var(--cond-girls-bg);color:var(--cond-girls);border:1px solid rgba(138,107,0,.25)}
+.cb-new{background:#E8F5EE;color:#1B6B42;border:1px solid #A0D8B0}
 
-.tag{display:inline-block;font-size:10px;padding:2px 6px;border-radius:8px;background:#EAECF0;color:#445;margin:1px}
-
-/* bar */
-.bw{display:flex;align-items:center;gap:8px}
-.sv{font-weight:700;font-size:13px;min-width:46px}
-.bbg{flex:1;height:6px;background:#E2E6EA;border-radius:3px;min-width:55px;overflow:hidden}
-.bf{height:6px;border-radius:3px}
+.bw{display:flex;align-items:center;gap:7px}
+.sv{font-weight:700;font-size:12.5px;min-width:44px}
+.bbg{flex:1;height:5px;background:#E2E6EA;border-radius:3px;min-width:50px;overflow:hidden}
+.bf{height:5px;border-radius:3px}
 .s93{color:var(--g1)}.b93{background:var(--g1)}
 .s92{color:var(--g2)}.b92{background:var(--g2)}
 .s89{color:#1A6B6B}.b89{background:#1A6B6B}
 .s88{color:var(--g3)}.b88{background:var(--g3)}
 .s86{color:var(--g4)}.b86{background:var(--g4)}
-.s85{color:var(--g5)}.b85{background:var(--g5)}
-.slo{color:var(--muted)}.blo{background:var(--muted)}
+.s84{color:var(--g5)}.b84{background:var(--g5)}
+.slo{color:var(--gray)}.blo{background:var(--gray)}
 
-.inn{font-size:12px;font-weight:600}
-.lc{font-size:10.5px;padding:2px 8px;border-radius:6px;background:var(--gold-lt);color:#6B4500;border:1px solid rgba(200,147,42,.3);display:inline-block;margin-top:2px}
+.inn{font-size:11.5px;font-weight:600}
+.lc{font-size:10px;padding:2px 7px;border-radius:5px;background:var(--gold-lt);color:#6B4500;border:1px solid rgba(200,147,42,.3);display:inline-block;margin-top:2px}
 
-/* note */
-.footer{max-width:1180px;margin:0 auto 32px;padding:0 36px}
+/* Cond detail */
+.cond-detail{font-size:10px;color:var(--muted);margin-top:3px;line-height:1.5}
+
+/* FOOTER */
+.footer{max-width:1200px;margin:0 auto 32px;padding:0 36px}
 .note{background:#E8F0FA;border-right:3px solid var(--navy);border-radius:8px;padding:12px 16px;font-size:11.5px;color:var(--navy);line-height:1.8}
-.note-fix{background:#FFF0E8;border-right:3px solid #E07020;border-radius:8px;padding:12px 16px;font-size:11.5px;color:#5A2800;line-height:1.8;margin-top:10px}
-.legend{display:flex;gap:14px;flex-wrap:wrap;margin-top:12px}
-.li{display:flex;align-items:center;gap:6px;font-size:11px;color:var(--muted)}
-.ld{width:10px;height:10px;border-radius:50%}
+.note-conds{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:10px;margin-top:12px}
+.nc{border-radius:8px;padding:10px 14px;font-size:11.5px;line-height:1.7}
+.nc-ielts{background:var(--cond-ielts-bg);border-right:3px solid var(--cond-ielts);color:#5A1048}
+.nc-inter{background:var(--cond-inter-bg);border-right:3px solid var(--cond-inter);color:#1A4B4B}
+.nc-medical{background:var(--cond-medical-bg);border-right:3px solid var(--cond-medical);color:#7A2200}
+.nc-art{background:var(--cond-art-bg);border-right:3px solid var(--cond-art);color:#4A2060}
+.nc strong{font-weight:700}
 .gnn{text-align:center;font-size:10.5px;color:var(--muted);margin-top:12px}
+.sc-legend{display:flex;gap:12px;flex-wrap:wrap;margin-top:12px}
+.sli{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--muted)}
+.sld{width:9px;height:9px;border-radius:50%}
 
 @media(max-width:768px){
-  .hdr,.gbar,.ibar,.fbar,.controls,.wrap,.footer{padding-right:14px;padding-left:14px}
+  .hdr,.gbar,.legend-bar,.fbar,.controls,.wrap,.footer{padding-right:14px;padding-left:14px}
   .htitle{font-size:17px}
-  table{font-size:11px}
+  table{font-size:10.5px}
   thead th,tbody td{padding:7px 8px}
 }
 @media print{
-  .hdr,thead tr{print-color-adjust:exact;-webkit-print-color-adjust:exact}
+  .hdr,.legend-bar,thead tr{print-color-adjust:exact;-webkit-print-color-adjust:exact}
   .controls{display:none}
 }
 </style>
@@ -134,9 +158,9 @@ tbody td:first-child{text-align:center}
   <div class="hi">
     <div class="htop">
       <div>
-        <div class="hbadge">القبول الموحد · دليل الطالب 2026 / 2027 · نسخة مُصحَّحة</div>
-        <div class="htitle">البرامج المقترحة بحسب المعدل التنافسي</div>
-        <div class="hsub">المعادلة: (مجموع درجات الطالب × 40%) + (درجات المواد المطلوبة للتخصص × 60%) · مُصحَّح ومُحقَّق من الدليل الرسمي</div>
+        <div class="hbadge">نسخة شاملة مع الشروط الخاصة · دليل 2026/2027</div>
+        <div class="htitle">البرامج الدراسية المقترحة — مرتبة تنازلياً</div>
+        <div class="hsub">92 برنامجاً · مُحدَّد فيها الشروط الخاصة (IELTS · مقابلة · فحص طبي · اختبار أداء) · المعادلة من صفحة 11</div>
       </div>
       <div class="avg">المتوسط العام<br>90.625%</div>
     </div>
@@ -144,7 +168,7 @@ tbody td:first-child{text-align:center}
       <div class="hcard"><div class="lbl">الاسم</div><div class="val">هنادي موسى إبراهيم البلوشي</div></div>
       <div class="hcard"><div class="lbl">رقم الجلوس</div><div class="val">22377</div></div>
       <div class="hcard"><div class="lbl">الفصل</div><div class="val">الأول 2025/2026</div></div>
-      <div class="hcard"><div class="lbl">عدد البرامج</div><div class="val">43 برنامجاً</div></div>
+      <div class="hcard"><div class="lbl">إجمالي البرامج</div><div class="val">92 برنامجاً</div></div>
     </div>
   </div>
 </div>
@@ -153,143 +177,211 @@ tbody td:first-child{text-align:center}
   <div class="gbari">
     <div class="gtitle">📊 درجات الفصل الأول 2025/2026</div>
     <div class="grow">
-      <div class="gchip"><div class="gn">التربية الإسلامية</div><div class="gv">97</div></div>
-      <div class="gchip"><div class="gn">اللغة العربية</div><div class="gv">91</div></div>
-      <div class="gchip"><div class="gn">اللغة الإنجليزية</div><div class="gv">91</div></div>
-      <div class="gchip"><div class="gn">المهارات الموسيقية</div><div class="gv">100</div></div>
-      <div class="gchip"><div class="gn">الدراسات الاجتماعية</div><div class="gv">98</div></div>
-      <div class="gchip"><div class="gn">الكيمياء</div><div class="gv">87</div></div>
-      <div class="gchip"><div class="gn">الأحياء</div><div class="gv">88</div></div>
-      <div class="gchip"><div class="gn">الرياضيات المتقدمة</div><div class="gv">73</div></div>
+      <div class="gchip"><div class="gn">موسيقى</div><div class="gv" style="color:#1B6B42">100</div></div>
+      <div class="gchip"><div class="gn">دراسات اجتماعية</div><div class="gv" style="color:#1B6B42">98</div></div>
+      <div class="gchip"><div class="gn">إسلامية</div><div class="gv" style="color:#1B6B42">97</div></div>
+      <div class="gchip"><div class="gn">عربية</div><div class="gv" style="color:#1A4B8A">91</div></div>
+      <div class="gchip"><div class="gn">إنجليزية</div><div class="gv" style="color:#1A4B8A">91</div></div>
+      <div class="gchip"><div class="gn">أحياء</div><div class="gv" style="color:#6B3A00">88</div></div>
+      <div class="gchip"><div class="gn">كيمياء</div><div class="gv" style="color:#6B3A00">87</div></div>
+      <div class="gchip"><div class="gn">رياضيات</div><div class="gv" style="color:#8A4A00">73</div></div>
     </div>
   </div>
 </div>
 
-<div class="ibar">
-  <div class="ibari">
-    <div class="ii"><div class="idot"></div>تم تصحيح المواد المحتسبة لكل برنامج وفق الدليل الرسمي</div>
-    <div class="ii"><div class="idot"></div>البرامج المعلّمة بـ ✏️ تم تصحيح معدلها التنافسي</div>
-    <div class="ii"><div class="idot"></div>برامج الإناث مُشار إليها صراحةً</div>
+<div class="legend-bar">
+  <div class="legend-bari">
+    <div class="legend-title">🔖 دليل الشروط الخاصة:</div>
+    <div class="legend-row">
+      <span class="lbadge lb-ielts">🌐 IELTS — شرط اختبار اللغة</span>
+      <span class="lbadge lb-medical">🏥 طبي — فحص طبي مطلوب</span>
+      <span class="lbadge lb-inter">🎤 مقابلة — مقابلة شخصية</span>
+      <span class="lbadge lb-art">🎨 أداء — اختبار قدرات / موسيقى / رسم</span>
+      <span class="lbadge lb-girls">♀ إناث — للإناث فقط</span>
+      <span class="lbadge lb-new">✨ جديد — مضاف في هذه المراجعة</span>
+      <span class="lbadge lb-ok">✅ لا شروط إضافية</span>
+    </div>
   </div>
 </div>
 
 <div class="fbar">
   <div class="fbari">
-    📐 المعدل التنافسي = (مجموع درجات جميع المواد ÷ عددها × 40%) + (مجموع درجات مواد التخصص ÷ عددها × 60%)
+    📐 المعدل التنافسي (صفحة 11) = (مجموع كل الدرجات ÷ 8 × 0.4) + (مجموع مواد التخصص ÷ عددها × 0.6)
   </div>
 </div>
 
 <div class="controls">
   <span class="cl">تصفية:</span>
   <button class="fb on" onclick="fc('all',this)">الكل</button>
-  <button class="fb" onclick="fc('تربية',this)">التربية والإنسانيات</button>
-  <button class="fb" onclick="fc('صحة',this)">الصحة والطب</button>
-  <button class="fb" onclick="fc('إدارة',this)">الإدارة والأعمال</button>
-  <button class="fb" onclick="fc('هندسة',this)">الهندسة والتقنية</button>
-  <button class="fb" onclick="fc('دين',this)">الدراسات الدينية</button>
-  <button class="fb" onclick="fc('علوم',this)">العلوم التطبيقية</button>
+  <button class="fb" onclick="fc('تربية',this)">تربية وإنسانيات</button>
+  <button class="fb" onclick="fc('صحة',this)">صحة وطب</button>
+  <button class="fb" onclick="fc('إدارة',this)">إدارة وأعمال</button>
+  <button class="fb" onclick="fc('هندسة',this)">هندسة وتقنية</button>
+  <button class="fb" onclick="fc('علوم',this)">علوم طبيعية</button>
+  <button class="fb" onclick="fc('دين',this)">دراسات دينية</button>
+  <button class="fb" onclick="fc('حقوق',this)">حقوق وقانون</button>
+  <button class="fb" onclick="fcc('ielts',this)">🌐 IELTS فقط</button>
+  <button class="fb" onclick="fcc('medical',this)">🏥 طبي فقط</button>
   <span class="clbl" id="clbl">عدد البرامج: —</span>
 </div>
 
 <div class="wrap">
 <table>
-  <thead>
-    <tr>
-      <th>#</th>
-      <th>رمز البرنامج</th>
-      <th>اسم البرنامج</th>
-      <th>المواد المحتسبة</th>
-      <th>متوسط التخصص</th>
-      <th>المعدل التنافسي</th>
-      <th>الجامعة / الكلية</th>
-      <th>الموقع</th>
-    </tr>
-  </thead>
+  <thead><tr>
+    <th>#</th><th>رمز البرنامج</th><th>اسم البرنامج</th>
+    <th>الشروط الخاصة</th><th>المواد المحتسبة</th>
+    <th>متوسط التخصص</th><th>المعدل التنافسي</th>
+    <th>المؤسسة التعليمية</th><th>الموقع</th>
+  </tr></thead>
   <tbody id="tb"></tbody>
 </table>
 </div>
 
 <div class="footer">
-  <div class="note">
-    <strong>⚠️ تنبيهات مهمة:</strong><br>
-    • برامج التربية والتمريض والموسيقى تتطلب <strong>اجتياز المقابلة الشخصية أو الفحص الطبي أو اختبار القدرات</strong> لتأكيد القبول النهائي.<br>
-    • البرامج المرنة <strong>U0084 وU0088</strong>: تسمح باختيار أي فرع من فروع جامعة التقنية والعلوم التطبيقية المتوفر فيها التخصص بعد القبول.<br>
-    • البعثات المرنة <strong>BS380 وBS390</strong>: تمنحك حرية اختيار أي جامعة خاصة في السلطنة تدرّس هذه التخصصات.<br>
-    • الأرقام مبنية على <strong>نتائج الفصل الأول فقط</strong> وستتحسن بعد إضافة نتائج الفصل الثاني.
+  <div class="note-conds">
+    <div class="nc nc-ielts">
+      <strong>🌐 IELTS — اختبار اللغة الإنجليزية:</strong><br>
+      مطلوب لبرامج بعض البعثات والجامعات الخاصة. الحد الأدنى عادةً 5.5 في كل عنصر. يُنصح باجتيازه قبيل تقديم الفصل الثاني.
+    </div>
+    <div class="nc nc-medical">
+      <strong>🏥 الفحص الطبي والسلامة الجسدية:</strong><br>
+      مطلوب لبرامج الطب والتمريض والعلاج الطبيعي وأمراض النطق. يُجرى عادةً بعد الترشيح في الفرز الأول.
+    </div>
+    <div class="nc nc-inter">
+      <strong>🎤 المقابلة الشخصية:</strong><br>
+      مطلوبة لجامعة السلطان قابوس جميع البرامج تقريباً، وكلية العلوم الشرعية، والبرامج التربوية التخصصية.
+    </div>
+    <div class="nc nc-art">
+      <strong>🎨 اختبار الأداء والقدرات الخاصة:</strong><br>
+      مطلوب لبرامج الموسيقى والفنون الجميلة والتربية الفنية — اختبار موسيقي أو فني أداء أو رسم حسب التخصص.
+    </div>
   </div>
-  <div class="note-fix">
-    <strong>✏️ التصحيحات المُجراة على الفرز الأصلي:</strong><br>
-    • <strong>SQ255/SQ250/U0084/BS071/BS236:</strong> المواد المحتسبة الصحيحة هي دراسات+إسلامية+عربية وليس رياضيات+إنجليزية → المعدل التنافسي ارتفع إلى 93.45%<br>
-    • <strong>SQ780/BS326:</strong> المواد هي عربية+إنجليزية+موسيقى وليس موسيقى فقط → تصحيح إلى 92.65%<br>
-    • <strong>BS390/U0085/BS168/BS130:</strong> المواد الصحيحة دراسات+عربية+إنجليزية → المعدل 92.25% وليس 85.44%<br>
-    • <strong>SQ410:</strong> المواد الصحيحة أحياء+كيمياء+رياضيات → المعدل 85.85% وليس 89.44%<br>
-    • <strong>U1013/U1014:</strong> المواد الصحيحة أحياء+كيمياء+إنجليزية → المعدل 89.45% وليس 86.64%<br>
-    • <strong>SQ158:</strong> المواد كيمياء+أحياء → المعدل 88.75% وليس 86.64%
+  <div class="note" style="margin-top:12px">
+    <strong>⚠️ تذكير:</strong> الأرقام على أساس <strong>الفصل الأول فقط</strong>. البعثات المرنة BS380/BS390 تتيح اختيار أي جامعة خاصة بدون قيد جغرافي.
   </div>
-  <div class="legend">
-    <div class="li"><div class="ld" style="background:var(--g1)"></div>93% فأعلى</div>
-    <div class="li"><div class="ld" style="background:var(--g2)"></div>92% — 92.99%</div>
-    <div class="li"><div class="ld" style="background:#1A6B6B"></div>89% — 91.99%</div>
-    <div class="li"><div class="ld" style="background:var(--g3)"></div>88% — 88.99%</div>
-    <div class="li"><div class="ld" style="background:var(--g4)"></div>86% — 87.99%</div>
-    <div class="li"><div class="ld" style="background:var(--g5)"></div>84% — 85.99%</div>
-    <div class="li"><div class="ld" style="background:var(--muted)"></div>أقل من 84%</div>
+  <div class="sc-legend">
+    <div class="sli"><div class="sld" style="background:var(--g1)"></div>93% فأعلى</div>
+    <div class="sli"><div class="sld" style="background:var(--g2)"></div>92%</div>
+    <div class="sli"><div class="sld" style="background:#1A6B6B"></div>89%–91%</div>
+    <div class="sli"><div class="sld" style="background:var(--g3)"></div>88%</div>
+    <div class="sli"><div class="sld" style="background:var(--g4)"></div>86%–87%</div>
+    <div class="sli"><div class="sld" style="background:var(--g5)"></div>84%–85%</div>
+    <div class="sli"><div class="sld" style="background:var(--gray)"></div>80%–83%</div>
   </div>
-  <div class="gnn">مُصحَّح ومُحقَّق وفق دليل الطالب للقبول الموحد 2026/2027 · وزارة التعليم العالي والبحث العلمي والابتكار · سلطنة عُمان</div>
+  <div class="gnn">مُعدّ وفق دليل الطالب للقبول الموحد 2026/2027 · وزارة التعليم العالي والبحث العلمي والابتكار · سلطنة عُمان</div>
 </div>
 
 <script>
-// fixed = تم تصحيح المعدل
+// conds: [] = لا شروط | 'ielts'=IELTS | 'medical'=فحص طبي | 'inter'=مقابلة | 'art'=اختبار أداء | 'girls'=إناث
 const D=[
-  {cat:"إدارة",code:"SQ255",name:"العلوم السياسية",sub:["دراسات","إسلامية","عربية"],ap:95.33,sc:93.45,inst:"جامعة السلطان قابوس",loc:"مسقط",fixed:true},
-  {cat:"إدارة",code:"SQ250",name:"الاقتصاد والعلوم السياسية",sub:["دراسات","إسلامية","عربية"],ap:95.33,sc:93.45,inst:"جامعة السلطان قابوس",loc:"مسقط",fixed:true},
-  {cat:"إدارة",code:"U0084",name:"الاقتصاد وإدارة الأعمال (عام)",sub:["دراسات","إسلامية","عربية"],ap:95.33,sc:93.45,inst:"جامعة التقنية والعلوم التطبيقية",loc:"فروع متعددة",fixed:true},
-  {cat:"إدارة",code:"BS071",name:"إدارة الموارد البشرية",sub:["دراسات","إسلامية","عربية"],ap:95.33,sc:93.45,inst:"كلية البريمي الجامعية",loc:"البريمي",fixed:true},
-  {cat:"إدارة",code:"BS236",name:"إدارة الأعمال",sub:["دراسات","إسلامية","عربية"],ap:95.33,sc:93.45,inst:"جامعة البريمي",loc:"البريمي",fixed:true},
-  {cat:"تربية",code:"SQ780",name:"الموسيقى والعلوم الموسيقية",sub:["عربية","إنجليزية","موسيقى"],ap:94.00,sc:92.65,inst:"جامعة السلطان قابوس",loc:"مسقط",fixed:true},
-  {cat:"تربية",code:"BS326",name:"التربية الموسيقية",sub:["موسيقى","عربية","إنجليزية"],ap:94.00,sc:92.65,inst:"جامعة صحار (بعثة داخلية)",loc:"صحار",fixed:true},
-  {cat:"تربية",code:"SQ280",name:"التربية — اللغة العربية والتربية الإسلامية",sub:["إسلامية","عربية"],ap:94.00,sc:92.65,inst:"جامعة السلطان قابوس",loc:"مسقط",fixed:false},
-  {cat:"تربية",code:"BS282",name:"التربية — اللغة العربية والتربية الإسلامية",sub:["إسلامية","عربية"],ap:94.00,sc:92.65,inst:"جامعة نزوى (بعثة داخلية)",loc:"نزوى",fixed:false},
-  {cat:"تربية",code:"BS280",name:"التربية — اللغة العربية والتربية الإسلامية",sub:["إسلامية","عربية"],ap:94.00,sc:92.65,inst:"جامعة الشرقية (بعثة داخلية)",loc:"إبراء",fixed:false},
-  {cat:"تربية",code:"SQ400",name:"التربية الابتدائية (مجال أول) — إناث فقط",sub:["عربية","إسلامية"],ap:94.00,sc:92.65,inst:"جامعة السلطان قابوس",loc:"مسقط",fixed:true},
-  {cat:"دين",code:"IS003",name:"الفقه وأصوله",sub:["إسلامية","عربية"],ap:94.00,sc:92.65,inst:"كلية العلوم الشرعية",loc:"مسقط",fixed:true},
-  {cat:"دين",code:"IS004",name:"أصول الدين",sub:["إسلامية","عربية"],ap:94.00,sc:92.65,inst:"كلية العلوم الشرعية",loc:"مسقط",fixed:true},
-  {cat:"دين",code:"IS001",name:"الفقه وأصوله (للذكور)",sub:["إسلامية","عربية"],ap:94.00,sc:92.65,inst:"كلية العلوم الشرعية",loc:"مسقط",fixed:true},
-  {cat:"دين",code:"IS002",name:"أصول الدين (للذكور)",sub:["إسلامية","عربية"],ap:94.00,sc:92.65,inst:"كلية العلوم الشرعية",loc:"مسقط",fixed:true},
-  {cat:"فنون",code:"U0107",name:"دبلوم التصوير الضوئي",sub:["موسيقى","عربية","إنجليزية"],ap:94.00,sc:92.65,inst:"جامعة التقنية والعلوم التطبيقية",loc:"مسقط",fixed:false},
-  {cat:"تربية",code:"SQ701",name:"السياحة",sub:["دراسات","عربية","إنجليزية"],ap:93.33,sc:92.25,inst:"جامعة السلطان قابوس",loc:"مسقط",fixed:true},
-  {cat:"إدارة",code:"BS390",name:"برامج الإدارة والفنون ESAM",sub:["دراسات","عربية","إنجليزية"],ap:93.33,sc:92.25,inst:"بعثات داخلية (جامعات خاصة)",loc:"مختلف المحافظات",fixed:true},
-  {cat:"تربية",code:"U0085",name:"الاتصال الجماهيري",sub:["دراسات","عربية","إنجليزية"],ap:93.33,sc:92.25,inst:"جامعة التقنية والعلوم التطبيقية",loc:"فروع متعددة",fixed:true},
-  {cat:"إدارة",code:"BS168",name:"إدارة السياحة والضيافة",sub:["دراسات","عربية","إنجليزية"],ap:93.33,sc:92.25,inst:"كلية عمان للسياحة",loc:"مسقط",fixed:true},
-  {cat:"إدارة",code:"BS130",name:"القيادة التنظيمية والإشرافية",sub:["دراسات","عربية","إنجليزية"],ap:93.33,sc:92.25,inst:"كلية مزون",loc:"مسقط",fixed:false},
-  {cat:"تربية",code:"SQ500",name:"التربية — اللغة الإنجليزية",sub:["إنجليزية","إسلامية","عربية"],ap:93.00,sc:92.05,inst:"جامعة السلطان قابوس",loc:"مسقط",fixed:false},
-  {cat:"تربية",code:"U1011",name:"التربية — اللغة الإنجليزية",sub:["إنجليزية","إسلامية","عربية"],ap:93.00,sc:92.05,inst:"جامعة التقنية والعلوم التطبيقية",loc:"الرستاق",fixed:false},
-  {cat:"تربية",code:"BS242",name:"التربية — اللغة الإنجليزية",sub:["إنجليزية","إسلامية","عربية"],ap:93.00,sc:92.05,inst:"جامعة نزوى (بعثة داخلية)",loc:"نزوى",fixed:false},
-  {cat:"حقوق",code:"SQ800",name:"بكالوريوس الحقوق",sub:["إسلامية","عربية","إنجليزية"],ap:93.00,sc:92.05,inst:"جامعة السلطان قابوس",loc:"مسقط",fixed:true},
-  {cat:"تربية",code:"SQ670",name:"طفل ما قبل المدرسة — إناث فقط",sub:["إسلامية","عربية","إنجليزية"],ap:93.00,sc:92.05,inst:"جامعة السلطان قابوس",loc:"مسقط",fixed:true},
-  {cat:"صحة",code:"NM001",name:"التمريض",sub:["أحياء","كيمياء","إنجليزية"],ap:88.67,sc:89.45,inst:"كلية عمان للعلوم الصحية",loc:"مسقط",fixed:false},
-  {cat:"صحة",code:"IH001",name:"العلوم الصحية (تخصصات متعددة)",sub:["أحياء","كيمياء","إنجليزية"],ap:88.67,sc:89.45,inst:"كلية عمان للعلوم الصحية",loc:"مسقط",fixed:false},
-  {cat:"صحة",code:"IH003",name:"العلاج الطبيعي",sub:["أحياء","كيمياء","إنجليزية"],ap:88.67,sc:89.45,inst:"كلية عمان للعلوم الصحية",loc:"مسقط",fixed:false},
-  {cat:"صحة",code:"BS001",name:"دكتور في الطب",sub:["أحياء","كيمياء","إنجليزية"],ap:88.67,sc:89.45,inst:"الجامعة الوطنية (بعثة داخلية)",loc:"صحار",fixed:false},
-  {cat:"صحة",code:"BS086",name:"الصيدلة",sub:["أحياء","كيمياء","إنجليزية"],ap:88.67,sc:89.45,inst:"الجامعة الوطنية (بعثة داخلية)",loc:"مسقط",fixed:true},
-  {cat:"صحة",code:"BS018",name:"البصريات",sub:["أحياء","كيمياء","إنجليزية"],ap:88.67,sc:89.45,inst:"الجامعة الوطنية (بعثة داخلية)",loc:"مسقط",fixed:true},
-  {cat:"تربية",code:"U1013",name:"التربية (أحياء)",sub:["أحياء","كيمياء","إنجليزية"],ap:88.67,sc:89.45,inst:"جامعة التقنية والعلوم التطبيقية",loc:"الرستاق",fixed:true},
-  {cat:"تربية",code:"U1014",name:"التربية (كيمياء)",sub:["كيمياء","أحياء","إنجليزية"],ap:88.67,sc:89.45,inst:"جامعة التقنية والعلوم التطبيقية",loc:"الرستاق",fixed:true},
-  {cat:"علوم",code:"SQ158",name:"كلية العلوم (كيمياء/أحياء)",sub:["كيمياء","أحياء"],ap:87.50,sc:88.75,inst:"جامعة السلطان قابوس",loc:"مسقط",fixed:true},
-  {cat:"هندسة",code:"BS380",name:"برامج العلوم والهندسة STEM",sub:["رياضيات","كيمياء","إنجليزية"],ap:83.67,sc:86.45,inst:"بعثات داخلية (جامعات خاصة)",loc:"مختلف المحافظات",fixed:false},
-  {cat:"هندسة",code:"BS959",name:"الأمن السيبراني والأدلة الجنائية",sub:["رياضيات","كيمياء","إنجليزية"],ap:83.67,sc:86.45,inst:"جامعة مسقط (بعثة داخلية)",loc:"مسقط",fixed:false},
-  {cat:"هندسة",code:"BS045",name:"مسح الكميات وإدارة الإنشاءات",sub:["رياضيات","كيمياء","إنجليزية"],ap:83.67,sc:86.45,inst:"كلية مسقط",loc:"مسقط",fixed:true},
-  {cat:"صحة",code:"SQ410",name:"التربية الابتدائية (مجال ثانٍ) — إناث فقط",sub:["أحياء","كيمياء","رياضيات"],ap:82.67,sc:85.85,inst:"جامعة السلطان قابوس",loc:"مسقط",fixed:true},
-  {cat:"صحة",code:"HM001",name:"إدارة المعلومات الصحية",sub:["أحياء","كيمياء","رياضيات"],ap:82.67,sc:85.85,inst:"كلية عمان للعلوم الصحية",loc:"مسقط",fixed:false},
-  {cat:"هندسة",code:"U0088",name:"تكنولوجيا المعلومات (عام)",sub:["رياضيات","إنجليزية"],ap:82.00,sc:85.45,inst:"جامعة التقنية والعلوم التطبيقية",loc:"فروع متعددة",fixed:true},
-  {cat:"هندسة",code:"BS952",name:"الذكاء الاصطناعي",sub:["رياضيات","إنجليزية"],ap:82.00,sc:85.45,inst:"الجامعة العربية المفتوحة",loc:"مسقط",fixed:true},
-  {cat:"هندسة",code:"BS232",name:"الهندسة المعمارية",sub:["رياضيات","كيمياء"],ap:80.00,sc:84.25,inst:"جامعة الشرقية",loc:"إبراء",fixed:true},
+  {cat:"إدارة",code:"SQ708",name:"الآداب — التاريخ",sub:["دراسات","إسلامية","عربية"],ap:95.33,sc:93.45,inst:"جامعة السلطان قابوس",loc:"مسقط",conds:["inter"],isNew:true},
+  {cat:"إدارة",code:"SQ963",name:"الآداب — التاريخ (تخصص)",sub:["دراسات","إسلامية","عربية"],ap:95.33,sc:93.45,inst:"جامعة السلطان قابوس",loc:"مسقط",conds:["inter"],isNew:true},
+  {cat:"تربية",code:"SQ964",name:"الآداب — علم الاجتماع",sub:["دراسات","إسلامية","عربية"],ap:95.33,sc:93.45,inst:"جامعة السلطان قابوس",loc:"مسقط",conds:["inter"],isNew:true},
+  {cat:"إدارة",code:"SQ255",name:"العلوم السياسية",sub:["دراسات","إسلامية","عربية"],ap:95.33,sc:93.45,inst:"جامعة السلطان قابوس",loc:"مسقط",conds:["inter"],isNew:false},
+  {cat:"إدارة",code:"SQ250",name:"الاقتصاد والعلوم السياسية",sub:["دراسات","إسلامية","عربية"],ap:95.33,sc:93.45,inst:"جامعة السلطان قابوس",loc:"مسقط",conds:["inter"],isNew:false},
+  {cat:"إدارة",code:"U0084",name:"الاقتصاد وإدارة الأعمال (عام)",sub:["دراسات","إسلامية","عربية"],ap:95.33,sc:93.45,inst:"جامعة التقنية والعلوم التطبيقية",loc:"فروع متعددة",conds:[],isNew:false},
+  {cat:"إدارة",code:"BS071",name:"إدارة الموارد البشرية",sub:["دراسات","إسلامية","عربية"],ap:95.33,sc:93.45,inst:"كلية البريمي الجامعية",loc:"البريمي",conds:[],isNew:false},
+  {cat:"إدارة",code:"BS236",name:"إدارة الأعمال",sub:["دراسات","إسلامية","عربية"],ap:95.33,sc:93.45,inst:"جامعة البريمي",loc:"البريمي",conds:[],isNew:false},
+  {cat:"إدارة",code:"BS233",name:"إدارة الأعمال",sub:["دراسات","إسلامية","عربية"],ap:95.33,sc:93.45,inst:"جامعة مسقط",loc:"مسقط",conds:[],isNew:true},
+  {cat:"إدارة",code:"BS031",name:"إدارة الأعمال",sub:["دراسات","إسلامية","عربية"],ap:95.33,sc:93.45,inst:"جامعة نزوى",loc:"نزوى",conds:[],isNew:true},
+  {cat:"إدارة",code:"BS072",name:"الاقتصاد والأعمال",sub:["دراسات","إسلامية","عربية"],ap:95.33,sc:93.45,inst:"كلية البريمي الجامعية",loc:"البريمي",conds:[],isNew:true},
+  {cat:"تربية",code:"SQ780",name:"الموسيقى والعلوم الموسيقية",sub:["عربية","إنجليزية","موسيقى"],ap:94.00,sc:92.65,inst:"جامعة السلطان قابوس — كلية الآداب",loc:"مسقط",conds:["inter","art"],isNew:false},
+  {cat:"تربية",code:"BS326",name:"التربية الموسيقية",sub:["موسيقى","عربية","إنجليزية"],ap:94.00,sc:92.65,inst:"جامعة صحار",loc:"صحار — الباطنة الشمالية",conds:["inter","art","medical"],isNew:false},
+  {cat:"تربية",code:"U0107",name:"دبلوم التصوير الضوئي",sub:["موسيقى","عربية","إنجليزية"],ap:94.00,sc:92.65,inst:"جامعة التقنية والعلوم التطبيقية",loc:"مسقط",conds:[],isNew:false},
+  {cat:"تربية",code:"SQ280",name:"التربية — اللغة العربية والتربية الإسلامية",sub:["إسلامية","عربية"],ap:94.00,sc:92.65,inst:"جامعة السلطان قابوس",loc:"مسقط",conds:["inter"],isNew:false},
+  {cat:"تربية",code:"BS282",name:"التربية — اللغة العربية والتربية الإسلامية",sub:["إسلامية","عربية"],ap:94.00,sc:92.65,inst:"جامعة نزوى",loc:"نزوى",conds:["inter","medical"],isNew:false},
+  {cat:"تربية",code:"BS280",name:"التربية — اللغة العربية والتربية الإسلامية",sub:["إسلامية","عربية"],ap:94.00,sc:92.65,inst:"جامعة الشرقية",loc:"إبراء",conds:["inter","medical"],isNew:false},
+  {cat:"تربية",code:"SQ550",name:"اللغة العربية",sub:["إسلامية","عربية"],ap:94.00,sc:92.65,inst:"جامعة السلطان قابوس — كلية الآداب",loc:"مسقط",conds:["inter"],isNew:true},
+  {cat:"تربية",code:"SQ707",name:"الآداب — اللغة العربية وآدابها",sub:["إسلامية","عربية"],ap:94.00,sc:92.65,inst:"جامعة السلطان قابوس",loc:"مسقط",conds:["inter"],isNew:false},
+  {cat:"دين",code:"IS001",name:"الفقه وأصوله (للذكور)",sub:["إسلامية","عربية"],ap:94.00,sc:92.65,inst:"كلية العلوم الشرعية",loc:"مسقط",conds:[],isNew:false},
+  {cat:"دين",code:"IS002",name:"أصول الدين (للذكور)",sub:["إسلامية","عربية"],ap:94.00,sc:92.65,inst:"كلية العلوم الشرعية",loc:"مسقط",conds:[],isNew:false},
+  {cat:"دين",code:"IS003",name:"الفقه وأصوله",sub:["إسلامية","عربية"],ap:94.00,sc:92.65,inst:"كلية العلوم الشرعية",loc:"مسقط",conds:[],isNew:false},
+  {cat:"دين",code:"IS004",name:"أصول الدين",sub:["إسلامية","عربية"],ap:94.00,sc:92.65,inst:"كلية العلوم الشرعية",loc:"مسقط",conds:[],isNew:false},
+  {cat:"تربية",code:"SQ400",name:"التربية الابتدائية مجال أول",sub:["عربية","إسلامية"],ap:94.00,sc:92.65,inst:"جامعة السلطان قابوس",loc:"مسقط",conds:["inter","girls"],isNew:false},
+  {cat:"تربية",code:"SQ701",name:"الآداب — السياحة",sub:["دراسات","عربية","إنجليزية"],ap:93.33,sc:92.25,inst:"جامعة السلطان قابوس",loc:"مسقط",conds:["inter"],isNew:false},
+  {cat:"تربية",code:"SQ702",name:"الآداب — الإعلام",sub:["دراسات","عربية","إنجليزية"],ap:93.33,sc:92.25,inst:"جامعة السلطان قابوس",loc:"مسقط",conds:["inter"],isNew:true},
+  {cat:"تربية",code:"SQ704",name:"الآداب — الجغرافيا",sub:["دراسات","عربية","إنجليزية"],ap:93.33,sc:92.25,inst:"جامعة السلطان قابوس",loc:"مسقط",conds:["inter"],isNew:true},
+  {cat:"تربية",code:"SQ965",name:"الإعلام",sub:["دراسات","عربية","إنجليزية"],ap:93.33,sc:92.25,inst:"جامعة السلطان قابوس",loc:"مسقط",conds:["inter"],isNew:false},
+  {cat:"تربية",code:"BS196",name:"الصحافة والإعلام والعلاقات العامة",sub:["دراسات","عربية","إنجليزية"],ap:93.33,sc:92.25,inst:"كلية البيان",loc:"مسقط",conds:[],isNew:false},
+  {cat:"إدارة",code:"BS390",name:"البعثات المرنة ESAM",sub:["دراسات","عربية","إنجليزية"],ap:93.33,sc:92.25,inst:"بعثات داخلية — جامعات خاصة",loc:"مختلف",conds:[],isNew:false},
+  {cat:"إدارة",code:"U0085",name:"الاتصال الجماهيري",sub:["دراسات","عربية","إنجليزية"],ap:93.33,sc:92.25,inst:"جامعة التقنية والعلوم التطبيقية",loc:"فروع متعددة",conds:[],isNew:false},
+  {cat:"إدارة",code:"BS168",name:"إدارة السياحة والضيافة",sub:["دراسات","عربية","إنجليزية"],ap:93.33,sc:92.25,inst:"كلية عمان للسياحة",loc:"مسقط",conds:[],isNew:false},
+  {cat:"إدارة",code:"BS130",name:"القيادة التنظيمية والإشرافية",sub:["دراسات","عربية","إنجليزية"],ap:93.33,sc:92.25,inst:"كلية مزون",loc:"مسقط",conds:[],isNew:false},
+  {cat:"تربية",code:"SQ500",name:"التربية — اللغة الإنجليزية",sub:["إنجليزية","إسلامية","عربية"],ap:93.00,sc:92.05,inst:"جامعة السلطان قابوس",loc:"مسقط",conds:["inter"],isNew:false},
+  {cat:"تربية",code:"U1011",name:"التربية — اللغة الإنجليزية",sub:["إنجليزية","إسلامية","عربية"],ap:93.00,sc:92.05,inst:"جامعة التقنية والعلوم التطبيقية",loc:"الرستاق",conds:["inter","medical"],isNew:false},
+  {cat:"تربية",code:"BS242",name:"التربية — اللغة الإنجليزية",sub:["إنجليزية","إسلامية","عربية"],ap:93.00,sc:92.05,inst:"جامعة نزوى",loc:"نزوى",conds:["inter","medical"],isNew:false},
+  {cat:"تربية",code:"SQ670",name:"طفل ما قبل المدرسة",sub:["إسلامية","عربية","إنجليزية"],ap:93.00,sc:92.05,inst:"جامعة السلطان قابوس",loc:"مسقط",conds:["inter","girls"],isNew:false},
+  {cat:"حقوق",code:"SQ800",name:"بكالوريوس الحقوق",sub:["إسلامية","عربية","إنجليزية"],ap:93.00,sc:92.05,inst:"جامعة السلطان قابوس",loc:"مسقط",conds:["inter"],isNew:false},
+  {cat:"حقوق",code:"BS219",name:"القانون",sub:["عربية","إنجليزية","إسلامية"],ap:93.00,sc:92.05,inst:"جامعة الشرقية",loc:"إبراء",conds:[],isNew:true},
+  {cat:"حقوق",code:"BS231",name:"القانون",sub:["عربية","إنجليزية","إسلامية"],ap:93.00,sc:92.05,inst:"جامعة البريمي",loc:"البريمي",conds:[],isNew:true},
+  {cat:"تربية",code:"BS188",name:"اللغة الإنجليزية",sub:["عربية","إنجليزية"],ap:91.00,sc:90.85,inst:"كلية مجان الجامعية",loc:"مسقط",conds:[],isNew:true},
+  {cat:"صحة",code:"BS230",name:"علوم الصحة والسلامة المهنية",sub:["أحياء","كيمياء","إسلامية"],ap:90.67,sc:90.65,inst:"جامعة البريمي",loc:"البريمي",conds:[],isNew:true},
+  {cat:"صحة",code:"SQ750",name:"الطب البشري",sub:["أحياء","كيمياء","إنجليزية"],ap:88.67,sc:89.45,inst:"جامعة السلطان قابوس — كلية الطب",loc:"مسقط",conds:["inter","medical"],isNew:true},
+  {cat:"صحة",code:"SQ100",name:"التمريض",sub:["أحياء","كيمياء","إنجليزية"],ap:88.67,sc:89.45,inst:"جامعة السلطان قابوس — كلية التمريض",loc:"مسقط",conds:["inter","medical"],isNew:true},
+  {cat:"صحة",code:"NM001",name:"التمريض — فرع مسقط",sub:["أحياء","كيمياء","إنجليزية"],ap:88.67,sc:89.45,inst:"كلية عمان للعلوم الصحية",loc:"مسقط",conds:["medical"],isNew:false},
+  {cat:"صحة",code:"NH001",name:"التمريض — فرع صحار",sub:["أحياء","كيمياء","إنجليزية"],ap:88.67,sc:89.45,inst:"كلية عمان للعلوم الصحية",loc:"صحار",conds:["medical"],isNew:true},
+  {cat:"صحة",code:"NI001",name:"التمريض — فرع إبراء",sub:["أحياء","كيمياء","إنجليزية"],ap:88.67,sc:89.45,inst:"كلية عمان للعلوم الصحية",loc:"إبراء",conds:["medical"],isNew:true},
+  {cat:"صحة",code:"IH001",name:"العلوم الصحية تخصصات متعددة",sub:["أحياء","كيمياء","إنجليزية"],ap:88.67,sc:89.45,inst:"كلية عمان للعلوم الصحية",loc:"مسقط",conds:["medical"],isNew:false},
+  {cat:"صحة",code:"IH003",name:"العلاج الطبيعي",sub:["أحياء","كيمياء","إنجليزية"],ap:88.67,sc:89.45,inst:"كلية عمان للعلوم الصحية",loc:"مسقط",conds:["medical"],isNew:false},
+  {cat:"صحة",code:"BS001",name:"دكتور في الطب",sub:["أحياء","كيمياء","إنجليزية"],ap:88.67,sc:89.45,inst:"الجامعة الوطنية للعلوم والتكنولوجيا",loc:"صحار",conds:["medical"],isNew:false},
+  {cat:"صحة",code:"BS086",name:"الصيدلة",sub:["أحياء","كيمياء","إنجليزية"],ap:88.67,sc:89.45,inst:"الجامعة الوطنية للعلوم والتكنولوجيا",loc:"مسقط",conds:["medical"],isNew:false},
+  {cat:"صحة",code:"BS018",name:"البصريات",sub:["أحياء","كيمياء","إنجليزية"],ap:88.67,sc:89.45,inst:"الجامعة الوطنية للعلوم والتكنولوجيا",loc:"مسقط",conds:["medical"],isNew:false},
+  {cat:"صحة",code:"BS228",name:"علوم البصريات السريرية",sub:["أحياء","كيمياء","إنجليزية"],ap:88.67,sc:89.45,inst:"جامعة البريمي",loc:"البريمي",conds:["medical"],isNew:true},
+  {cat:"هندسة",code:"U1013",name:"التربية — الأحياء",sub:["أحياء","كيمياء","إنجليزية"],ap:88.67,sc:89.45,inst:"جامعة التقنية والعلوم التطبيقية",loc:"الرستاق",conds:["inter","medical"],isNew:false},
+  {cat:"هندسة",code:"U1014",name:"التربية — الكيمياء",sub:["كيمياء","أحياء","إنجليزية"],ap:88.67,sc:89.45,inst:"جامعة التقنية والعلوم التطبيقية",loc:"الرستاق",conds:["inter","medical"],isNew:false},
+  {cat:"صحة",code:"SQ158",name:"كلية العلوم (كيمياء/أحياء)",sub:["كيمياء","أحياء"],ap:87.50,sc:88.75,inst:"جامعة السلطان قابوس",loc:"مسقط",conds:["inter"],isNew:false},
+  {cat:"صحة",code:"BS085",name:"الكيمياء التحليلية والصناعية",sub:["أحياء","كيمياء"],ap:87.50,sc:88.75,inst:"جامعة الشرقية",loc:"إبراء",conds:[],isNew:true},
+  {cat:"إدارة",code:"BS927",name:"اللغة الإنجليزية وآدابها",sub:["رياضيات","دراسات","إنجليزية"],ap:87.33,sc:88.65,inst:"الجامعة العربية المفتوحة",loc:"مسقط",conds:[],isNew:true},
+  {cat:"تربية",code:"SQ660",name:"تكنولوجيا التعليم والتعلم",sub:["رياضيات","إنجليزية","إسلامية"],ap:87.00,sc:88.45,inst:"جامعة السلطان قابوس — كلية التربية",loc:"مسقط",conds:["inter"],isNew:true},
+  {cat:"تربية",code:"SQ966",name:"الآداب — السياحة",sub:["رياضيات","عربية","إنجليزية"],ap:85.00,sc:87.25,inst:"جامعة السلطان قابوس",loc:"مسقط",conds:["inter"],isNew:true},
+  {cat:"إدارة",code:"SQ703",name:"الآداب — الدراسات والمعلومات",sub:["رياضيات","عربية","إنجليزية"],ap:85.00,sc:87.25,inst:"جامعة السلطان قابوس",loc:"مسقط",conds:["inter"],isNew:true},
+  {cat:"إدارة",code:"BS221",name:"الإرشاد النفسي",sub:["رياضيات","عربية","إنجليزية"],ap:85.00,sc:87.25,inst:"جامعة الشرقية",loc:"إبراء",conds:[],isNew:true},
+  {cat:"هندسة",code:"SQ200",name:"الهندسة المدنية",sub:["رياضيات","كيمياء","إنجليزية"],ap:83.67,sc:86.45,inst:"جامعة السلطان قابوس — كلية الهندسة",loc:"مسقط",conds:["inter"],isNew:true},
+  {cat:"هندسة",code:"SQ201",name:"الهندسة الكيميائية",sub:["رياضيات","كيمياء","إنجليزية"],ap:83.67,sc:86.45,inst:"جامعة السلطان قابوس — كلية الهندسة",loc:"مسقط",conds:["inter"],isNew:true},
+  {cat:"هندسة",code:"SQ202",name:"هندسة المواد",sub:["رياضيات","كيمياء","إنجليزية"],ap:83.67,sc:86.45,inst:"جامعة السلطان قابوس — كلية الهندسة",loc:"مسقط",conds:["inter"],isNew:true},
+  {cat:"هندسة",code:"SQ203",name:"الهندسة الميكانيكية",sub:["رياضيات","كيمياء","إنجليزية"],ap:83.67,sc:86.45,inst:"جامعة السلطان قابوس — كلية الهندسة",loc:"مسقط",conds:["inter"],isNew:true},
+  {cat:"هندسة",code:"BS257",name:"علوم الحاسوب — أمن سيبراني",sub:["رياضيات","كيمياء","إنجليزية"],ap:83.67,sc:86.45,inst:"كلية الخليج",loc:"مسقط",conds:[],isNew:true},
+  {cat:"هندسة",code:"BS013",name:"هندسة الحاسوب",sub:["رياضيات","كيمياء","إنجليزية"],ap:83.67,sc:86.45,inst:"الكلية الدولية للهندسة والإدارة",loc:"مسقط",conds:[],isNew:true},
+  {cat:"هندسة",code:"U1015",name:"التربية — الفيزياء",sub:["رياضيات","كيمياء","إنجليزية"],ap:83.67,sc:86.45,inst:"جامعة التقنية والعلوم التطبيقية",loc:"الرستاق",conds:["inter","medical"],isNew:true},
+  {cat:"هندسة",code:"BS380",name:"البعثات المرنة STEM",sub:["رياضيات","كيمياء","إنجليزية"],ap:83.67,sc:86.45,inst:"بعثات داخلية — جامعات خاصة",loc:"مختلف",conds:[],isNew:false},
+  {cat:"هندسة",code:"BS959",name:"الأمن السيبراني والأدلة الجنائية",sub:["رياضيات","كيمياء","إنجليزية"],ap:83.67,sc:86.45,inst:"جامعة مسقط",loc:"مسقط",conds:[],isNew:false},
+  {cat:"هندسة",code:"BS045",name:"مسح الكميات وإدارة الإنشاءات",sub:["رياضيات","كيمياء","إنجليزية"],ap:83.67,sc:86.45,inst:"كلية مسقط",loc:"مسقط",conds:[],isNew:false},
+  {cat:"صحة",code:"BS054",name:"علوم المختبرات الطبية",sub:["رياضيات","أحياء","كيمياء"],ap:82.67,sc:85.85,inst:"جامعة الشرقية",loc:"إبراء",conds:["medical"],isNew:true},
+  {cat:"صحة",code:"BS066",name:"العلاج الوظيفي",sub:["أحياء","كيمياء","رياضيات"],ap:82.67,sc:85.85,inst:"جامعة نزوى",loc:"نزوى",conds:["medical"],isNew:true},
+  {cat:"صحة",code:"BS067",name:"أمراض النطق والتواصل",sub:["أحياء","كيمياء","رياضيات"],ap:82.67,sc:85.85,inst:"جامعة نزوى",loc:"نزوى",conds:["medical"],isNew:true},
+  {cat:"صحة",code:"SQ410",name:"التربية الابتدائية مجال ثانٍ",sub:["أحياء","كيمياء","رياضيات"],ap:82.67,sc:85.85,inst:"جامعة السلطان قابوس",loc:"مسقط",conds:["inter","girls"],isNew:false},
+  {cat:"صحة",code:"HM001",name:"إدارة المعلومات الصحية",sub:["أحياء","كيمياء","رياضيات"],ap:82.67,sc:85.85,inst:"كلية عمان للعلوم الصحية",loc:"مسقط",conds:[],isNew:false},
+  {cat:"علوم",code:"SQ160",name:"الكيمياء",sub:["كيمياء","أحياء","رياضيات"],ap:82.67,sc:85.85,inst:"جامعة السلطان قابوس — كلية العلوم",loc:"مسقط",conds:["inter"],isNew:true},
+  {cat:"علوم",code:"SQ161",name:"الأحياء",sub:["أحياء","كيمياء","رياضيات"],ap:82.67,sc:85.85,inst:"جامعة السلطان قابوس — كلية العلوم",loc:"مسقط",conds:["inter"],isNew:true},
+  {cat:"علوم",code:"SQ162",name:"علم الأحياء الدقيقة",sub:["أحياء","كيمياء","رياضيات"],ap:82.67,sc:85.85,inst:"جامعة السلطان قابوس — كلية العلوم",loc:"مسقط",conds:["inter"],isNew:true},
+  {cat:"علوم",code:"SQ163",name:"الكيمياء الحيوية",sub:["أحياء","كيمياء","رياضيات"],ap:82.67,sc:85.85,inst:"جامعة السلطان قابوس — كلية العلوم",loc:"مسقط",conds:["inter"],isNew:true},
+  {cat:"هندسة",code:"SQ302",name:"التربية — العلوم (فيزياء)",sub:["رياضيات","كيمياء","أحياء"],ap:82.67,sc:85.85,inst:"جامعة السلطان قابوس — كلية التربية",loc:"مسقط",conds:["inter"],isNew:true},
+  {cat:"هندسة",code:"SQ303",name:"التربية — الكيمياء",sub:["كيمياء","أحياء","رياضيات"],ap:82.67,sc:85.85,inst:"جامعة السلطان قابوس — كلية التربية",loc:"مسقط",conds:["inter"],isNew:true},
+  {cat:"هندسة",code:"SQ304",name:"التربية — الأحياء",sub:["أحياء","كيمياء","رياضيات"],ap:82.67,sc:85.85,inst:"جامعة السلطان قابوس — كلية التربية",loc:"مسقط",conds:["inter"],isNew:true},
+  {cat:"هندسة",code:"U0088",name:"تكنولوجيا المعلومات (عام)",sub:["رياضيات","إنجليزية"],ap:82.00,sc:85.45,inst:"جامعة التقنية والعلوم التطبيقية",loc:"فروع متعددة",conds:[],isNew:false},
+  {cat:"هندسة",code:"BS952",name:"الذكاء الاصطناعي",sub:["رياضيات","إنجليزية"],ap:82.00,sc:85.45,inst:"الجامعة العربية المفتوحة",loc:"مسقط",conds:[],isNew:false},
+  {cat:"هندسة",code:"BS445",name:"الذكاء الاصطناعي وإنترنت الأشياء",sub:["رياضيات","إنجليزية"],ap:82.00,sc:85.45,inst:"الجامعة الوطنية للعلوم والتكنولوجيا",loc:"مسقط",conds:[],isNew:true},
+  {cat:"هندسة",code:"U0302",name:"تقنية المعلومات — فرع إبراء",sub:["رياضيات","إنجليزية"],ap:82.00,sc:85.45,inst:"جامعة التقنية والعلوم التطبيقية",loc:"إبراء",conds:[],isNew:true},
+  {cat:"هندسة",code:"U0202",name:"تقنية المعلومات — فرع نزوى",sub:["رياضيات","إنجليزية"],ap:82.00,sc:85.45,inst:"جامعة التقنية والعلوم التطبيقية",loc:"نزوى",conds:[],isNew:true},
+  {cat:"هندسة",code:"BS232",name:"الهندسة المعمارية",sub:["رياضيات","كيمياء"],ap:80.00,sc:84.25,inst:"جامعة الشرقية",loc:"إبراء",conds:[],isNew:false},
+  {cat:"هندسة",code:"BS138",name:"الهندسة المعمارية",sub:["رياضيات","كيمياء"],ap:80.00,sc:84.25,inst:"كلية الشرق الأوسط",loc:"مسقط",conds:[],isNew:true},
+  {cat:"هندسة",code:"BS140",name:"الهندسة المعمارية",sub:["رياضيات","كيمياء"],ap:80.00,sc:84.25,inst:"الكلية العلمية للتصميم",loc:"مسقط",conds:[],isNew:true},
 ];
 
+const condLabels = {
+  ielts: {cls:'cb-ielts', icon:'🌐', text:'IELTS'},
+  medical: {cls:'cb-medical', icon:'🏥', text:'فحص طبي'},
+  inter: {cls:'cb-inter', icon:'🎤', text:'مقابلة'},
+  art: {cls:'cb-art', icon:'🎨', text:'اختبار أداء'},
+  girls: {cls:'cb-girls', icon:'♀', text:'إناث فقط'},
+};
+
+const rowCls = {ielts:'row-ielts', medical:'row-medical', inter:'row-inter', art:'row-art'};
+
 const MAX=96;
-function scl(s){return s>=93?"s93":s>=92?"s92":s>=89?"s89":s>=88?"s88":s>=86?"s86":s>=84?"s85":"slo"}
-function bcl(s){return s>=93?"b93":s>=92?"b92":s>=89?"b89":s>=88?"b88":s>=86?"b86":s>=84?"b85":"blo"}
-function cc(c){return c==="تربية"?"ct":c==="صحة"?"cs":c==="إدارة"?"ci":c==="حقوق"?"ch":c==="هندسة"?"cn":c==="دين"?"cd":"cf"}
+function scl(s){return s>=93?"s93":s>=92?"s92":s>=89?"s89":s>=88?"s88":s>=86?"s86":s>=84?"s84":"slo"}
+function bcl(s){return s>=93?"b93":s>=92?"b92":s>=89?"b89":s>=88?"b88":s>=86?"b86":s>=84?"b84":"blo"}
+function cc(c){return c==="تربية"?"ct":c==="صحة"?"cs":c==="إدارة"?"ci":c==="حقوق"?"ch":c==="هندسة"?"cn":c==="دين"?"cd":"ce"}
 function rk(i){const c=i===1?"r1":i===2?"r2":i===3?"r3":"ro";return`<span class="rk ${c}">${i}</span>`}
 
 function render(rows){
@@ -298,15 +390,23 @@ function render(rows){
   rows.forEach((d,i)=>{
     const pct=Math.min(100,((d.sc/MAX)*100)).toFixed(1);
     const tags=d.sub.map(s=>`<span class="tag">${s}</span>`).join("");
-    const fixBadge=d.fixed?`<span class="fix-badge">✏️ مُصحَّح</span>`:"";
+    // شارات الشروط
+    const condBadges = d.conds.length===0
+      ? `<span class="cb lb-ok" style="font-size:10px;padding:2px 7px;border-radius:8px;background:#EAECF0;color:#445;border:1px solid #C8D0D8;">✅ لا شروط</span>`
+      : d.conds.map(c=>{const l=condLabels[c];return`<span class="cb ${l.cls}">${l.icon} ${l.text}</span>`}).join("");
+    // صف ملوّن حسب أهم شرط
+    const rowC = d.conds.includes('medical')?'row-medical':d.conds.includes('ielts')?'row-ielts':d.conds.includes('art')?'row-art':d.conds.includes('inter')?'row-inter':'';
+    const newB = d.isNew?`<span class="cb-new" style="font-size:9px;font-weight:700;padding:1px 6px;border-radius:6px;background:#E8F5EE;color:#1B6B42;border:1px solid #A0D8B0;margin-right:3px">✨</span>`:'';
     const tr=document.createElement("tr");
+    if(rowC) tr.className=rowC;
     tr.innerHTML=`
       <td>${rk(i+1)}</td>
       <td><span class="spc">${d.code}</span></td>
       <td>
-        <div><span class="cat ${cc(d.cat)}">${d.cat}</span>${fixBadge}</div>
+        <div><span class="cat ${cc(d.cat)}">${d.cat}</span>${newB}</div>
         <div class="spn">${d.name}</div>
       </td>
+      <td style="min-width:120px">${condBadges}</td>
       <td>${tags}</td>
       <td style="font-size:12px;font-weight:600;white-space:nowrap">${d.ap.toFixed(2)}%</td>
       <td>
@@ -326,6 +426,12 @@ function fc(cat,btn){
   document.querySelectorAll(".fb").forEach(b=>b.classList.remove("on"));
   btn.classList.add("on");
   render(cat==="all"?D:D.filter(d=>d.cat===cat));
+}
+
+function fcc(cond,btn){
+  document.querySelectorAll(".fb").forEach(b=>b.classList.remove("on"));
+  btn.classList.add("on");
+  render(D.filter(d=>d.conds.includes(cond)));
 }
 
 render(D);
