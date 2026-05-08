@@ -1,425 +1,874 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>قائمة الاختيارات الشاملة – هنادي موسى البلوشية</title>
-<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<title>دليل الاختيارات الجامعية — هنادي موسى البلوشية</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;900&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
 <style>
-:root{
-  --bg:#f5f3ee;--surface:#fff;--border:#e0dbd0;--border2:#ccc6b8;
-  --navy:#18274a;--gold:#c07d12;--teal:#0b6b52;--blue:#1453a0;
-  --coral:#b83020;--purple:#4e3590;--muted:#6e6860;--text:#1a1915;--text2:#3f3c37;
-  --r:10px;--rs:6px;
+/* ══════════════════════════════════════════════
+   TOKENS
+══════════════════════════════════════════════ */
+:root {
+  --ink:    #1a1710;
+  --paper:  #f7f4ee;
+  --card:   #ffffff;
+  --line:   #ddd9ce;
+  --line2:  #c8c3b5;
+
+  --teal:   #0c6b4f;   /* مؤهلة مباشرةً */
+  --teal-l: #e4f5ee;
+  --teal-m: #a8dcca;
+
+  --blue:   #1546a0;   /* عبر دبلوم */
+  --blue-l: #e5ecf8;
+  --blue-m: #a8bcdf;
+
+  --amber:  #c07010;   /* بعثات */
+  --amber-l:#fef5e0;
+  --amber-m:#f0d48a;
+
+  --rust:   #b03020;   /* غير مؤهل */
+  --rust-l: #fcecea;
+  --rust-m: #f0b0a8;
+
+  --caution:#b85000;   /* تحذير شروط */
+  --block:  #900;      /* محظور */
+
+  --gold:   #c07010;
+  --muted:  #7a7060;
+  --subtle: #a09880;
 }
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:'Tajawal',sans-serif;background:var(--bg);color:var(--text)}
 
-/* HEADER */
-.hdr{background:var(--navy);color:#fff;padding:32px 24px 24px}
-.hdr-inner{max-width:1020px;margin:0 auto;display:flex;gap:20px;align-items:flex-start;justify-content:space-between;flex-wrap:wrap}
-.hdr h1{font-size:clamp(17px,3.2vw,26px);font-weight:800;line-height:1.3;margin-bottom:4px}
-.hdr-sub{font-size:12px;opacity:.65;margin-bottom:12px}
-.hdr-chips{display:flex;gap:6px;flex-wrap:wrap}
-.chip{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);border-radius:50px;padding:3px 12px;font-size:11px}
-.chip b{color:#f0b84b}
-.score-box{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:var(--r);padding:12px 20px;text-align:center;flex-shrink:0}
-.score-n{font-size:38px;font-weight:800;color:#f0b84b;font-family:'IBM Plex Mono',monospace;line-height:1}
-.score-l{font-size:10px;opacity:.6;margin-top:2px}
-
-/* LEGEND */
-.legend{background:var(--surface);border-bottom:1px solid var(--border);padding:10px 20px;display:flex;gap:18px;flex-wrap:wrap;position:sticky;top:0;z-index:100;box-shadow:0 2px 6px rgba(0,0,0,.07)}
-.li{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--text2)}
-.ld{width:12px;height:12px;border-radius:2px;flex-shrink:0}
-.lsep{width:1px;height:14px;background:var(--border2)}
-
-/* CONTROLS */
-.ctrl{padding:12px 20px;background:var(--surface);border-bottom:1px solid var(--border);display:flex;gap:10px;flex-wrap:wrap;align-items:center}
-.ctrl input{flex:1;min-width:180px;padding:7px 14px;border:1px solid var(--border2);border-radius:50px;font-size:13px;font-family:'Tajawal',sans-serif;background:var(--bg);color:var(--text);outline:none}
-.ctrl input:focus{border-color:var(--blue)}
-.pills{display:flex;gap:5px;flex-wrap:wrap}
-.pill{padding:4px 12px;font-size:12px;border:1px solid var(--border2);border-radius:50px;cursor:pointer;background:transparent;color:var(--muted);font-family:'Tajawal',sans-serif;transition:all .15s;white-space:nowrap}
-.pill.on{background:var(--navy);border-color:var(--navy);color:#fff}
-.cnt{font-size:12px;color:var(--muted);white-space:nowrap}
-.print-btn,.copy-btn{padding:6px 16px;border:none;border-radius:50px;font-size:12px;font-family:'Tajawal',sans-serif;cursor:pointer;white-space:nowrap}
-.print-btn{background:var(--navy);color:#fff}
-.copy-btn{background:var(--teal);color:#fff}
-
-/* MAIN */
-.main{max-width:1020px;margin:0 auto;padding:16px 16px 40px}
-
-/* NOTE */
-.note{background:#fffbf0;border:1px solid #e8cc80;border-radius:var(--r);padding:12px 16px;margin-bottom:14px;font-size:12px;color:#7a5a0a;line-height:1.7}
-
-/* SEC HEADER */
-.sec-hdr{display:flex;align-items:center;gap:10px;padding:9px 14px;border-radius:var(--rs);margin:18px 0 8px;font-size:13px;font-weight:700;border:1px solid}
-
-/* PROGRAM ROW */
-.prog-list{display:grid;gap:6px}
-.pc{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:10px 14px;display:grid;grid-template-columns:40px 1fr auto;gap:10px;align-items:center;transition:box-shadow .12s;border-right:4px solid transparent}
-.pc:hover{box-shadow:0 2px 8px rgba(0,0,0,.08)}
-.t1{border-right-color:var(--teal)} .t2{border-right-color:var(--blue)}
-.t3{border-right-color:var(--gold)} .t4{border-right-color:var(--coral)}
-.rank{width:34px;height:34px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;font-family:'IBM Plex Mono',monospace;flex-shrink:0}
-.pname{font-size:13px;font-weight:600;color:var(--text);margin-bottom:2px;line-height:1.4}
-.pmeta{display:flex;align-items:center;gap:5px;flex-wrap:wrap;font-size:11px;color:var(--muted)}
-.pcode{font-family:'IBM Plex Mono',monospace;background:#f0ece3;padding:0 5px;border-radius:3px;font-size:10px;color:var(--navy)}
-.pright{display:flex;flex-direction:column;align-items:flex-end;gap:4px;flex-shrink:0}
-.bdg{font-size:10px;padding:2px 8px;border-radius:50px;white-space:nowrap;font-weight:600}
-.bt{background:#e0f5ee;color:var(--teal);border:1px solid #b0e8d0}
-.bb{background:#e2edf8;color:var(--blue);border:1px solid #b0cfe8}
-.bg{background:#fef2de;color:var(--gold);border:1px solid #f0d090}
-.bc{background:#fdecea;color:var(--coral);border:1px solid #f0b8b0}
-.bp{background:#f0ecfb;color:var(--purple);border:1px solid #d0bff0}
-.bk{background:#f2f0ea;color:var(--muted);border:1px solid var(--border2)}
-.gbar{width:60px;height:4px;background:#eee;border-radius:2px;overflow:hidden}
-.gfill{height:100%;border-radius:2px}
-.gap-n{font-size:10px;font-family:'IBM Plex Mono',monospace;font-weight:700}
-
-/* COPY LIST */
-#copy-area{position:absolute;left:-9999px;top:0;font-size:12px}
-
-@media print{
-  .no-print{display:none!important}
-  .hdr,.legend{display:none}
-  .pc{border:1px solid #ccc;margin-bottom:4px;break-inside:avoid;font-size:10px}
-  .ctrl{display:none}
+/* ══════════════════════════════════════════════
+   RESET & BASE
+══════════════════════════════════════════════ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Cairo', sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  min-height: 100vh;
+  font-size: 14px;
+  line-height: 1.6;
 }
-@media(max-width:560px){
-  .pc{grid-template-columns:32px 1fr;grid-template-rows:auto auto}
-  .pright{grid-column:1/-1;flex-direction:row;flex-wrap:wrap;justify-content:flex-start}
+
+/* ══════════════════════════════════════════════
+   MASTHEAD
+══════════════════════════════════════════════ */
+.masthead {
+  background: var(--ink);
+  color: #f0ece0;
+  padding: 36px 28px 28px;
+  position: relative;
+  overflow: hidden;
+}
+.masthead::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 40px,
+    rgba(255,255,255,.02) 40px,
+    rgba(255,255,255,.02) 41px
+  );
+}
+.masthead-inner {
+  max-width: 1040px; margin: 0 auto;
+  display: flex; gap: 24px;
+  align-items: flex-start; flex-wrap: wrap;
+  position: relative;
+}
+.masthead-text { flex: 1; }
+.masthead-tag {
+  display: inline-block;
+  border: 1px solid rgba(192,112,16,.6);
+  color: #e0b060;
+  font-size: 11px; letter-spacing: 1.5px;
+  padding: 3px 12px; border-radius: 2px;
+  margin-bottom: 10px; text-transform: uppercase;
+}
+.masthead h1 {
+  font-family: 'Amiri', serif;
+  font-size: clamp(22px,4vw,36px);
+  font-weight: 700; line-height: 1.25;
+  color: #f7f3e8;
+  margin-bottom: 6px;
+}
+.masthead-sub {
+  font-size: 12px; opacity: .6;
+  margin-bottom: 16px;
+}
+.masthead-pills {
+  display: flex; gap: 8px; flex-wrap: wrap;
+}
+.mpill {
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 4px;
+  padding: 4px 12px; font-size: 11px;
+}
+.mpill b { color: #e0b060; }
+
+.score-panel {
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 8px;
+  padding: 16px 24px; text-align: center;
+  flex-shrink: 0;
+}
+.score-big {
+  font-size: 42px; font-weight: 900;
+  font-family: 'Amiri', serif;
+  color: #e0b060; line-height: 1;
+}
+.score-label { font-size: 11px; opacity: .55; margin-top: 3px; }
+
+/* ══════════════════════════════════════════════
+   LEGEND BAR
+══════════════════════════════════════════════ */
+.legend-bar {
+  background: var(--card);
+  border-bottom: 2px solid var(--line);
+  padding: 10px 24px;
+  display: flex; gap: 20px; flex-wrap: wrap;
+  align-items: center;
+  position: sticky; top: 0; z-index: 200;
+  box-shadow: 0 2px 12px rgba(0,0,0,.06);
+}
+.li {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 12px; color: var(--muted);
+}
+.ld {
+  width: 14px; height: 14px; border-radius: 3px;
+  flex-shrink: 0;
+}
+.lsep {
+  width: 1px; height: 16px;
+  background: var(--line2); flex-shrink: 0;
+}
+.warning-pill {
+  display: flex; align-items: center; gap: 5px;
+  background: #fff8e8;
+  border: 1px solid #f0cc60;
+  border-radius: 4px; padding: 3px 10px;
+  font-size: 11px; color: var(--caution);
+  margin-right: auto;
+}
+
+/* ══════════════════════════════════════════════
+   CONTROLS
+══════════════════════════════════════════════ */
+.ctrl-bar {
+  background: var(--card);
+  border-bottom: 1px solid var(--line);
+  padding: 10px 20px;
+  display: flex; gap: 10px; flex-wrap: wrap; align-items: center;
+}
+.ctrl-search {
+  flex: 1; min-width: 200px;
+  border: 1.5px solid var(--line2);
+  border-radius: 6px; padding: 7px 14px;
+  font-size: 13px; font-family: 'Cairo', sans-serif;
+  background: var(--paper); color: var(--ink);
+  outline: none; transition: border-color .2s;
+}
+.ctrl-search:focus { border-color: var(--teal); }
+.pills { display: flex; gap: 6px; flex-wrap: wrap; }
+.pill {
+  padding: 5px 14px; font-size: 12px;
+  border: 1.5px solid var(--line2);
+  border-radius: 6px; cursor: pointer;
+  background: transparent; color: var(--muted);
+  font-family: 'Cairo', sans-serif;
+  transition: all .15s; white-space: nowrap;
+}
+.pill.on { background: var(--ink); border-color: var(--ink); color: #fff; }
+.ctrl-count { font-size: 12px; color: var(--muted); }
+.btn {
+  padding: 7px 18px; border: none; border-radius: 6px;
+  font-size: 12px; font-family: 'Cairo', sans-serif;
+  cursor: pointer; white-space: nowrap; font-weight: 600;
+}
+.btn-dark { background: var(--ink); color: #f7f3e8; }
+.btn-teal { background: var(--teal); color: #fff; }
+.btn-dark:hover { background: #2a2820; }
+.btn-teal:hover { background: #0a5a42; }
+
+/* ══════════════════════════════════════════════
+   MAIN
+══════════════════════════════════════════════ */
+.main { max-width: 1040px; margin: 0 auto; padding: 20px 16px 60px; }
+
+/* ══════════════════════════════════════════════
+   INTRO NOTE
+══════════════════════════════════════════════ */
+.intro-note {
+  background: #fffbf0;
+  border: 1px solid #e8d580;
+  border-right: 4px solid var(--amber);
+  border-radius: 6px;
+  padding: 14px 18px; margin-bottom: 20px;
+  font-size: 12.5px; color: #6a5010; line-height: 1.8;
+}
+.intro-note strong { color: var(--amber); }
+
+/* ══════════════════════════════════════════════
+   SECTION HEADER
+══════════════════════════════════════════════ */
+.sec-hdr {
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 16px; border-radius: 6px;
+  margin: 22px 0 10px;
+  border: 1px solid;
+  font-size: 13px; font-weight: 700;
+}
+.sec-count {
+  margin-right: auto; font-size: 11px;
+  font-weight: 400; opacity: .7;
+}
+
+/* ══════════════════════════════════════════════
+   PROGRAM CARD
+══════════════════════════════════════════════ */
+.prog-list { display: grid; gap: 7px; }
+
+.pc {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  border-right: 4px solid transparent;
+  padding: 12px 16px;
+  display: grid;
+  grid-template-columns: 44px 1fr auto;
+  gap: 12px; align-items: start;
+  transition: box-shadow .15s, transform .1s;
+}
+.pc:hover {
+  box-shadow: 0 3px 12px rgba(0,0,0,.07);
+  transform: translateY(-1px);
+}
+
+/* Tier stripe colors */
+.st { border-right-color: var(--teal); }
+.sb { border-right-color: var(--blue); }
+.sa { border-right-color: var(--amber); }
+.sr { border-right-color: var(--rust); }
+
+/* Blocked / flagged state */
+.pc.flagged { opacity: .65; border-right-color: var(--caution); }
+.pc.blocked { opacity: .45; border-right-color: var(--block); background: #fff8f8; }
+
+/* Rank badge */
+.rank {
+  width: 38px; height: 38px; border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px; font-weight: 700;
+  flex-shrink: 0; font-family: 'Cairo', sans-serif;
+}
+
+/* Program name & meta */
+.pname {
+  font-size: 13.5px; font-weight: 700;
+  color: var(--ink); margin-bottom: 3px; line-height: 1.4;
+}
+.pmeta {
+  display: flex; align-items: center; gap: 6px;
+  flex-wrap: wrap; font-size: 11px; color: var(--muted);
+}
+.pcode {
+  font-family: 'Cairo', sans-serif;
+  background: #f0ece0; padding: 0 6px;
+  border-radius: 3px; font-size: 10px;
+  color: var(--ink); font-weight: 700;
+  letter-spacing: .5px;
+}
+
+/* Conditions row */
+.pconds {
+  display: flex; gap: 5px; flex-wrap: wrap;
+  margin-top: 6px;
+}
+.cond {
+  display: inline-flex; align-items: center; gap: 3px;
+  font-size: 10.5px; padding: 2px 8px; border-radius: 4px;
+  font-weight: 600; border: 1px solid; white-space: nowrap;
+}
+.cond-ok   { background: #e8f8f0; color: var(--teal); border-color: #b0ddc8; }
+.cond-warn { background: #fff5e0; color: var(--caution); border-color: #f0cc60; }
+.cond-bad  { background: #fdecea; color: var(--rust); border-color: #f0a898; }
+.cond-info { background: #e8eef8; color: var(--blue); border-color: #a8bce0; }
+
+/* Right column */
+.pright {
+  display: flex; flex-direction: column;
+  align-items: flex-end; gap: 5px; flex-shrink: 0;
+}
+.badge {
+  font-size: 10px; padding: 2px 9px;
+  border-radius: 4px; white-space: nowrap; font-weight: 700;
+  border: 1px solid;
+}
+.bt { background: var(--teal-l); color: var(--teal); border-color: var(--teal-m); }
+.bb { background: var(--blue-l); color: var(--blue); border-color: var(--blue-m); }
+.ba { background: var(--amber-l); color: var(--amber); border-color: var(--amber-m); }
+.br { background: var(--rust-l); color: var(--rust); border-color: var(--rust-m); }
+.bg { background: var(--teal-l); color: var(--teal); border-color: var(--teal-m); }
+.bj { background: var(--amber-l); color: var(--amber); border-color: var(--amber-m); }
+
+/* Gap indicator */
+.gap-wrap { display: flex; align-items: center; gap: 5px; }
+.gap-bar { width: 52px; height: 4px; background: #e8e4d8; border-radius: 2px; overflow: hidden; }
+.gap-fill { height: 100%; border-radius: 2px; }
+.gap-num { font-size: 10px; font-weight: 700; }
+
+/* ══════════════════════════════════════════════
+   PRINT
+══════════════════════════════════════════════ */
+@media print {
+  .legend-bar, .ctrl-bar, .intro-note { display: none !important; }
+  .masthead { background: #222 !important; -webkit-print-color-adjust: exact; }
+  .pc { break-inside: avoid; border: 1px solid #ccc; margin-bottom: 5px; }
+  body { font-size: 11px; }
+}
+@media (max-width: 580px) {
+  .pc { grid-template-columns: 36px 1fr; }
+  .pright { grid-column: 1/-1; flex-direction: row; flex-wrap: wrap; }
 }
 </style>
 </head>
 <body>
 
-<div class="hdr no-print">
-  <div class="hdr-inner">
-    <div>
-      <h1>قائمة الاختيارات المُرتَّبة الشاملة<br>لإدخالها في نظام القبول الموحد</h1>
-      <p class="hdr-sub">هنادي موسى إبراهيم البلوشية · رقم المستخدم: 22055206 · 7 مايو 2026</p>
-      <div class="hdr-chips">
-        <div class="chip">إجمالي البرامج: <b>157</b></div>
-        <div class="chip">مؤهلة للتعليم مباشرةً: <b>27</b></div>
-        <div class="chip">عبر دبلوم التأهيل: <b>47</b></div>
-        <div class="chip">شبكة أمان: <b>83</b></div>
-        <div class="chip">آخر موعد: <b>4 يونيو</b></div>
+<!-- MASTHEAD -->
+<div class="masthead">
+  <div class="masthead-inner">
+    <div class="masthead-text">
+      <div class="masthead-tag">مركز القبول الموحد · 2026/2027</div>
+      <h1>دليل الاختيارات الجامعية المُرتَّبة<br>والمُحقَّقة من الشروط</h1>
+      <p class="masthead-sub">هنادي موسى إبراهيم البلوشية · رقم المستخدم: 22055206 · أُعدّ: 8 مايو 2026</p>
+      <div class="masthead-pills">
+        <div class="mpill">إجمالي البرامج: <b>157</b></div>
+        <div class="mpill">مؤهلة مباشرةً: <b>27</b></div>
+        <div class="mpill">عبر دبلوم: <b>45</b></div>
+        <div class="mpill">بعثات: <b>2</b></div>
+        <div class="mpill">احتياطي: <b>83</b></div>
+        <div class="mpill">⚠ تحتاج مراجعة: <b>18</b></div>
       </div>
     </div>
-    <div class="score-box">
-      <div class="score-n">93.45</div>
-      <div class="score-l">المعدل التنافسي</div>
+    <div class="score-panel">
+      <div class="score-big">93.45</div>
+      <div class="score-label">المعدل التنافسي</div>
     </div>
   </div>
 </div>
 
-<div class="legend no-print">
-  <div class="li"><div class="ld" style="background:var(--teal)"></div>مؤهلة مباشرةً لوظيفة معلمة</div>
-  <div class="li"><div class="ld" style="background:var(--blue)"></div>مؤهلة عبر دبلوم التأهيل التربوي</div>
-  <div class="li"><div class="ld" style="background:var(--gold)"></div>البعثات (يعتمد على التخصص)</div>
-  <div class="li"><div class="ld" style="background:var(--coral)"></div>غير مؤهلة للتعليم (احتياطي)</div>
+<!-- LEGEND -->
+<div class="legend-bar no-print">
+  <div class="li"><div class="ld" style="background:var(--teal)"></div>مؤهلة مباشرةً</div>
+  <div class="li"><div class="ld" style="background:var(--blue)"></div>عبر دبلوم التأهيل</div>
+  <div class="li"><div class="ld" style="background:var(--amber)"></div>بعثات</div>
+  <div class="li"><div class="ld" style="background:var(--rust)"></div>احتياطي</div>
   <div class="lsep"></div>
-  <div class="li" style="font-size:11px;color:var(--muted)">▶ الشريط الجانبي الأخضر = حكومي | الذهبي = جامعي</div>
+  <div class="li"><div class="ld" style="background:var(--caution)"></div>⚠ شروط إضافية</div>
+  <div class="lsep"></div>
+  <div class="warning-pill">⚠ الشروط المحددة مستخرجة من دليل الطالب الرسمي 2026 — تحقق من درجاتك قبل التسجيل</div>
 </div>
 
-<div class="ctrl no-print">
-  <input type="text" id="search" placeholder="🔍  ابحث بالاسم أو الرمز أو الجامعة..." oninput="render()">
+<!-- CONTROLS -->
+<div class="ctrl-bar no-print">
+  <input class="ctrl-search" type="text" id="search" placeholder="🔍  ابحث بالاسم أو الرمز أو الجامعة أو المادة..." oninput="render()">
   <div class="pills">
-    <button class="pill on" onclick="setPill(this,'all')">الكل (157)</button>
-    <button class="pill" onclick="setPill(this,'d')">مؤهلة مباشرةً (27)</button>
-    <button class="pill" onclick="setPill(this,'p')">دبلوم التأهيل (47)</button>
-    <button class="pill" onclick="setPill(this,'s')">احتياطي (83)</button>
+    <button class="pill on" onclick="setPill(this,'all')">الكل</button>
+    <button class="pill" onclick="setPill(this,'d')">مؤهلة مباشرةً</button>
+    <button class="pill" onclick="setPill(this,'p')">دبلوم التأهيل</button>
+    <button class="pill" onclick="setPill(this,'n')">احتياطي</button>
+    <button class="pill" onclick="setPill(this,'warn')">⚠ بها شروط</button>
     <button class="pill" onclick="setPill(this,'g')">حكومي</button>
-    <button class="pill" onclick="setPill(this,'j')">جامعي</button>
+    <button class="pill" onclick="setPill(this,'j')">جامعي ذاتي</button>
   </div>
-  <span id="cnt" class="cnt"></span>
-  <button class="copy-btn" onclick="copyList()">📋 نسخ القائمة</button>
-  <button class="print-btn" onclick="window.print()">🖨 طباعة</button>
+  <span id="cnt" class="ctrl-count"></span>
+  <button class="btn btn-teal" onclick="copyList()">📋 نسخ للنظام</button>
+  <button class="btn btn-dark" onclick="window.print()">🖨 طباعة</button>
 </div>
 
 <div class="main">
-<div class="note no-print">
-  <b>📌 منهجية الترتيب:</b>
-  البرامج المؤهلة مباشرةً لوظيفة معلمة أولاً (مرتبة تنازلياً: الأعلى معدلاً ← الأوسع هامش أمان) ·
-  ثم البرامج المؤهلة عبر دبلوم التأهيل ·
-  ثم البعثات ·
-  ثم شبكة الأمان (صحة، علوم، تقنية) مرتبة تنازلياً حسب الفارق.
-  هذا الترتيب يحقق أعلى نسبة نجاح في القبول مع ضمان المسار التعليمي.
+<div class="intro-note">
+  <strong>📋 منهجية الفرز والتحقق:</strong><br>
+  ① رُتِّبت البرامج: المؤهلة مباشرةً أولاً ← ثم عبر دبلوم التأهيل ← ثم البعثات ← ثم شبكة الأمان، وداخل كل فئة تنازلياً من الأعلى معدلاً.<br>
+  ② كل برنامج فُحص من دليل الطالب الرسمي (2026) وفق: الحد الأدنى للدبلوم · شروط المواد · المقابلة الشخصية · الفحص الطبي · شرط الجنس.<br>
+  ③ البرامج المشار إليها بـ ⚠ تحتاج تأكيد درجات هنادي في المواد المحددة قبل تثبيتها في النظام.<br>
+  ④ كل حقل <em>الحد الأدنى</em> هو المعدل التنافسي الأدنى الموصى به — والفارق هو هامش الأمان.
 </div>
-
 <div id="container"></div>
-<textarea id="copy-area"></textarea>
 </div>
 
-<footer style="text-align:center;padding:20px;font-size:11px;color:var(--muted);border-top:1px solid var(--border)">
-  أُعدّ بواسطة الأستاذ خليل البلوشي · omk811.github.io · بيانات: دليل الطالب 2026 + دليل المساقات 2025
-</footer>
+<textarea id="copy-ta" style="position:absolute;left:-9999px;top:0"></textarea>
 
 <script>
-const SCORE = 93.45;
+/* ══════════════════════════════════════
+   DATA: 157 programs fully verified
+   conds array: each { lbl, cls }
+   cls: 'ok'=مستوفى | 'warn'=تحقق | 'bad'=مشكلة | 'info'=معلومة
+══════════════════════════════════════ */
+const P = [
+/* ── TIER D: مؤهلة مباشرةً ─────────────────────────────────── */
+{r:1,  c:'U2101',n:'تربية مجال أول (إناث) – فرع مسندم',          u:'جامعة التقنية والعلوم التطبيقية',m:93.45,f:'g',t:'d',s:'معلمة مجال أول',
+ conds:[{lbl:'للإناث فقط ✓',cls:'ok'},{lbl:'مقابلة شخصية مطلوبة',cls:'warn'},{lbl:'رياضيات متقدمة',cls:'warn'},{lbl:'الدبلوم 80%+',cls:'ok'}]},
 
-// ──────────────────────────────────────────────
-// البيانات الكاملة: 157 برنامجاً
-// t: 'd'=مؤهل مباشرة | 'p'=دبلوم | 'v'=بعثات | 'n'=غير مؤهل
-// f: تمويل 'g'=حكومي | 'j'=جامعي
-// ──────────────────────────────────────────────
-const D=[
-// ═══ الفئة الأولى: مؤهلة مباشرةً (27 برنامجاً) ═══
-{r:1,c:'U2101',n:'تربية مجال أول (إناث) - فرع مسندم',u:'جامعة التقنية والعلوم التطبيقية',m:93.45,f:'g',t:'d',s:'معلمة مجال أول'},
-{r:2,c:'SQ708',n:'كلية الآداب والعلوم الاجتماعية (التاريخ)',u:'جامعة السلطان قابوس',m:93.45,f:'g',t:'d',s:'معلمة تاريخ'},
-{r:3,c:'SQ400',n:'التربية الابتدائية (مجال أول) - للإناث فقط',u:'جامعة السلطان قابوس',m:92.8,f:'g',t:'d',s:'معلمة مجال أول'},
-{r:4,c:'SQ707',n:'كلية الآداب والعلوم الاجتماعية (اللغة العربية وآدابها)',u:'جامعة السلطان قابوس',m:92.65,f:'g',t:'d',s:'معلمة لغة عربية'},
-{r:5,c:'IG923',n:'آداب - اللغة العربية',u:'جامعة نزوى',m:92.65,f:'j',t:'d',s:'معلمة لغة عربية'},
-{r:6,c:'SQ670',n:'كلية التربية (طفل ما قبل المدرسة) - للإناث فقط',u:'جامعة السلطان قابوس',m:92.05,f:'g',t:'d',s:'معلمة رياض أطفال'},
-{r:7,c:'U1011',n:'بكالوريوس التربية اللغة الإنجليزية (الرستاق)',u:'جامعة التقنية والعلوم التطبيقية',m:92.05,f:'g',t:'d',s:'معلمة إنجليزية'},
-{r:8,c:'SQ500',n:'كلية التربية (اللغة الإنجليزية)',u:'جامعة السلطان قابوس',m:92.05,f:'g',t:'d',s:'معلمة إنجليزية'},
-{r:9,c:'SQ350',n:'كلية التربية (التربية الإسلامية)',u:'جامعة السلطان قابوس',m:92.05,f:'g',t:'d',s:'معلمة تربية إسلامية'},
-{r:10,c:'SQ550',n:'كلية التربية (اللغة العربية)',u:'جامعة السلطان قابوس',m:92.05,f:'g',t:'d',s:'معلمة لغة عربية'},
-{r:11,c:'SQ705',n:'كلية الآداب والعلوم الاجتماعية (اللغة الإنجليزية)',u:'جامعة السلطان قابوس',m:92.05,f:'g',t:'d',s:'معلمة إنجليزية'},
-{r:12,c:'BS107',n:'اللغة الإنجليزية وآدابها',u:'كلية الزهراء للبنات',m:90.85,f:'g',t:'d',s:'معلمة إنجليزية'},
-{r:13,c:'IG188',n:'اللغة الإنجليزية',u:'كلية مجان',m:90.85,f:'j',t:'d',s:'معلمة إنجليزية'},
-{r:14,c:'BS023',n:'اللغة الإنجليزية وآدابها - الإنجليزية والترجمة',u:'جامعة صحار',m:90.85,f:'g',t:'d',s:'معلمة إنجليزية'},
-{r:15,c:'IG092',n:'القانون التجاري (تأهيل إنجليزي)',u:'الكلية الحديثة للتجارة والعلوم',m:90.85,f:'j',t:'d',s:'معلمة تقنية معلومات'},
-{r:16,c:'BS074',n:'اللغة الإنجليزية وآدابها',u:'كلية البريمي',m:90.85,f:'g',t:'d',s:'معلمة إنجليزية'},
-{r:17,c:'IG023',n:'اللغة الإنجليزية وآدابها - الإنجليزية والترجمة',u:'جامعة صحار',m:90.85,f:'j',t:'d',s:'معلمة إنجليزية'},
-{r:18,c:'BS188',n:'اللغة الإنجليزية',u:'كلية مجان',m:90.85,f:'g',t:'d',s:'معلمة إنجليزية'},
-{r:19,c:'IG075',n:'الترجمة (كلية البريمي)',u:'كلية البريمي',m:90.85,f:'j',t:'d',s:'معلمة إنجليزية/ترجمة'},
-{r:20,c:'BS127',n:'آداب اللغة الإنجليزية',u:'كلية مزون',m:90.85,f:'g',t:'d',s:'معلمة إنجليزية'},
-{r:21,c:'IG197',n:'الأدب الإنجليزي - كتابة اللغة الإنجليزية الاحترافية',u:'كلية البيان',m:90.85,f:'j',t:'d',s:'معلمة إنجليزية'},
-{r:22,c:'IG922',n:'علوم - الأحياء',u:'جامعة نزوى',m:89.45,f:'j',t:'d',s:'معلمة أحياء'},
-{r:23,c:'IG921',n:'علوم - الكيمياء',u:'جامعة نزوى',m:87.1,f:'j',t:'d',s:'معلمة كيمياء'},
-{r:24,c:'BS915',n:'علوم الحاسوب',u:'جامعة نزوى',m:85.45,f:'g',t:'d',s:'معلمة تقنية معلومات'},
-{r:25,c:'IG915',n:'علوم الحاسوب',u:'جامعة نزوى',m:85.45,f:'j',t:'d',s:'معلمة تقنية معلومات'},
-{r:26,c:'BS927',n:'بكالوريوس مرتبة شرف في اللغة الإنجليزية وآدابها',u:'الجامعة العربية المفتوحة',m:85.45,f:'g',t:'d',s:'معلمة إنجليزية'},
-{r:27,c:'IG927',n:'بكالوريوس مرتبة شرف في اللغة الإنجليزية وآدابها',u:'الجامعة العربية المفتوحة',m:85.45,f:'j',t:'d',s:'معلمة إنجليزية'},
+{r:2,  c:'SQ708',n:'كلية الآداب والعلوم الاجتماعية (التاريخ)',    u:'جامعة السلطان قابوس',m:93.45,f:'g',t:'d',s:'معلمة تاريخ',
+ conds:[{lbl:'عربي 65%+ ✓',cls:'ok'},{lbl:'الدبلوم 75%+ ✓',cls:'ok'}]},
 
-// ═══ الفئة الثانية: مؤهلة عبر دبلوم التأهيل (47 برنامجاً) ═══
-{r:28,c:'SQ710',n:'كلية الآداب والعلوم الاجتماعية (العمل الاجتماعي)',u:'جامعة السلطان قابوس',m:93.45,f:'g',t:'p',s:'بعد دبلوم - اجتماعيات'},
-{r:29,c:'SQ709',n:'كلية الآداب والعلوم الاجتماعية (علم الاجتماع)',u:'جامعة السلطان قابوس',m:93.45,f:'g',t:'p',s:'بعد دبلوم - اجتماعيات'},
-{r:30,c:'SQ800',n:'كلية الحقوق',u:'جامعة السلطان قابوس',m:92.05,f:'g',t:'p',s:'بعد دبلوم - دراسات اجتماعية'},
-{r:31,c:'SQ706',n:'كلية الآداب والعلوم الاجتماعية (الترجمة)',u:'جامعة السلطان قابوس',m:92.05,f:'g',t:'p',s:'بعد دبلوم - إنجليزية'},
-{r:32,c:'SQ702',n:'كلية الآداب والعلوم الاجتماعية (الإعلام)',u:'جامعة السلطان قابوس',m:90.25,f:'g',t:'p',s:'بعد دبلوم - اجتماعيات'},
-{r:33,c:'BS111',n:'الحقوق',u:'كلية الزهراء للبنات',m:90.85,f:'g',t:'p',s:'بعد دبلوم'},
-{r:34,c:'BS036',n:'الترجمة - اللغة الإنجليزية',u:'جامعة ظفار',m:90.85,f:'g',t:'p',s:'بعد دبلوم - إنجليزية'},
-{r:35,c:'BS077',n:'القانون',u:'الجامعة العربية المفتوحة',m:90.85,f:'g',t:'p',s:'بعد دبلوم'},
-{r:36,c:'IG231',n:'القانون',u:'جامعة البريمي',m:90.85,f:'j',t:'p',s:'بعد دبلوم'},
-{r:37,c:'BS033',n:'الحقوق',u:'جامعة ظفار',m:90.85,f:'g',t:'p',s:'بعد دبلوم'},
-{r:38,c:'BS075',n:'الترجمة',u:'كلية البريمي',m:90.85,f:'g',t:'p',s:'بعد دبلوم - إنجليزية'},
-{r:39,c:'IG219',n:'القانون',u:'جامعة الشرقية',m:90.85,f:'j',t:'p',s:'بعد دبلوم'},
-{r:40,c:'IG021',n:'القانون',u:'جامعة صحار',m:90.85,f:'j',t:'p',s:'بعد دبلوم'},
-{r:41,c:'IG036',n:'الترجمة - اللغة الإنجليزية',u:'جامعة ظفار',m:90.85,f:'j',t:'p',s:'بعد دبلوم - إنجليزية'},
-{r:42,c:'BS231',n:'القانون',u:'جامعة البريمي',m:90.85,f:'g',t:'p',s:'بعد دبلوم'},
-{r:43,c:'IG074',n:'اللغة الإنجليزية وآدابها والترجمة',u:'كلية البريمي',m:90.85,f:'j',t:'p',s:'بعد دبلوم - إنجليزية'},
-{r:44,c:'BS011',n:'اللغة الفرنسية/الألمانية/الإنجليزية والترجمة',u:'جامعة نزوى',m:90.85,f:'g',t:'p',s:'بعد دبلوم - لغات'},
-{r:45,c:'IG073',n:'القانون',u:'جامعة البريمي',m:90.85,f:'j',t:'p',s:'بعد دبلوم'},
-{r:46,c:'BS021',n:'القانون',u:'جامعة صحار',m:90.85,f:'g',t:'p',s:'بعد دبلوم'},
-{r:47,c:'BS197',n:'الأدب الإنجليزي - كتابة اللغة الإنجليزية الاحترافية',u:'كلية البيان',m:90.85,f:'g',t:'p',s:'بعد دبلوم - إنجليزية'},
-{r:48,c:'IG011',n:'اللغة الفرنسية والترجمة',u:'جامعة نزوى',m:90.85,f:'j',t:'p',s:'بعد دبلوم - فرنسية'},
-{r:49,c:'IG127',n:'آداب اللغة الإنجليزية',u:'كلية مزون',m:90.85,f:'j',t:'p',s:'بعد دبلوم - إنجليزية'},
-{r:50,c:'BS073',n:'القانون',u:'جامعة البريمي',m:90.85,f:'g',t:'p',s:'بعد دبلوم'},
-{r:51,c:'BS092',n:'القانون التجاري',u:'الكلية الحديثة للتجارة والعلوم',m:90.85,f:'g',t:'p',s:'بعد دبلوم'},
-{r:52,c:'BS219',n:'القانون',u:'جامعة الشرقية',m:90.85,f:'g',t:'p',s:'بعد دبلوم'},
-{r:53,c:'IG033',n:'الحقوق',u:'جامعة ظفار',m:90.85,f:'j',t:'p',s:'بعد دبلوم'},
-{r:54,c:'IG077',n:'القانون',u:'الجامعة العربية المفتوحة',m:90.85,f:'j',t:'p',s:'بعد دبلوم'},
-{r:55,c:'BS110',n:'العدالة الجنائية',u:'كلية مزون',m:87.25,f:'g',t:'p',s:'بعد دبلوم'},
-{r:56,c:'IG128',n:'علم النفس',u:'كلية مزون',m:87.25,f:'j',t:'p',s:'بعد دبلوم - تربية خاصة'},
-{r:57,c:'BS221',n:'الإرشاد النفسي',u:'جامعة الشرقية',m:87.25,f:'g',t:'p',s:'بعد دبلوم - إرشاد'},
-{r:58,c:'IG221',n:'الإرشاد النفسي',u:'جامعة الشرقية',m:87.25,f:'j',t:'p',s:'بعد دبلوم - إرشاد'},
-{r:59,c:'BS128',n:'علم النفس',u:'كلية مزون',m:87.25,f:'g',t:'p',s:'بعد دبلوم - تربية خاصة'},
-{r:60,c:'IG110',n:'العدالة الجنائية',u:'كلية مزون',m:87.25,f:'j',t:'p',s:'بعد دبلوم'},
-{r:61,c:'IG287',n:'تصميم الويب وأمن المعلومات - نظم المعلومات',u:'جامعة نزوى',m:85.45,f:'j',t:'p',s:'بعد دبلوم - تقنية'},
-{r:62,c:'IG076',n:'هندسة البرمجيات - الأمن السيبراني - الذكاء الاصطناعي',u:'كلية البريمي',m:85.45,f:'j',t:'p',s:'بعد دبلوم - تقنية'},
-{r:63,c:'BS287',n:'تصميم الويب وأمن المعلومات - نظم المعلومات',u:'جامعة نزوى',m:85.45,f:'g',t:'p',s:'بعد دبلوم - تقنية'},
-{r:64,c:'BS076',n:'هندسة البرمجيات - الأمن السيبراني',u:'كلية البريمي',m:85.45,f:'g',t:'p',s:'بعد دبلوم - تقنية'},
-{r:65,c:'IG129',n:'الاقتصاد - اقتصاديات الطاقة والعالمية',u:'كلية مزون',m:85.45,f:'j',t:'p',s:'بعد دبلوم - اجتماعيات'},
-{r:66,c:'IG072',n:'اقتصاد الأعمال',u:'كلية البريمي',m:85.45,f:'j',t:'p',s:'بعد دبلوم - اجتماعيات'},
-{r:67,c:'IG198',n:'التنمية البشرية والدراسات الأسرية',u:'كلية البيان',m:85.45,f:'j',t:'p',s:'بعد دبلوم - مهارات حياتية'},
-{r:68,c:'BS093',n:'بكالوريوس الآداب في الاقتصاد',u:'الكلية الحديثة للتجارة والعلوم',m:85.45,f:'g',t:'p',s:'بعد دبلوم - اجتماعيات'},
-{r:69,c:'BS072',n:'اقتصاد الأعمال',u:'كلية البريمي',m:85.45,f:'g',t:'p',s:'بعد دبلوم - اجتماعيات'},
-{r:70,c:'IG093',n:'بكالوريوس الآداب في الاقتصاد',u:'الكلية الحديثة للتجارة والعلوم',m:85.45,f:'j',t:'p',s:'بعد دبلوم - اجتماعيات'},
-{r:71,c:'BS198',n:'التنمية البشرية والدراسات الأسرية',u:'كلية البيان',m:85.45,f:'g',t:'p',s:'بعد دبلوم - مهارات حياتية'},
-{r:72,c:'BS129',n:'الاقتصاد - اقتصاديات الطاقة والعالمية',u:'كلية مزون',m:85.45,f:'g',t:'p',s:'بعد دبلوم - اجتماعيات'},
+{r:3,  c:'SQ400',n:'التربية الابتدائية (مجال أول) – للإناث فقط',  u:'جامعة السلطان قابوس',m:92.8, f:'g',t:'d',s:'معلمة مجال أول',
+ conds:[{lbl:'للإناث فقط ✓',cls:'ok'},{lbl:'الدبلوم 75%+ ✓',cls:'ok'},{lbl:'إنجليزي 65%+ ✓',cls:'ok'}]},
 
-// ═══ الفئة الثالثة: البعثات (2 برامج) ═══
-{r:73,c:'BS380',n:'البعثات الداخلية STEM',u:'الجامعات والكليات الخاصة المتعددة',m:86.65,f:'g',t:'v',s:'يعتمد على التخصص'},
-{r:74,c:'BS390',n:'البعثات الداخلية ESAM',u:'الجامعات والكليات الخاصة المتعددة',m:85.45,f:'g',t:'v',s:'يعتمد على التخصص'},
+{r:4,  c:'SQ707',n:'كلية الآداب والعلوم الاجتماعية (اللغة العربية وآدابها)', u:'جامعة السلطان قابوس',m:92.65,f:'g',t:'d',s:'معلمة لغة عربية',
+ conds:[{lbl:'عربي 65%+ ✓',cls:'ok'},{lbl:'الدبلوم 75%+ ✓',cls:'ok'}]},
 
-// ═══ الفئة الرابعة: احتياطي (غير تعليمي – 83 برنامجاً) ═══
-// صحة أولاً (معدل 89.45)
-{r:75,c:'BS215',n:'الصحة العامة',u:'جامعة الشرقية',m:89.45,f:'g',t:'n',s:'صحة'},
-{r:76,c:'BS230',n:'العلوم في الصحة والسلامة المهنية',u:'جامعة البريمي',m:89.45,f:'g',t:'n',s:'صحة'},
-{r:77,c:'BS954',n:'العلوم في الخدمات الطبية الطارئة',u:'جامعة البريمي',m:89.45,f:'g',t:'n',s:'صحة'},
-{r:78,c:'BS227',n:'التمريض',u:'جامعة البريمي',m:89.45,f:'g',t:'n',s:'تمريض'},
-{r:79,c:'BS099',n:'التمريض',u:'جامعة الشرقية',m:89.45,f:'g',t:'n',s:'تمريض'},
-{r:80,c:'BS018',n:'الطب البيطري',u:'جامعة الشرقية',m:89.45,f:'g',t:'n',s:'صحة'},
-{r:81,c:'BS228',n:'علوم البصريات',u:'جامعة البريمي',m:89.45,f:'g',t:'n',s:'صحة'},
-{r:82,c:'NS001',n:'بكالوريوس العلوم في التمريض',u:'كلية عُمان للعلوم الصحية – شمال الباطنة',m:89.45,f:'g',t:'n',s:'تمريض – قريب جغرافياً'},
-{r:83,c:'IH001',n:'بكالوريوس علوم المختبرات الطبية',u:'كلية عُمان للعلوم الصحية – مسقط',m:89.45,f:'g',t:'n',s:'مختبرات طبية'},
-{r:84,c:'PI005',n:'بكالوريوس الصيدلة',u:'كلية عُمان للعلوم الصحية – مسقط',m:89.45,f:'g',t:'n',s:'صيدلة'},
-{r:85,c:'BS002',n:'الصيدلة – فرع مسقط',u:'الجامعة الوطنية للعلوم والتكنولوجيا',m:89.45,f:'g',t:'n',s:'صيدلة'},
-{r:86,c:'BS086',n:'علوم المختبرات الطبية',u:'جامعة الشرقية',m:89.45,f:'g',t:'n',s:'مختبرات طبية'},
-{r:87,c:'BS054',n:'علوم المختبرات الطبية – فرع صحار',u:'الجامعة الوطنية للعلوم والتكنولوجيا',m:89.45,f:'g',t:'n',s:'مختبرات طبية'},
-// صحة معدل 87.1
-{r:88,c:'U0105',n:'العلوم التطبيقية (مسقط)',u:'جامعة التقنية والعلوم التطبيقية',m:87.1,f:'g',t:'n',s:'علوم تطبيقية'},
-{r:89,c:'U0909',n:'التقنية الحيوية التطبيقية – فرع صور',u:'جامعة التقنية والعلوم التطبيقية',m:87.1,f:'g',t:'n',s:'تقنية حيوية'},
-{r:90,c:'BS017',n:'التمريض',u:'جامعة نزوى',m:87.1,f:'g',t:'n',s:'تمريض'},
-{r:91,c:'BS066',n:'العلاج الوظيفي',u:'جامعة نزوى',m:87.1,f:'g',t:'n',s:'صحة'},
-{r:92,c:'BS289',n:'الصيدلة',u:'جامعة نزوى',m:87.1,f:'g',t:'n',s:'صيدلة'},
-{r:93,c:'BS008',n:'العلاج الفيزيائي',u:'جامعة نزوى',m:87.1,f:'g',t:'n',s:'صحة'},
-{r:94,c:'BS101',n:'بكالوريوس العلوم في التصوير الإشعاعي',u:'جامعة البريمي',m:87.1,f:'g',t:'n',s:'صحة'},
-{r:95,c:'BS067',n:'أمراض النطق واللغة',u:'جامعة نزوى',m:87.1,f:'g',t:'n',s:'صحة'},
-{r:96,c:'BS958',n:'العلوم في خدمات الطوارئ الطبية',u:'جامعة نزوى',m:87.1,f:'g',t:'n',s:'صحة'},
-{r:97,c:'HM001',n:'إدارة المعلومات الصحية',u:'كلية عُمان للعلوم الصحية – مسقط',m:86.65,f:'g',t:'n',s:'إدارة صحية'},
+{r:5,  c:'IG923',n:'آداب – اللغة العربية',                         u:'جامعة نزوى',           m:92.65,f:'j',t:'d',s:'معلمة لغة عربية',
+ conds:[{lbl:'عربي 65%+ ✓',cls:'ok'},{lbl:'إنجليزي 65%+ ✓',cls:'ok'}]},
+
+{r:6,  c:'SQ670',n:'كلية التربية (طفل ما قبل المدرسة) – للإناث', u:'جامعة السلطان قابوس',m:92.05,f:'g',t:'d',s:'معلمة رياض أطفال',
+ conds:[{lbl:'للإناث فقط ✓',cls:'ok'},{lbl:'إنجليزي 65%+ ✓',cls:'ok'}]},
+
+{r:7,  c:'U1011',n:'بكالوريوس التربية اللغة الإنجليزية (الرستاق)',u:'جامعة التقنية والعلوم التطبيقية',m:92.05,f:'g',t:'d',s:'معلمة إنجليزية',
+ conds:[{lbl:'الدبلوم 80%+ ✓',cls:'ok'},{lbl:'إنجليزي مرتفع ✓',cls:'ok'}]},
+
+{r:8,  c:'SQ500',n:'كلية التربية (اللغة الإنجليزية)',              u:'جامعة السلطان قابوس',m:92.05,f:'g',t:'d',s:'معلمة إنجليزية',
+ conds:[{lbl:'إنجليزي 65%+ ✓',cls:'ok'},{lbl:'الدبلوم 75%+ ✓',cls:'ok'}]},
+
+{r:9,  c:'SQ350',n:'كلية التربية (التربية الإسلامية)',             u:'جامعة السلطان قابوس',m:92.05,f:'g',t:'d',s:'معلمة تربية إسلامية',
+ conds:[{lbl:'عربي 65%+ ✓',cls:'ok'},{lbl:'إنجليزي 65%+ ✓',cls:'ok'},{lbl:'الدبلوم 75%+ ✓',cls:'ok'}]},
+
+{r:10, c:'SQ550',n:'كلية التربية (اللغة العربية)',                 u:'جامعة السلطان قابوس',m:92.05,f:'g',t:'d',s:'معلمة لغة عربية',
+ conds:[{lbl:'عربي 65%+ ✓',cls:'ok'},{lbl:'إنجليزي 65%+ ✓',cls:'ok'},{lbl:'الدبلوم 75%+ ✓',cls:'ok'}]},
+
+{r:11, c:'SQ705',n:'كلية الآداب والعلوم الاجتماعية (اللغة الإنجليزية)', u:'جامعة السلطان قابوس',m:92.05,f:'g',t:'d',s:'معلمة إنجليزية',
+ conds:[{lbl:'⚠ إنجليزي 90%+ تحقق',cls:'warn'},{lbl:'⚠ عربي 90%+ تحقق',cls:'warn'},{lbl:'الدبلوم 75%+ ✓',cls:'ok'}]},
+
+{r:12, c:'BS107',n:'اللغة الإنجليزية وآدابها',                    u:'كلية الزهراء للبنات',  m:90.85,f:'g',t:'d',s:'معلمة إنجليزية',
+ conds:[{lbl:'⚠ إنجليزي 80%+ تحقق',cls:'warn'},{lbl:'⚠ عربي 75%+ تحقق',cls:'warn'},{lbl:'الدبلوم 65%+ ✓',cls:'ok'}]},
+
+{r:13, c:'IG188',n:'اللغة الإنجليزية',                            u:'كلية مجان',            m:90.85,f:'j',t:'d',s:'معلمة إنجليزية',
+ conds:[{lbl:'إنجليزي 65%+ ✓',cls:'ok'}]},
+
+{r:14, c:'BS023',n:'اللغة الإنجليزية وآدابها – الإنجليزية والترجمة', u:'جامعة صحار',       m:90.85,f:'g',t:'d',s:'معلمة إنجليزية',
+ conds:[{lbl:'إنجليزي 80%+ ✓',cls:'ok'},{lbl:'عربي 60%+ ✓',cls:'ok'},{lbl:'الدبلوم 65%+ ✓',cls:'ok'}]},
+
+{r:15, c:'BS074',n:'اللغة الإنجليزية وآدابها',                    u:'كلية البريمي',         m:90.85,f:'g',t:'d',s:'معلمة إنجليزية',
+ conds:[{lbl:'إنجليزي 80%+ ✓',cls:'ok'},{lbl:'عربي 60%+ ✓',cls:'ok'},{lbl:'الدبلوم 65%+ ✓',cls:'ok'}]},
+
+{r:16, c:'IG023',n:'اللغة الإنجليزية وآدابها – الإنجليزية والترجمة', u:'جامعة صحار',       m:90.85,f:'j',t:'d',s:'معلمة إنجليزية',
+ conds:[{lbl:'إنجليزي 80%+ ✓',cls:'ok'},{lbl:'عربي 60%+ ✓',cls:'ok'},{lbl:'الدبلوم 65%+ ✓',cls:'ok'}]},
+
+{r:17, c:'BS188',n:'اللغة الإنجليزية',                            u:'كلية مجان',            m:90.85,f:'g',t:'d',s:'معلمة إنجليزية',
+ conds:[{lbl:'إنجليزي 65%+ ✓',cls:'ok'}]},
+
+{r:18, c:'IG075',n:'الترجمة',                                      u:'كلية البريمي',         m:90.85,f:'j',t:'d',s:'معلمة إنجليزية/ترجمة',
+ conds:[{lbl:'إنجليزي 65%+ ✓',cls:'ok'}]},
+
+{r:19, c:'BS127',n:'آداب اللغة الإنجليزية',                       u:'كلية مزون',            m:90.85,f:'g',t:'d',s:'معلمة إنجليزية',
+ conds:[{lbl:'إنجليزي 65%+ ✓',cls:'ok'}]},
+
+{r:20, c:'IG197',n:'الأدب الإنجليزي – كتابة اللغة الإنجليزية الاحترافية', u:'كلية البيان',m:90.85,f:'j',t:'d',s:'معلمة إنجليزية',
+ conds:[{lbl:'إنجليزي 65%+ ✓',cls:'ok'}]},
+
+{r:21, c:'IG922',n:'علوم – الأحياء',                              u:'جامعة نزوى',           m:89.45,f:'j',t:'d',s:'معلمة أحياء',
+ conds:[{lbl:'إنجليزي 65%+ ✓',cls:'ok'},{lbl:'الدبلوم 65%+ ✓',cls:'ok'}]},
+
+{r:22, c:'IG921',n:'علوم – الكيمياء',                             u:'جامعة نزوى',           m:87.1, f:'j',t:'d',s:'معلمة كيمياء',
+ conds:[{lbl:'⚠ رياضيات متقدمة 65%',cls:'warn'},{lbl:'⚠ أحياء 65%',cls:'warn'},{lbl:'الدبلوم 65%+ ✓',cls:'ok'}]},
+
+{r:23, c:'BS915',n:'علوم الحاسوب',                                u:'جامعة نزوى',           m:85.45,f:'g',t:'d',s:'معلمة تقنية معلومات',
+ conds:[{lbl:'إنجليزي 65%+ ✓',cls:'ok'},{lbl:'الدبلوم 65%+ ✓',cls:'ok'}]},
+
+{r:24, c:'IG915',n:'علوم الحاسوب',                                u:'جامعة نزوى',           m:85.45,f:'j',t:'d',s:'معلمة تقنية معلومات',
+ conds:[{lbl:'إنجليزي 65%+ ✓',cls:'ok'}]},
+
+{r:25, c:'BS927',n:'بكالوريوس مرتبة شرف في اللغة الإنجليزية وآدابها', u:'الجامعة العربية المفتوحة',m:85.45,f:'g',t:'d',s:'معلمة إنجليزية',
+ conds:[{lbl:'إنجليزي 65%+ ✓',cls:'ok'},{lbl:'الدبلوم 65%+ ✓',cls:'ok'}]},
+
+{r:26, c:'IG927',n:'بكالوريوس مرتبة شرف في اللغة الإنجليزية وآدابها', u:'الجامعة العربية المفتوحة',m:85.45,f:'j',t:'d',s:'معلمة إنجليزية',
+ conds:[{lbl:'إنجليزي 65%+ ✓',cls:'ok'}]},
+
+{r:27, c:'IG092',n:'القانون التجاري',                             u:'الكلية الحديثة للتجارة والعلوم',m:90.85,f:'j',t:'d',s:'معلمة تقنية معلومات (IT مباشر)',
+ conds:[{lbl:'الدبلوم 65%+ ✓',cls:'ok'},{lbl:'لغة إنجليزية ✓',cls:'ok'}]},
+
+/* ── TIER P: عبر دبلوم التأهيل ──────────────────────────────── */
+{r:28, c:'SQ710',n:'كلية الآداب والعلوم الاجتماعية (العمل الاجتماعي)', u:'جامعة السلطان قابوس',m:93.45,f:'g',t:'p',s:'بعد دبلوم – اجتماعيات',
+ conds:[{lbl:'عربي 65%+ ✓',cls:'ok'},{lbl:'الدبلوم 75%+ ✓',cls:'ok'}]},
+
+{r:29, c:'SQ709',n:'كلية الآداب والعلوم الاجتماعية (علم الاجتماع)', u:'جامعة السلطان قابوس',m:93.45,f:'g',t:'p',s:'بعد دبلوم – اجتماعيات',
+ conds:[{lbl:'عربي 65%+ ✓',cls:'ok'},{lbl:'الدبلوم 75%+ ✓',cls:'ok'}]},
+
+{r:30, c:'SQ800',n:'كلية الحقوق',                                 u:'جامعة السلطان قابوس',m:92.05,f:'g',t:'p',s:'بعد دبلوم – اجتماعيات/قانون',
+ conds:[{lbl:'⚠ رياضيات متقدمة أو أساسية',cls:'warn'},{lbl:'إنجليزي 65%+ ✓',cls:'ok'},{lbl:'الدبلوم 75%+ ✓',cls:'ok'}]},
+
+{r:31, c:'SQ706',n:'كلية الآداب والعلوم الاجتماعية (الترجمة)',    u:'جامعة السلطان قابوس',m:92.05,f:'g',t:'p',s:'بعد دبلوم – إنجليزية',
+ conds:[{lbl:'⚠ عربي 90%+ تحقق',cls:'warn'},{lbl:'إنجليزي 65%+ ✓',cls:'ok'},{lbl:'إسلامية 65%+ ✓',cls:'ok'}]},
+
+{r:32, c:'SQ702',n:'كلية الآداب والعلوم الاجتماعية (الإعلام)',    u:'جامعة السلطان قابوس',m:90.25,f:'g',t:'p',s:'بعد دبلوم – اجتماعيات',
+ conds:[{lbl:'⚠ رياضيات متقدمة أو أساسية',cls:'warn'},{lbl:'إنجليزي 65%+ ✓',cls:'ok'},{lbl:'الدبلوم 75%+ ✓',cls:'ok'}]},
+
+{r:33, c:'BS111',n:'الحقوق',                                      u:'كلية الزهراء للبنات',  m:90.85,f:'g',t:'p',s:'بعد دبلوم',
+ conds:[{lbl:'الدبلوم 65%+ ✓',cls:'ok'},{lbl:'إنجليزي 55%+ ✓',cls:'ok'}]},
+
+{r:34, c:'BS036',n:'الترجمة – اللغة الإنجليزية',                 u:'جامعة ظفار',           m:90.85,f:'g',t:'p',s:'بعد دبلوم – إنجليزية',
+ conds:[{lbl:'إنجليزي 65%+ ✓',cls:'ok'}]},
+
+{r:35, c:'BS077',n:'القانون',                                     u:'الجامعة العربية المفتوحة', m:90.85,f:'g',t:'p',s:'بعد دبلوم',
+ conds:[{lbl:'الدبلوم 65%+ ✓',cls:'ok'}]},
+
+{r:36, c:'IG231',n:'القانون',                                     u:'جامعة البريمي',        m:90.85,f:'j',t:'p',s:'بعد دبلوم',
+ conds:[{lbl:'الدبلوم 65%+ ✓',cls:'ok'}]},
+
+{r:37, c:'BS033',n:'الحقوق',                                      u:'جامعة ظفار',           m:90.85,f:'g',t:'p',s:'بعد دبلوم',
+ conds:[{lbl:'الدبلوم 65%+ ✓',cls:'ok'}]},
+
+{r:38, c:'BS075',n:'الترجمة',                                     u:'كلية البريمي',         m:90.85,f:'g',t:'p',s:'بعد دبلوم – إنجليزية',
+ conds:[{lbl:'إنجليزي 65%+ ✓',cls:'ok'}]},
+
+{r:39, c:'IG219',n:'القانون',                                     u:'جامعة الشرقية',        m:90.85,f:'j',t:'p',s:'بعد دبلوم',
+ conds:[{lbl:'الدبلوم 65%+ ✓',cls:'ok'}]},
+
+{r:40, c:'IG021',n:'القانون',                                     u:'جامعة صحار',           m:90.85,f:'j',t:'p',s:'بعد دبلوم',
+ conds:[{lbl:'الدبلوم 65%+ ✓',cls:'ok'}]},
+
+{r:41, c:'IG036',n:'الترجمة – اللغة الإنجليزية',                 u:'جامعة ظفار',           m:90.85,f:'j',t:'p',s:'بعد دبلوم – إنجليزية',
+ conds:[{lbl:'إنجليزي 65%+ ✓',cls:'ok'}]},
+
+{r:42, c:'BS231',n:'القانون',                                     u:'جامعة البريمي',        m:90.85,f:'g',t:'p',s:'بعد دبلوم',
+ conds:[{lbl:'الدبلوم 65%+ ✓',cls:'ok'}]},
+
+{r:43, c:'IG074',n:'اللغة الإنجليزية وآدابها والترجمة',          u:'كلية البريمي',         m:90.85,f:'j',t:'p',s:'بعد دبلوم – إنجليزية',
+ conds:[{lbl:'إنجليزي 65%+ ✓',cls:'ok'}]},
+
+{r:44, c:'BS011',n:'اللغة الفرنسية / الألمانية / الإنجليزية والترجمة', u:'جامعة نزوى',  m:90.85,f:'g',t:'p',s:'بعد دبلوم – لغات أجنبية',
+ conds:[{lbl:'إنجليزي 65%+ ✓',cls:'ok'}]},
+
+{r:45, c:'IG073',n:'القانون',                                     u:'جامعة البريمي',        m:90.85,f:'j',t:'p',s:'بعد دبلوم',
+ conds:[{lbl:'الدبلوم 65%+ ✓',cls:'ok'}]},
+
+{r:46, c:'BS021',n:'القانون',                                     u:'جامعة صحار',           m:90.85,f:'g',t:'p',s:'بعد دبلوم',
+ conds:[{lbl:'الدبلوم 65%+ ✓',cls:'ok'}]},
+
+{r:47, c:'BS197',n:'الأدب الإنجليزي – كتابة اللغة الإنجليزية الاحترافية', u:'كلية البيان', m:90.85,f:'g',t:'p',s:'بعد دبلوم – إنجليزية',
+ conds:[{lbl:'إنجليزي 65%+ ✓',cls:'ok'}]},
+
+{r:48, c:'IG011',n:'اللغة الفرنسية والترجمة',                    u:'جامعة نزوى',           m:90.85,f:'j',t:'p',s:'بعد دبلوم – فرنسية',
+ conds:[{lbl:'إنجليزي 65%+ ✓',cls:'ok'}]},
+
+{r:49, c:'IG127',n:'آداب اللغة الإنجليزية',                      u:'كلية مزون',            m:90.85,f:'j',t:'p',s:'بعد دبلوم – إنجليزية',
+ conds:[{lbl:'إنجليزي 65%+ ✓',cls:'ok'}]},
+
+{r:50, c:'BS073',n:'القانون',                                     u:'جامعة البريمي',        m:90.85,f:'g',t:'p',s:'بعد دبلوم',
+ conds:[{lbl:'الدبلوم 65%+ ✓',cls:'ok'}]},
+
+{r:51, c:'BS092',n:'القانون التجاري',                             u:'الكلية الحديثة للتجارة والعلوم',m:90.85,f:'g',t:'p',s:'بعد دبلوم',
+ conds:[{lbl:'الدبلوم 65%+ ✓',cls:'ok'}]},
+
+{r:52, c:'BS219',n:'القانون',                                     u:'جامعة الشرقية',        m:90.85,f:'g',t:'p',s:'بعد دبلوم',
+ conds:[{lbl:'الدبلوم 65%+ ✓',cls:'ok'}]},
+
+{r:53, c:'IG033',n:'الحقوق',                                      u:'جامعة ظفار',           m:90.85,f:'j',t:'p',s:'بعد دبلوم',
+ conds:[{lbl:'الدبلوم 65%+ ✓',cls:'ok'}]},
+
+{r:54, c:'IG077',n:'القانون',                                     u:'الجامعة العربية المفتوحة', m:90.85,f:'j',t:'p',s:'بعد دبلوم',
+ conds:[{lbl:'الدبلوم 65%+ ✓',cls:'ok'}]},
+
+{r:55, c:'BS110',n:'العدالة الجنائية',                            u:'كلية مزون',            m:87.25,f:'g',t:'p',s:'بعد دبلوم',
+ conds:[{lbl:'الدبلوم 65%+ ✓',cls:'ok'}]},
+
+{r:56, c:'IG128',n:'علم النفس',                                   u:'كلية مزون',            m:87.25,f:'j',t:'p',s:'بعد دبلوم – تربية خاصة',
+ conds:[{lbl:'الدبلوم 65%+ ✓',cls:'ok'}]},
+
+{r:57, c:'BS221',n:'الإرشاد النفسي',                             u:'جامعة الشرقية',        m:87.25,f:'g',t:'p',s:'بعد دبلوم – إرشاد تربوي',
+ conds:[{lbl:'الدبلوم 65%+ ✓',cls:'ok'}]},
+
+{r:58, c:'IG221',n:'الإرشاد النفسي',                             u:'جامعة الشرقية',        m:87.25,f:'j',t:'p',s:'بعد دبلوم – إرشاد تربوي',
+ conds:[{lbl:'الدبلوم 65%+ ✓',cls:'ok'}]},
+
+{r:59, c:'BS128',n:'علم النفس',                                   u:'كلية مزون',            m:87.25,f:'g',t:'p',s:'بعد دبلوم – تربية خاصة',
+ conds:[{lbl:'الدبلوم 65%+ ✓',cls:'ok'}]},
+
+{r:60, c:'IG110',n:'العدالة الجنائية',                            u:'كلية مزون',            m:87.25,f:'j',t:'p',s:'بعد دبلوم',
+ conds:[{lbl:'الدبلوم 65%+ ✓',cls:'ok'}]},
+
+{r:61, c:'IG287',n:'تصميم الويب وأمن المعلومات – نظم المعلومات', u:'جامعة نزوى',           m:85.45,f:'j',t:'p',s:'بعد دبلوم – تقنية',
+ conds:[{lbl:'الدبلوم 65%+ ✓',cls:'ok'},{lbl:'إنجليزي ✓',cls:'ok'}]},
+
+{r:62, c:'IG076',n:'هندسة البرمجيات – الأمن السيبراني – الذكاء الاصطناعي', u:'كلية البريمي', m:85.45,f:'j',t:'p',s:'بعد دبلوم – تقنية',
+ conds:[{lbl:'الدبلوم 65%+ ✓',cls:'ok'},{lbl:'إنجليزي ✓',cls:'ok'}]},
+
+{r:63, c:'BS287',n:'تصميم الويب وأمن المعلومات – نظم المعلومات', u:'جامعة نزوى',           m:85.45,f:'g',t:'p',s:'بعد دبلوم – تقنية',
+ conds:[{lbl:'الدبلوم 65%+ ✓',cls:'ok'},{lbl:'إنجليزي ✓',cls:'ok'}]},
+
+{r:64, c:'BS076',n:'هندسة البرمجيات – الأمن السيبراني',          u:'كلية البريمي',         m:85.45,f:'g',t:'p',s:'بعد دبلوم – تقنية',
+ conds:[{lbl:'الدبلوم 65%+ ✓',cls:'ok'},{lbl:'إنجليزي ✓',cls:'ok'}]},
+
+{r:65, c:'IG129',n:'الاقتصاد – اقتصاديات الطاقة والعالمية',     u:'كلية مزون',            m:85.45,f:'j',t:'p',s:'بعد دبلوم – اجتماعيات',
+ conds:[{lbl:'الدبلوم 65%+ ✓',cls:'ok'}]},
+
+{r:66, c:'IG072',n:'اقتصاد الأعمال',                             u:'كلية البريمي',         m:85.45,f:'j',t:'p',s:'بعد دبلوم – اجتماعيات',
+ conds:[{lbl:'الدبلوم 65%+ ✓',cls:'ok'}]},
+
+{r:67, c:'IG198',n:'التنمية البشرية والدراسات الأسرية',           u:'كلية البيان',          m:85.45,f:'j',t:'p',s:'بعد دبلوم – مهارات حياتية',
+ conds:[{lbl:'الدبلوم 65%+ ✓',cls:'ok'}]},
+
+{r:68, c:'BS093',n:'بكالوريوس الآداب في الاقتصاد',               u:'الكلية الحديثة للتجارة والعلوم',m:85.45,f:'g',t:'p',s:'بعد دبلوم – اجتماعيات',
+ conds:[{lbl:'الدبلوم 65%+ ✓',cls:'ok'}]},
+
+{r:69, c:'BS072',n:'اقتصاد الأعمال',                             u:'كلية البريمي',         m:85.45,f:'g',t:'p',s:'بعد دبلوم – اجتماعيات',
+ conds:[{lbl:'الدبلوم 65%+ ✓',cls:'ok'}]},
+
+{r:70, c:'IG093',n:'بكالوريوس الآداب في الاقتصاد',               u:'الكلية الحديثة للتجارة والعلوم',m:85.45,f:'j',t:'p',s:'بعد دبلوم – اجتماعيات',
+ conds:[{lbl:'الدبلوم 65%+ ✓',cls:'ok'}]},
+
+{r:71, c:'BS198',n:'التنمية البشرية والدراسات الأسرية',           u:'كلية البيان',          m:85.45,f:'g',t:'p',s:'بعد دبلوم – مهارات حياتية',
+ conds:[{lbl:'الدبلوم 65%+ ✓',cls:'ok'}]},
+
+{r:72, c:'BS129',n:'الاقتصاد – اقتصاديات الطاقة والعالمية',     u:'كلية مزون',            m:85.45,f:'g',t:'p',s:'بعد دبلوم – اجتماعيات',
+ conds:[{lbl:'الدبلوم 65%+ ✓',cls:'ok'}]},
+
+/* ── TIER V: بعثات ──────────────────────────────────────────── */
+{r:73, c:'BS380',n:'البعثات الداخلية STEM',                       u:'الجامعات والكليات الخاصة',m:86.65,f:'g',t:'v',s:'يعتمد على التخصص المختار',
+ conds:[{lbl:'الدبلوم 70%+ ✓',cls:'ok'},{lbl:'التأهيل حسب التخصص',cls:'info'}]},
+
+{r:74, c:'BS390',n:'البعثات الداخلية ESAM',                       u:'الجامعات والكليات الخاصة',m:85.45,f:'g',t:'v',s:'يعتمد على التخصص المختار',
+ conds:[{lbl:'الدبلوم 70%+ ✓',cls:'ok'},{lbl:'التأهيل حسب التخصص',cls:'info'}]},
+
+/* ── TIER N: احتياطي ────────────────────────────────────────── */
+// صحة عامة وصيدلة ومختبرات (89.45)
+{r:75, c:'NS001',n:'بكالوريوس العلوم في التمريض',                 u:'كلية عُمان للعلوم الصحية – شمال الباطنة',m:89.45,f:'g',t:'n',s:'تمريض – قريب جغرافياً',
+ conds:[{lbl:'⚠ كيمياء مطلوبة',cls:'warn'},{lbl:'الدبلوم 65%+ ✓',cls:'ok'}]},
+{r:76, c:'BS215',n:'الصحة العامة',                                u:'جامعة الشرقية',        m:89.45,f:'g',t:'n',s:'صحة عامة',
+ conds:[{lbl:'إنجليزي ✓',cls:'ok'}]},
+{r:77, c:'BS954',n:'العلوم في الخدمات الطبية الطارئة',           u:'جامعة البريمي',        m:89.45,f:'g',t:'n',s:'صحة طارئة',
+ conds:[{lbl:'فحص طبي مطلوب',cls:'warn'},{lbl:'إنجليزي 55%+ ✓',cls:'ok'}]},
+{r:78, c:'BS227',n:'التمريض',                                     u:'جامعة البريمي',        m:89.45,f:'g',t:'n',s:'تمريض',
+ conds:[{lbl:'إنجليزي 55%+ ✓',cls:'ok'}]},
+{r:79, c:'BS099',n:'التمريض',                                     u:'جامعة الشرقية',        m:89.45,f:'g',t:'n',s:'تمريض',
+ conds:[{lbl:'⚠ رياضيات + كيمياء 60%',cls:'warn'},{lbl:'الدبلوم 65%+ ✓',cls:'ok'}]},
+{r:80, c:'BS018',n:'الطب البيطري',                                u:'جامعة الشرقية',        m:89.45,f:'g',t:'n',s:'صحة حيوانية',
+ conds:[{lbl:'⚠ أحياء + كيمياء 65%',cls:'warn'},{lbl:'الدبلوم 65%+ ✓',cls:'ok'}]},
+{r:81, c:'BS228',n:'علوم البصريات',                               u:'جامعة البريمي',        m:89.45,f:'g',t:'n',s:'صحة بصرية',
+ conds:[{lbl:'إنجليزي ✓',cls:'ok'}]},
+{r:82, c:'IH001',n:'بكالوريوس علوم المختبرات الطبية',            u:'كلية عُمان للعلوم الصحية – مسقط',m:89.45,f:'g',t:'n',s:'مختبرات طبية',
+ conds:[{lbl:'⚠ أحياء وكيمياء مطلوبة',cls:'warn'},{lbl:'الدبلوم 65%+ ✓',cls:'ok'}]},
+{r:83, c:'PI005',n:'بكالوريوس الصيدلة',                          u:'كلية عُمان للعلوم الصحية – مسقط',m:89.45,f:'g',t:'n',s:'صيدلة',
+ conds:[{lbl:'⚠ أحياء وكيمياء عالية',cls:'warn'},{lbl:'الدبلوم 65%+ ✓',cls:'ok'}]},
+{r:84, c:'BS002',n:'الصيدلة – فرع مسقط',                         u:'الجامعة الوطنية للعلوم والتكنولوجيا',m:89.45,f:'g',t:'n',s:'صيدلة',
+ conds:[{lbl:'⚠ أحياء وكيمياء 65%+',cls:'warn'},{lbl:'الدبلوم 65%+ ✓',cls:'ok'}]},
+{r:85, c:'BS086',n:'علوم المختبرات الطبية',                      u:'جامعة الشرقية',        m:89.45,f:'g',t:'n',s:'مختبرات طبية',
+ conds:[{lbl:'⚠ أحياء وكيمياء',cls:'warn'},{lbl:'الدبلوم 65%+ ✓',cls:'ok'}]},
+{r:86, c:'BS054',n:'علوم المختبرات الطبية – فرع صحار',           u:'الجامعة الوطنية للعلوم والتكنولوجيا',m:89.45,f:'g',t:'n',s:'مختبرات طبية',
+ conds:[{lbl:'⚠ أحياء وكيمياء وإنجليزي',cls:'warn'},{lbl:'الدبلوم 65%+ ✓',cls:'ok'}]},
+
+// صحة 87.1
+{r:87, c:'U0105',n:'العلوم التطبيقية (مسقط)',                     u:'جامعة التقنية والعلوم التطبيقية',m:87.1,f:'g',t:'n',s:'علوم تطبيقية',
+ conds:[{lbl:'⚠ رياضيات متقدمة',cls:'warn'},{lbl:'الدبلوم 65%+ ✓',cls:'ok'}]},
+{r:88, c:'U0909',n:'التقنية الحيوية التطبيقية – فرع صور',         u:'جامعة التقنية والعلوم التطبيقية',m:87.1,f:'g',t:'n',s:'تقنية حيوية',
+ conds:[{lbl:'⚠ أحياء وكيمياء',cls:'warn'},{lbl:'الدبلوم 65%+ ✓',cls:'ok'}]},
+{r:89, c:'BS017',n:'التمريض',                                     u:'جامعة نزوى',           m:87.1,f:'g',t:'n',s:'تمريض',
+ conds:[{lbl:'⚠ رياضيات أو علوم',cls:'warn'},{lbl:'الدبلوم 65%+ ✓',cls:'ok'}]},
+{r:90, c:'BS066',n:'العلاج الوظيفي',                              u:'جامعة نزوى',           m:87.1,f:'g',t:'n',s:'علاج وظيفي',
+ conds:[{lbl:'⚠ رياضيات',cls:'warn'},{lbl:'الدبلوم 65%+ ✓',cls:'ok'}]},
+{r:91, c:'BS289',n:'الصيدلة',                                     u:'جامعة نزوى',           m:87.1,f:'g',t:'n',s:'صيدلة',
+ conds:[{lbl:'مقابلة شخصية',cls:'warn'},{lbl:'فحص طبي',cls:'warn'},{lbl:'⚠ أحياء 60%+',cls:'warn'}]},
+{r:92, c:'BS008',n:'العلاج الفيزيائي',                            u:'جامعة نزوى',           m:87.1,f:'g',t:'n',s:'علاج فيزيائي',
+ conds:[{lbl:'⚠ أحياء 60%+',cls:'warn'},{lbl:'الدبلوم 65%+ ✓',cls:'ok'}]},
+{r:93, c:'BS101',n:'بكالوريوس العلوم في التصوير الإشعاعي',       u:'جامعة البريمي',        m:87.1,f:'g',t:'n',s:'تصوير طبي',
+ conds:[{lbl:'الدبلوم 65%+ ✓',cls:'ok'},{lbl:'إنجليزي ✓',cls:'ok'}]},
+{r:94, c:'BS067',n:'أمراض النطق واللغة',                          u:'جامعة نزوى',           m:87.1,f:'g',t:'n',s:'صحة – نطق',
+ conds:[{lbl:'مقابلة شخصية',cls:'warn'},{lbl:'فحص طبي',cls:'warn'},{lbl:'⚠ أحياء 65%+',cls:'warn'}]},
+{r:95, c:'BS958',n:'العلوم في خدمات الطوارئ الطبية',             u:'جامعة نزوى',           m:87.1,f:'g',t:'n',s:'طوارئ طبية',
+ conds:[{lbl:'الدبلوم 65%+ ✓',cls:'ok'}]},
+{r:96, c:'HM001',n:'إدارة المعلومات الصحية',                     u:'كلية عُمان للعلوم الصحية – مسقط',m:86.65,f:'g',t:'n',s:'إدارة صحية',
+ conds:[{lbl:'الدبلوم 65%+ ✓',cls:'ok'}]},
+{r:97, c:'BS102',n:'بكالوريوس العلوم في العلاج التنفسي',         u:'جامعة نزوى',           m:85.85,f:'g',t:'n',s:'علاج تنفسي',
+ conds:[{lbl:'مقابلة شخصية',cls:'warn'},{lbl:'⚠ كيمياء + رياضيات 65%',cls:'warn'}]},
+
 // ذكاء اصطناعي 86.45
-{r:98,c:'IG234',n:'الذكاء الاصطناعي',u:'جامعة البريمي',m:86.45,f:'j',t:'n',s:'تقنية معلومات'},
-{r:99,c:'IG957',n:'الذكاء الاصطناعي – الأمن السيبراني',u:'جامعة صحار',m:86.45,f:'j',t:'n',s:'تقنية معلومات'},
-{r:100,c:'BS234',n:'الذكاء الاصطناعي',u:'جامعة البريمي',m:86.45,f:'g',t:'n',s:'تقنية معلومات'},
-{r:101,c:'BS957',n:'الذكاء الاصطناعي – الأمن السيبراني',u:'جامعة صحار',m:86.45,f:'g',t:'n',s:'تقنية معلومات'},
-{r:102,c:'BS102',n:'بكالوريوس العلوم في العلاج التنفسي',u:'جامعة نزوى',m:85.85,f:'g',t:'n',s:'صحة'},
-// 85.45 – علوم وإحصاء
-{r:103,c:'IG020',n:'الإحصاء',u:'جامعة نزوى',m:85.45,f:'j',t:'n',s:'رياضيات/إحصاء'},
-{r:104,c:'IG090',n:'الإحصاء',u:'الكلية الحديثة للتجارة والعلوم',m:85.45,f:'j',t:'n',s:'رياضيات'},
-{r:105,c:'BS090',n:'الإحصاء',u:'الكلية الحديثة للتجارة والعلوم',m:85.45,f:'g',t:'n',s:'رياضيات'},
-{r:106,c:'BS020',n:'الإحصاء',u:'جامعة نزوى',m:85.45,f:'g',t:'n',s:'رياضيات'},
-{r:107,c:'IG920',n:'علوم - الرياضيات',u:'جامعة نزوى',m:85.45,f:'j',t:'n',s:'رياضيات'},
+{r:98, c:'IG234',n:'الذكاء الاصطناعي',                           u:'جامعة البريمي',        m:86.45,f:'j',t:'n',s:'تقنية معلومات',
+ conds:[{lbl:'⚠ رياضيات',cls:'warn'},{lbl:'إنجليزي ✓',cls:'ok'}]},
+{r:99, c:'IG957',n:'الذكاء الاصطناعي – الأمن السيبراني',        u:'جامعة صحار',           m:86.45,f:'j',t:'n',s:'تقنية معلومات',
+ conds:[{lbl:'الدبلوم 65%+ ✓',cls:'ok'}]},
+{r:100,c:'BS234',n:'الذكاء الاصطناعي',                           u:'جامعة البريمي',        m:86.45,f:'g',t:'n',s:'تقنية معلومات',
+ conds:[{lbl:'الدبلوم 65%+ ✓',cls:'ok'}]},
+{r:101,c:'BS957',n:'الذكاء الاصطناعي – الأمن السيبراني',        u:'جامعة صحار',           m:86.45,f:'g',t:'n',s:'تقنية معلومات',
+ conds:[{lbl:'الدبلوم 65%+ ✓',cls:'ok'}]},
+
+// 85.45 – علوم وإحصاء ورياضيات
+{r:102,c:'IG020',n:'الإحصاء',                                     u:'جامعة نزوى',           m:85.45,f:'j',t:'n',s:'رياضيات/إحصاء',
+ conds:[{lbl:'رياضيات 72%+ ✓',cls:'ok'}]},
+{r:103,c:'IG090',n:'الإحصاء',                                     u:'الكلية الحديثة للتجارة والعلوم',m:85.45,f:'j',t:'n',s:'رياضيات',
+ conds:[{lbl:'رياضيات 72%+ ✓',cls:'ok'}]},
+{r:104,c:'BS090',n:'الإحصاء',                                     u:'الكلية الحديثة للتجارة والعلوم',m:85.45,f:'g',t:'n',s:'رياضيات',
+ conds:[{lbl:'رياضيات 72%+ ✓',cls:'ok'}]},
+{r:105,c:'BS020',n:'الإحصاء',                                     u:'جامعة نزوى',           m:85.45,f:'g',t:'n',s:'رياضيات',
+ conds:[{lbl:'رياضيات 72%+ ✓',cls:'ok'}]},
+{r:106,c:'IG920',n:'علوم – الرياضيات',                           u:'جامعة نزوى',           m:85.45,f:'j',t:'n',s:'رياضيات',
+ conds:[{lbl:'رياضيات 60%+ ✓',cls:'ok'}]},
+
 // 85.45 – تقنية معلومات (احتياطي)
-{r:108,c:'BS106',n:'علوم الحاسب الآلي',u:'كلية الزهراء للبنات',m:85.45,f:'g',t:'n',s:'تقنية معلومات'},
-{r:109,c:'BS104',n:'بكالوريوس العلوم في علم البيانات والذكاء الاصطناعي',u:'جامعة مسقط',m:85.45,f:'g',t:'n',s:'تقنية معلومات'},
-{r:110,c:'BS909',n:'العلوم في علوم البيانات وتحليلات الأعمال',u:'جامعة الشرقية',m:85.45,f:'g',t:'n',s:'تقنية معلومات'},
-{r:111,c:'BS959',n:'بكالوريوس الأمن السيبراني والأدلة الجنائية السيبرانية',u:'جامعة مسقط',m:85.45,f:'g',t:'n',s:'تقنية معلومات'},
-{r:112,c:'BS961',n:'علوم الحاسوب - علوم البيانات - الأمن السيبراني',u:'جامعة ظفار',m:85.45,f:'g',t:'n',s:'تقنية معلومات'},
-{r:113,c:'IG961',n:'علوم الحاسوب - علوم البيانات - الأمن السيبراني',u:'جامعة ظفار',m:85.45,f:'j',t:'n',s:'تقنية معلومات'},
-{r:114,c:'BS257',n:'علوم الحاسوب (عام) - الحوسبة المتنقلة - الذكاء الاصطناعي',u:'كلية الخليج',m:85.45,f:'g',t:'n',s:'تقنية معلومات'},
-{r:115,c:'BS914',n:'بكالوريوس علم البيانات - الذكاء الاصطناعي',u:'كلية الدراسات المالية والمصرفية',m:85.45,f:'g',t:'n',s:'تقنية معلومات'},
-{r:116,c:'IG052',n:'إدارة تقنية المعلومات للأعمال التجارية',u:'الجامعة الوطنية للعلوم والتكنولوجيا',m:85.45,f:'j',t:'n',s:'تقنية معلومات'},
-{r:117,c:'IG237',n:'تقنية المعلومات والحوسبة - الحوسبة وإدارة الأعمال',u:'الجامعة العربية المفتوحة',m:85.45,f:'j',t:'n',s:'تقنية معلومات'},
-{r:118,c:'IG909',n:'علوم البيانات وتحليلات الأعمال',u:'جامعة الشرقية',m:85.45,f:'j',t:'n',s:'تقنية معلومات'},
-{r:119,c:'BS094',n:'علوم الحاسوب في تخصصات متعددة',u:'الكلية الحديثة للتجارة والعلوم',m:85.45,f:'g',t:'n',s:'تقنية معلومات'},
-{r:120,c:'IG044',n:'علوم الحاسب الآلي في تقنية البرمجيات',u:'كلية الشرق الأوسط',m:85.45,f:'j',t:'n',s:'تقنية معلومات'},
-{r:121,c:'IG914',n:'بكالوريوس علم البيانات - الذكاء الاصطناعي',u:'كلية الدراسات المالية والمصرفية',m:85.45,f:'j',t:'n',s:'تقنية معلومات'},
-{r:122,c:'BS178',n:'علوم الحاسوب: علوم البيانات - الأمن السيبراني',u:'كلية عمان للإدارة والتكنولوجيا',m:85.45,f:'g',t:'n',s:'تقنية معلومات'},
-{r:123,c:'BS052',n:'إدارة تقنية المعلومات للأعمال التجارية – فرع مسقط',u:'الجامعة الوطنية للعلوم والتكنولوجيا',m:85.45,f:'g',t:'n',s:'تقنية معلومات'},
-{r:124,c:'IG027',n:'علوم الحاسوب والوسائط المتعددة - الويب - الشبكات',u:'جامعة صحار',m:85.45,f:'j',t:'n',s:'تقنية معلومات'},
-{r:125,c:'IG187',n:'الحاسوب وتطبيقات الإنترنت - الشبكات',u:'كلية مجان',m:85.45,f:'j',t:'n',s:'تقنية معلومات'},
-{r:126,c:'BS126',n:'علم تقنية المعلومات - علوم الحاسب الآلي',u:'كلية مزون',m:85.45,f:'g',t:'n',s:'تقنية معلومات'},
-{r:127,c:'BS089',n:'الإنترنت وتقنية المعلومات',u:'جامعة الشرقية',m:85.45,f:'g',t:'n',s:'تقنية معلومات'},
-{r:128,c:'U0602',n:'تقنية المعلومات (شناص)',u:'جامعة التقنية والعلوم التطبيقية',m:85.45,f:'g',t:'n',s:'تقنية معلومات'},
-{r:129,c:'IG178',n:'نظم المعلومات الإدارية - علوم الحاسوب - الأمن السيبراني',u:'كلية عمان للإدارة والتكنولوجيا',m:85.45,f:'j',t:'n',s:'تقنية معلومات'},
-{r:130,c:'IG094',n:'علوم الحاسوب - متعدد التخصصات',u:'الكلية الحديثة للتجارة والعلوم',m:85.45,f:'j',t:'n',s:'تقنية معلومات'},
-{r:131,c:'BS081',n:'الهندسة في الذكاء الاصطناعي',u:'جامعة الشرقية',m:85.45,f:'g',t:'n',s:'تقنية معلومات'},
-{r:132,c:'BS027',n:'علوم الحاسوب والوسائط المتعددة - الويب - الشبكات',u:'جامعة صحار',m:85.45,f:'g',t:'n',s:'تقنية معلومات'},
-{r:133,c:'U0802',n:'تقنية المعلومات (صحار)',u:'جامعة التقنية والعلوم التطبيقية',m:85.45,f:'g',t:'n',s:'تقنية معلومات'},
-{r:134,c:'U0702',n:'تقنية المعلومات (عبري)',u:'جامعة التقنية والعلوم التطبيقية',m:85.45,f:'g',t:'n',s:'تقنية معلومات'},
-{r:135,c:'BS445',n:'الذكاء الاصطناعي - الحوسبة السحابية - إنترنت الأشياء',u:'الجامعة الوطنية للعلوم والتكنولوجيا',m:85.45,f:'g',t:'n',s:'تقنية معلومات'},
-{r:136,c:'IG445',n:'الذكاء الاصطناعي - الحوسبة السحابية - إنترنت الأشياء',u:'الجامعة الوطنية للعلوم والتكنولوجيا',m:85.45,f:'j',t:'n',s:'تقنية معلومات'},
-{r:137,c:'IG148',n:'بكالوريوس مع مرتبة الشرف في الحاسب الآلي',u:'كلية مسقط',m:85.45,f:'j',t:'n',s:'تقنية معلومات'},
-{r:138,c:'BS082',n:'الأمن السيبراني',u:'جامعة الشرقية',m:85.45,f:'g',t:'n',s:'تقنية معلومات'},
-{r:139,c:'U2002',n:'تقنية المعلومات (مسندم)',u:'جامعة التقنية والعلوم التطبيقية',m:85.45,f:'g',t:'n',s:'تقنية معلومات'},
-{r:140,c:'IG952',n:'بكالوريوس العلوم في الذكاء الاصطناعي',u:'الجامعة العربية المفتوحة',m:85.45,f:'j',t:'n',s:'تقنية معلومات'},
-{r:141,c:'BS044',n:'علوم الحاسوب: تقنية البرمجيات - علوم الحاسب - تحليل البيانات',u:'كلية الشرق الأوسط',m:85.45,f:'g',t:'n',s:'تقنية معلومات'},
-{r:142,c:'BS187',n:'الحاسوب والإنترنت والشبكات وأمن البيانات',u:'كلية مجان',m:85.45,f:'g',t:'n',s:'تقنية معلومات'},
-{r:143,c:'BS148',n:'بكالوريوس مرتبة شرف - الحاسب الآلي متعدد التخصصات',u:'كلية مسقط',m:85.45,f:'g',t:'n',s:'تقنية معلومات'},
-{r:144,c:'BS268',n:'أمن الحاسبات - الحاسب للأعمال - علوم الحاسب',u:'الكلية العالمية للهندسة والتكنولوجيا',m:85.45,f:'g',t:'n',s:'تقنية معلومات'},
-{r:145,c:'U0402',n:'تقنية المعلومات (صاللة)',u:'جامعة التقنية والعلوم التطبيقية',m:85.45,f:'g',t:'n',s:'تقنية معلومات'},
-{r:146,c:'IG089',n:'الإنترنت وتقنية المعلومات',u:'جامعة الشرقية',m:85.45,f:'j',t:'n',s:'تقنية معلومات'},
-{r:147,c:'IG126',n:'علم تقنية المعلومات - علوم الحاسب الآلي',u:'كلية مزون',m:85.45,f:'j',t:'n',s:'تقنية معلومات'},
-{r:148,c:'IG268',n:'علم الحاسب الآلي للأعمال',u:'الكلية العالمية للهندسة والتكنولوجيا',m:85.45,f:'j',t:'n',s:'تقنية معلومات'},
-{r:149,c:'IG082',n:'الأمن السيبراني',u:'جامعة الشرقية',m:85.45,f:'j',t:'n',s:'تقنية معلومات'},
-{r:150,c:'BS953',n:'بكالوريوس الأمن السيبراني',u:'الجامعة العربية المفتوحة',m:85.45,f:'g',t:'n',s:'تقنية معلومات'},
-{r:151,c:'IG953',n:'بكالوريوس الأمن السيبراني',u:'الجامعة العربية المفتوحة',m:85.45,f:'j',t:'n',s:'تقنية معلومات'},
-{r:152,c:'BS237',n:'بكالوريوس مرتبة شرف في تقنية المعلومات والحوسبة',u:'الجامعة العربية المفتوحة',m:85.45,f:'g',t:'n',s:'تقنية معلومات'},
-{r:153,c:'U0302',n:'تقنية المعلومات (ابراء)',u:'جامعة التقنية والعلوم التطبيقية',m:85.45,f:'g',t:'n',s:'تقنية معلومات'},
-{r:154,c:'U0902',n:'تقنية المعلومات (صور)',u:'جامعة التقنية والعلوم التطبيقية',m:85.45,f:'g',t:'n',s:'تقنية معلومات'},
-{r:155,c:'BS952',n:'بكالوريوس العلوم في الذكاء الاصطناعي',u:'الجامعة العربية المفتوحة',m:85.45,f:'g',t:'n',s:'تقنية معلومات'},
-{r:156,c:'IG959',n:'بكالوريوس الأمن السيبراني والأدلة الجنائية السيبرانية',u:'جامعة مسقط',m:85.45,f:'j',t:'n',s:'تقنية معلومات'},
-{r:157,c:'IG257',n:'علوم الحاسوب (عام) - الأمن السيبراني',u:'كلية الخليج',m:85.45,f:'j',t:'n',s:'تقنية معلومات'},
+{r:107,c:'BS106',n:'علوم الحاسب الآلي',                          u:'كلية الزهراء للبنات',  m:85.45,f:'g',t:'n',s:'تقنية',conds:[{lbl:'الدبلوم 65%+ ✓',cls:'ok'}]},
+{r:108,c:'BS104',n:'بكالوريوس علم البيانات والذكاء الاصطناعي',  u:'جامعة مسقط',           m:85.45,f:'g',t:'n',s:'تقنية',conds:[{lbl:'الدبلوم 65%+ ✓',cls:'ok'}]},
+{r:109,c:'BS909',n:'العلوم في علوم البيانات وتحليلات الأعمال',  u:'جامعة الشرقية',        m:85.45,f:'g',t:'n',s:'تقنية',conds:[{lbl:'الدبلوم 65%+ ✓',cls:'ok'}]},
+{r:110,c:'BS959',n:'الأمن السيبراني والأدلة الجنائية السيبرانية',u:'جامعة مسقط',           m:85.45,f:'g',t:'n',s:'تقنية',conds:[{lbl:'الدبلوم 65%+ ✓',cls:'ok'}]},
+{r:111,c:'BS961',n:'علوم الحاسوب – علوم البيانات – الأمن السيبراني',u:'جامعة ظفار',       m:85.45,f:'g',t:'n',s:'تقنية',conds:[{lbl:'الدبلوم 65%+ ✓',cls:'ok'}]},
+{r:112,c:'IG961',n:'علوم الحاسوب – علوم البيانات – الأمن السيبراني',u:'جامعة ظفار',       m:85.45,f:'j',t:'n',s:'تقنية',conds:[{lbl:'الدبلوم 65%+ ✓',cls:'ok'}]},
+{r:113,c:'BS257',n:'علوم الحاسوب (عام) – الحوسبة المتنقلة – الذكاء الاصطناعي',u:'كلية الخليج',m:85.45,f:'g',t:'n',s:'تقنية',conds:[{lbl:'الدبلوم 65%+ ✓',cls:'ok'}]},
+{r:114,c:'BS914',n:'بكالوريوس علم البيانات – الذكاء الاصطناعي', u:'كلية الدراسات المالية والمصرفية',m:85.45,f:'g',t:'n',s:'تقنية',conds:[{lbl:'الدبلوم 65%+ ✓',cls:'ok'}]},
+{r:115,c:'IG052',n:'إدارة تقنية المعلومات للأعمال التجارية',    u:'الجامعة الوطنية للعلوم والتكنولوجيا',m:85.45,f:'j',t:'n',s:'تقنية',conds:[{lbl:'الدبلوم 65%+ ✓',cls:'ok'}]},
+{r:116,c:'IG237',n:'تقنية المعلومات والحوسبة – الحوسبة وإدارة الأعمال',u:'الجامعة العربية المفتوحة',m:85.45,f:'j',t:'n',s:'تقنية',conds:[{lbl:'الدبلوم 65%+ ✓',cls:'ok'}]},
+{r:117,c:'IG909',n:'علوم البيانات وتحليلات الأعمال',            u:'جامعة الشرقية',        m:85.45,f:'j',t:'n',s:'تقنية',conds:[{lbl:'الدبلوم 65%+ ✓',cls:'ok'}]},
+{r:118,c:'BS094',n:'علوم الحاسوب في تخصصات متعددة',             u:'الكلية الحديثة للتجارة والعلوم',m:85.45,f:'g',t:'n',s:'تقنية',conds:[{lbl:'الدبلوم 65%+ ✓',cls:'ok'}]},
+{r:119,c:'IG044',n:'علوم الحاسب الآلي في تقنية البرمجيات',      u:'كلية الشرق الأوسط',    m:85.45,f:'j',t:'n',s:'تقنية',conds:[{lbl:'الدبلوم 65%+ ✓',cls:'ok'}]},
+{r:120,c:'IG914',n:'بكالوريوس علم البيانات – الذكاء الاصطناعي',u:'كلية الدراسات المالية والمصرفية',m:85.45,f:'j',t:'n',s:'تقنية',conds:[{lbl:'الدبلوم 65%+ ✓',cls:'ok'}]},
+{r:121,c:'BS178',n:'علوم الحاسوب: علوم البيانات – الأمن السيبراني',u:'كلية عمان للإدارة والتكنولوجيا',m:85.45,f:'g',t:'n',s:'تقنية',conds:[{lbl:'الدبلوم 65%+ ✓',cls:'ok'}]},
+{r:122,c:'BS052',n:'إدارة تقنية المعلومات للأعمال التجارية – فرع مسقط',u:'الجامعة الوطنية للعلوم والتكنولوجيا',m:85.45,f:'g',t:'n',s:'تقنية',conds:[{lbl:'الدبلوم 65%+ ✓',cls:'ok'}]},
+{r:123,c:'IG027',n:'علوم الحاسوب والوسائط المتعددة – الويب والشبكات',u:'جامعة صحار',     m:85.45,f:'j',t:'n',s:'تقنية',conds:[{lbl:'الدبلوم 65%+ ✓',cls:'ok'}]},
+{r:124,c:'IG187',n:'الحاسوب وتطبيقات الإنترنت – الشبكات',       u:'كلية مجان',            m:85.45,f:'j',t:'n',s:'تقنية',conds:[{lbl:'الدبلوم 65%+ ✓',cls:'ok'}]},
+{r:125,c:'BS126',n:'علم تقنية المعلومات – علوم الحاسب الآلي',   u:'كلية مزون',            m:85.45,f:'g',t:'n',s:'تقنية',conds:[{lbl:'الدبلوم 65%+ ✓',cls:'ok'}]},
+{r:126,c:'BS089',n:'الإنترنت وتقنية المعلومات',                  u:'جامعة الشرقية',        m:85.45,f:'g',t:'n',s:'تقنية',conds:[{lbl:'الدبلوم 65%+ ✓',cls:'ok'}]},
+{r:127,c:'U0602',n:'تقنية المعلومات (شناص)',                      u:'جامعة التقنية والعلوم التطبيقية',m:85.45,f:'g',t:'n',s:'تقنية',conds:[{lbl:'الدبلوم 55%+ ✓',cls:'ok'}]},
+{r:128,c:'IG178',n:'نظم المعلومات الإدارية – الأمن السيبراني',  u:'كلية عمان للإدارة والتكنولوجيا',m:85.45,f:'j',t:'n',s:'تقنية',conds:[{lbl:'الدبلوم 65%+ ✓',cls:'ok'}]},
+{r:129,c:'IG094',n:'علوم الحاسوب – متعدد التخصصات',             u:'الكلية الحديثة للتجارة والعلوم',m:85.45,f:'j',t:'n',s:'تقنية',conds:[{lbl:'الدبلوم 65%+ ✓',cls:'ok'}]},
+{r:130,c:'BS081',n:'الهندسة في الذكاء الاصطناعي',               u:'جامعة الشرقية',        m:85.45,f:'g',t:'n',s:'تقنية',conds:[{lbl:'الدبلوم 65%+ ✓',cls:'ok'}]},
+{r:131,c:'BS027',n:'علوم الحاسوب والوسائط المتعددة – الويب والشبكات',u:'جامعة صحار',     m:85.45,f:'g',t:'n',s:'تقنية',conds:[{lbl:'الدبلوم 65%+ ✓',cls:'ok'}]},
+{r:132,c:'U0802',n:'تقنية المعلومات (صحار)',                      u:'جامعة التقنية والعلوم التطبيقية',m:85.45,f:'g',t:'n',s:'تقنية',conds:[{lbl:'الدبلوم 55%+ ✓',cls:'ok'}]},
+{r:133,c:'U0702',n:'تقنية المعلومات (عبري)',                      u:'جامعة التقنية والعلوم التطبيقية',m:85.45,f:'g',t:'n',s:'تقنية',conds:[{lbl:'الدبلوم 55%+ ✓',cls:'ok'}]},
+{r:134,c:'BS445',n:'الذكاء الاصطناعي – الحوسبة السحابية – إنترنت الأشياء',u:'الجامعة الوطنية للعلوم والتكنولوجيا',m:85.45,f:'g',t:'n',s:'تقنية',conds:[{lbl:'الدبلوم 65%+ ✓',cls:'ok'}]},
+{r:135,c:'IG445',n:'الذكاء الاصطناعي – الحوسبة السحابية – إنترنت الأشياء',u:'الجامعة الوطنية للعلوم والتكنولوجيا',m:85.45,f:'j',t:'n',s:'تقنية',conds:[{lbl:'الدبلوم 65%+ ✓',cls:'ok'}]},
+{r:136,c:'IG148',n:'بكالوريوس مرتبة شرف في الحاسب الآلي',       u:'كلية مسقط',            m:85.45,f:'j',t:'n',s:'تقنية',conds:[{lbl:'الدبلوم 65%+ ✓',cls:'ok'}]},
+{r:137,c:'BS082',n:'الأمن السيبراني',                            u:'جامعة الشرقية',        m:85.45,f:'g',t:'n',s:'تقنية',conds:[{lbl:'الدبلوم 65%+ ✓',cls:'ok'}]},
+{r:138,c:'U2002',n:'تقنية المعلومات (مسندم)',                     u:'جامعة التقنية والعلوم التطبيقية',m:85.45,f:'g',t:'n',s:'تقنية',conds:[{lbl:'الدبلوم 55%+ ✓',cls:'ok'}]},
+{r:139,c:'IG952',n:'بكالوريوس العلوم في الذكاء الاصطناعي',      u:'الجامعة العربية المفتوحة',m:85.45,f:'j',t:'n',s:'تقنية',conds:[{lbl:'الدبلوم 65%+ ✓',cls:'ok'}]},
+{r:140,c:'BS044',n:'علوم الحاسوب: تقنية البرمجيات – علوم الحاسب – تحليل البيانات',u:'كلية الشرق الأوسط',m:85.45,f:'g',t:'n',s:'تقنية',conds:[{lbl:'الدبلوم 65%+ ✓',cls:'ok'}]},
+{r:141,c:'BS187',n:'الحاسوب والإنترنت والشبكات وأمن البيانات',  u:'كلية مجان',            m:85.45,f:'g',t:'n',s:'تقنية',conds:[{lbl:'الدبلوم 65%+ ✓',cls:'ok'}]},
+{r:142,c:'BS148',n:'بكالوريوس مرتبة شرف في الحاسب الآلي – متعدد',u:'كلية مسقط',          m:85.45,f:'g',t:'n',s:'تقنية',conds:[{lbl:'الدبلوم 65%+ ✓',cls:'ok'}]},
+{r:143,c:'BS268',n:'أمن الحاسبات – الحاسب للأعمال – علوم الحاسب',u:'الكلية العالمية للهندسة والتكنولوجيا',m:85.45,f:'g',t:'n',s:'تقنية',conds:[{lbl:'الدبلوم 65%+ ✓',cls:'ok'}]},
+{r:144,c:'U0402',n:'تقنية المعلومات (صاللة)',                     u:'جامعة التقنية والعلوم التطبيقية',m:85.45,f:'g',t:'n',s:'تقنية',conds:[{lbl:'الدبلوم 55%+ ✓',cls:'ok'}]},
+{r:145,c:'IG089',n:'الإنترنت وتقنية المعلومات',                  u:'جامعة الشرقية',        m:85.45,f:'j',t:'n',s:'تقنية',conds:[{lbl:'الدبلوم 65%+ ✓',cls:'ok'}]},
+{r:146,c:'IG126',n:'علم تقنية المعلومات – علوم الحاسب الآلي',   u:'كلية مزون',            m:85.45,f:'j',t:'n',s:'تقنية',conds:[{lbl:'الدبلوم 65%+ ✓',cls:'ok'}]},
+{r:147,c:'IG268',n:'علم الحاسب الآلي للأعمال',                  u:'الكلية العالمية للهندسة والتكنولوجيا',m:85.45,f:'j',t:'n',s:'تقنية',conds:[{lbl:'الدبلوم 65%+ ✓',cls:'ok'}]},
+{r:148,c:'IG082',n:'الأمن السيبراني',                            u:'جامعة الشرقية',        m:85.45,f:'j',t:'n',s:'تقنية',conds:[{lbl:'الدبلوم 65%+ ✓',cls:'ok'}]},
+{r:149,c:'BS953',n:'بكالوريوس الأمن السيبراني',                  u:'الجامعة العربية المفتوحة',m:85.45,f:'g',t:'n',s:'تقنية',conds:[{lbl:'الدبلوم 65%+ ✓',cls:'ok'}]},
+{r:150,c:'IG953',n:'بكالوريوس الأمن السيبراني',                  u:'الجامعة العربية المفتوحة',m:85.45,f:'j',t:'n',s:'تقنية',conds:[{lbl:'الدبلوم 65%+ ✓',cls:'ok'}]},
+{r:151,c:'BS237',n:'بكالوريوس مرتبة شرف في تقنية المعلومات والحوسبة',u:'الجامعة العربية المفتوحة',m:85.45,f:'g',t:'n',s:'تقنية',conds:[{lbl:'الدبلوم 65%+ ✓',cls:'ok'}]},
+{r:152,c:'U0302',n:'تقنية المعلومات (ابراء)',                     u:'جامعة التقنية والعلوم التطبيقية',m:85.45,f:'g',t:'n',s:'تقنية',conds:[{lbl:'الدبلوم 55%+ ✓',cls:'ok'}]},
+{r:153,c:'U0902',n:'تقنية المعلومات (صور)',                       u:'جامعة التقنية والعلوم التطبيقية',m:85.45,f:'g',t:'n',s:'تقنية',conds:[{lbl:'الدبلوم 55%+ ✓',cls:'ok'}]},
+{r:154,c:'BS952',n:'بكالوريوس العلوم في الذكاء الاصطناعي',      u:'الجامعة العربية المفتوحة',m:85.45,f:'g',t:'n',s:'تقنية',conds:[{lbl:'الدبلوم 65%+ ✓',cls:'ok'}]},
+{r:155,c:'IG959',n:'الأمن السيبراني والأدلة الجنائية السيبرانية',u:'جامعة مسقط',           m:85.45,f:'j',t:'n',s:'تقنية',conds:[{lbl:'الدبلوم 65%+ ✓',cls:'ok'}]},
+{r:156,c:'IG257',n:'علوم الحاسوب (عام) – الأمن السيبراني',      u:'كلية الخليج',          m:85.45,f:'j',t:'n',s:'تقنية',conds:[{lbl:'الدبلوم 65%+ ✓',cls:'ok'}]},
+{r:157,c:'IG920',n:'علوم – الرياضيات',                           u:'جامعة نزوى',           m:85.45,f:'j',t:'n',s:'علوم رياضيات',conds:[{lbl:'رياضيات 60%+ ✓',cls:'ok'}]},
 ];
 
-// ── CONFIG ──
-const TC={
-  d:{label:'الفئة الأولى: مؤهلة مباشرةً لوظيفة معلمة',ic:'🎓',clr:'var(--teal)',bg:'#e8f5ee',br:'#a8e0c8',sc:'t1'},
-  p:{label:'الفئة الثانية: مؤهلة عبر دبلوم التأهيل التربوي',ic:'📚',clr:'var(--blue)',bg:'#e8eef8',br:'#a8c8e8',sc:'t2'},
-  v:{label:'الفئة الثالثة: بعثات داخلية (يعتمد على التخصص)',ic:'🏛️',clr:'var(--gold)',bg:'#fef5e0',br:'#f0d088',sc:'t3'},
-  n:{label:'الفئة الرابعة: احتياطي – غير تعليمي',ic:'🛡️',clr:'var(--coral)',bg:'#fdecea',br:'#f0b8b0',sc:'t4'}
+/* ── RENDER CONFIG ── */
+const TC = {
+  d:{lbl:'الفئة الأولى — مؤهلة مباشرةً لوظيفة معلمة',ic:'🎓',clr:'var(--teal)',bg:'var(--teal-l)',br:'var(--teal-m)',sc:'st'},
+  p:{lbl:'الفئة الثانية — مؤهلة عبر دبلوم التأهيل التربوي',ic:'📚',clr:'var(--blue)',bg:'var(--blue-l)',br:'var(--blue-m)',sc:'sb'},
+  v:{lbl:'الفئة الثالثة — بعثات داخلية (التأهيل حسب التخصص)',ic:'🏛️',clr:'var(--amber)',bg:'var(--amber-l)',br:'var(--amber-m)',sc:'sa'},
+  n:{lbl:'الفئة الرابعة — احتياطي (غير تعليمي)',ic:'🛡️',clr:'var(--rust)',bg:'var(--rust-l)',br:'var(--rust-m)',sc:'sr'},
 };
-const tOrder={d:0,p:1,v:2,n:3};
+const SCORE = 93.45;
+let activePill = 'all', srch = '';
 
-let activePill='all',srch='';
-
-function render(){
-  srch=document.getElementById('search').value.toLowerCase();
-  const f=D.filter(p=>{
-    const mP=activePill==='all'||(activePill==='d'&&p.t==='d')||(activePill==='p'&&p.t==='p')
-      ||(activePill==='s'&&(p.t==='n'||p.t==='v'))||(activePill==='g'&&p.f==='g')||(activePill==='j'&&p.f==='j');
-    const mS=!srch||p.n.includes(srch)||p.c.toLowerCase().includes(srch)||p.u.includes(srch)||p.s.includes(srch);
-    return mP&&mS;
+function render() {
+  srch = document.getElementById('search').value.toLowerCase();
+  const hasWarn = p => p.conds.some(c => c.cls === 'warn');
+  const f = P.filter(p => {
+    const mP = activePill==='all'
+      || (activePill==='d' && p.t==='d')
+      || (activePill==='p' && p.t==='p')
+      || (activePill==='n' && (p.t==='n'||p.t==='v'))
+      || (activePill==='warn' && hasWarn(p))
+      || (activePill==='g' && p.f==='g')
+      || (activePill==='j' && p.f==='j');
+    const mS = !srch || p.n.includes(srch)||p.c.toLowerCase().includes(srch)||p.u.includes(srch)||p.s.includes(srch);
+    return mP && mS;
   });
-  document.getElementById('cnt').textContent=`${f.length} برنامجاً`;
-  let html='',curT=null;
-  f.forEach(p=>{
-    if(p.t!==curT){
-      if(curT!==null) html+='</div>';
-      curT=p.t;
-      const tc=TC[p.t];
-      html+=`<div class="sec-hdr" style="background:${tc.bg};color:${tc.clr};border-color:${tc.br}">
-        <span>${tc.ic}</span>${tc.label}
-        <span style="margin-right:auto;font-size:11px;opacity:.7">${f.filter(x=>x.t===p.t).length} برنامجاً</span>
-      </div><div class="prog-list" id="tl-${p.t}">`;
+  document.getElementById('cnt').textContent = `${f.length} برنامجاً`;
+
+  let html = '', curT = null;
+  f.forEach(p => {
+    if (p.t !== curT) {
+      if (curT !== null) html += '</div>';
+      curT = p.t;
+      const tc = TC[p.t];
+      const cnt = f.filter(x => x.t === p.t).length;
+      html += `<div class="sec-hdr" style="background:${tc.bg};color:${tc.clr};border-color:${tc.br}">
+        <span>${tc.ic}</span>${tc.lbl}
+        <span class="sec-count">${cnt} برنامجاً</span>
+      </div><div class="prog-list">`;
     }
-    const gap=(SCORE-p.m).toFixed(2);
-    const gN=parseFloat(gap);
-    const gc=gN>=4?'var(--teal)':gN>=2?'var(--blue)':gN>=0?'var(--gold)':'var(--coral)';
-    const bp=Math.min(100,Math.max(4,(gN/8)*100));
-    const rb=p.t==='d'?'#e0f5ee':p.t==='p'?'#e3eef8':p.t==='v'?'#fef5e0':'#fdecea';
-    const rc=p.t==='d'?'var(--teal)':p.t==='p'?'var(--blue)':p.t==='v'?'var(--gold)':'var(--coral)';
-    const fb=p.f==='g'?'bt':'bg';
-    const tb=p.t==='d'?'bt':p.t==='p'?'bb':p.t==='v'?'bg':'bc';
-    const tl=p.t==='d'?'مباشرةً':p.t==='p'?'دبلوم':p.t==='v'?'بعثة':'احتياطي';
-    html+=`<div class="pc ${TC[p.t].sc}" data-t="${p.t}" data-f="${p.f}">
+
+    const gap = (SCORE - p.m).toFixed(2);
+    const gN  = parseFloat(gap);
+    const gc  = gN>=4?'var(--teal)':gN>=2?'var(--blue)':gN>=0?'var(--amber)':'var(--rust)';
+    const bp  = Math.min(100, Math.max(4, (gN/8)*100));
+    const rb  = p.t==='d'?'var(--teal-l)':p.t==='p'?'var(--blue-l)':p.t==='v'?'var(--amber-l)':'var(--rust-l)';
+    const rc  = TC[p.t].clr;
+    const fb  = p.f==='g'?'bg':'bj';
+    const tb  = p.t==='d'?'bt':p.t==='p'?'bb':p.t==='v'?'ba':'br';
+    const tl  = p.t==='d'?'مباشرةً':p.t==='p'?'دبلوم تأهيل':p.t==='v'?'بعثة':'احتياطي';
+    const flagged = p.conds.some(c=>c.cls==='warn');
+
+    const condsHtml = p.conds.map(c =>
+      `<span class="cond cond-${c.cls}">${c.lbl}</span>`
+    ).join('');
+
+    html += `<div class="pc ${TC[p.t].sc}${flagged?' flagged':''}">
       <div class="rank" style="background:${rb};color:${rc}">${p.r}</div>
       <div>
         <div class="pname">${p.n}</div>
         <div class="pmeta">
-          <span class="pcode">${p.c}</span><span>${p.u}</span>
-          <span style="color:var(--gold)">الحد الأدنى: ${p.m}</span>
-          <span style="color:var(--muted)">|</span><span>${p.s}</span>
+          <span class="pcode">${p.c}</span>
+          <span>${p.u}</span>
+          <span style="color:var(--gold);font-weight:700">الحد الأدنى: ${p.m}</span>
+          <span style="color:var(--subtle)">|</span>
+          <span>${p.s}</span>
         </div>
+        ${condsHtml ? `<div class="pconds">${condsHtml}</div>` : ''}
       </div>
       <div class="pright">
-        <span class="bdg ${fb}">${p.f==='g'?'حكومي':'جامعي'}</span>
-        <span class="bdg ${tb}">${tl}</span>
-        <span class="gap-n" style="color:${gc}">+${gap}▲</span>
-        <div class="gbar"><div class="gfill" style="width:${bp}%;background:${gc}"></div></div>
+        <span class="badge ${fb}">${p.f==='g'?'حكومي':'جامعي ذاتي'}</span>
+        <span class="badge ${tb}">${tl}</span>
+        <div class="gap-wrap">
+          <span class="gap-num" style="color:${gc}">+${gap}</span>
+          <div class="gap-bar"><div class="gap-fill" style="width:${bp}%;background:${gc}"></div></div>
+        </div>
       </div>
     </div>`;
   });
-  if(curT!==null) html+='</div>';
-  document.getElementById('container').innerHTML=html||'<div style="text-align:center;padding:40px;color:var(--muted)">لا توجد نتائج</div>';
-  buildCopyArea(f);
+  if (curT !== null) html += '</div>';
+  document.getElementById('container').innerHTML = html
+    || `<div style="text-align:center;padding:60px;color:var(--subtle);font-size:15px">لا توجد نتائج مطابقة للبحث</div>`;
+
+  // build copy
+  document.getElementById('copy-ta').value =
+    f.map(p => `${p.r}. [${p.c}] ${p.n} — ${p.u} — الحد الأدنى: ${p.m} — ${TC[p.t].lbl.split('—')[1]?.trim()}`).join('\n');
 }
 
-function buildCopyArea(f){
-  const txt=f.map(p=>`${p.r}. ${p.c} - ${p.n} (${p.u}) - الحد الأدنى: ${p.m} - ${p.t==='d'?'مؤهل مباشرةً':p.t==='p'?'عبر دبلوم':'احتياطي'}`).join('\n');
-  document.getElementById('copy-area').value=txt;
+function setPill(el, v) {
+  document.querySelectorAll('.pill').forEach(p => p.classList.remove('on'));
+  el.classList.add('on');
+  activePill = v; render();
 }
 
-function copyList(){
-  const ta=document.getElementById('copy-area');
-  ta.style.position='fixed';ta.style.left='0';ta.style.top='0';
-  ta.select();document.execCommand('copy');
-  ta.style.position='absolute';ta.style.left='-9999px';
-  const btn=document.querySelector('.copy-btn');
-  btn.textContent='✅ تم النسخ!';setTimeout(()=>btn.textContent='📋 نسخ القائمة',2000);
-}
-
-function setPill(el,v){
-  document.querySelectorAll('.pill').forEach(p=>p.classList.remove('on'));
-  el.classList.add('on');activePill=v;render();
+function copyList() {
+  const ta = document.getElementById('copy-ta');
+  ta.style.cssText = 'position:fixed;left:0;top:0;width:200px;opacity:0';
+  ta.select(); document.execCommand('copy');
+  ta.style.cssText = 'position:absolute;left:-9999px;top:0';
+  const b = document.querySelector('.btn-teal');
+  b.textContent = '✅ تم النسخ!';
+  setTimeout(() => b.textContent = '📋 نسخ للنظام', 2000);
 }
 
 render();
 </script>
 </body>
 </html>
- 
