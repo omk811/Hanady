@@ -3,117 +3,273 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>دليل الاختيارات الجامعية المُحقَّقة — هنادي موسى البلوشية</title>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;900&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<title>دليل الاختيارات الجامعية — هنادي موسى البلوشية ٢٠٢٦</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
 <style>
-:root{
-  --ink:#1c1a14;--paper:#f6f3ec;--card:#fff;--line:#e2ddd0;--line2:#cbc4b2;
-  --teal:#0b6248;--teal-l:#e2f5ee;--teal-m:#9ad4be;
-  --blue:#14448f;--blue-l:#e3ecf8;--blue-m:#9ab8e0;
-  --amber:#b87010;--amber-l:#fef4dc;--amber-m:#eacc7a;
-  --rust:#a83020;--rust-l:#fce8e5;--rust-m:#e8a898;
-  --block:#8b0000;--block-l:#fce0e0;--block-m:#e89888;
-  --gold:#b07010;--muted:#706858;--subtle:#a09880;
+/* ════════════════════════════ TOKENS ════════════════════════════ */
+:root {
+  --ink:    #16140f;  --paper: #f4f0e8;  --card: #fffefa;
+  --line:   #e0dace;  --line2: #c8c0b0;
+  --teal:   #096b4a;  --tl:    #dcf0e8;  --tm: #8acbb0;
+  --blue:   #1248a0;  --bl:    #dce8f8;  --bm: #88b0e0;
+  --amber:  #b06800;  --al:    #fef0d0;  --am: #e8c070;
+  --rust:   #a82810;  --rl:    #fce4e0;  --rm: #e8a090;
+  --block:  #8b0000;  --xl:    #fcdcdc;  --xm: #e88880;
+  --gold:   #b07010;  --muted: #6a6050;  --faint: #9a9080;
 }
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:'Cairo',sans-serif;background:var(--paper);color:var(--ink);font-size:14px;line-height:1.6;min-height:100vh}
-
-/* ── MASTHEAD ── */
-.mast{background:var(--ink);color:#f0ece0;padding:34px 24px 26px;position:relative;overflow:hidden}
-.mast::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(-45deg,transparent,transparent 38px,rgba(255,255,255,.018) 38px,rgba(255,255,255,.018) 39px);pointer-events:none}
-.mast-inner{max-width:1060px;margin:0 auto;display:flex;gap:22px;align-items:flex-start;flex-wrap:wrap;position:relative}
-.mast-text{flex:1}
-.mast-tag{display:inline-block;border:1px solid rgba(176,112,16,.55);color:#d4a040;font-size:10.5px;letter-spacing:1.8px;padding:3px 12px;border-radius:2px;margin-bottom:10px;text-transform:uppercase}
-.mast h1{font-family:'Amiri',serif;font-size:clamp(20px,3.8vw,34px);font-weight:700;line-height:1.25;color:#f5f0e4;margin-bottom:5px}
-.mast-sub{font-size:11.5px;opacity:.58;margin-bottom:14px}
-.mast-chips{display:flex;gap:7px;flex-wrap:wrap}
-.mc{background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.13);border-radius:4px;padding:3px 11px;font-size:11px}
-.mc b{color:#d4a040}
-.score-box{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:14px 22px;text-align:center;flex-shrink:0}
-.score-n{font-size:40px;font-weight:900;font-family:'Amiri',serif;color:#d4a040;line-height:1}
-.score-lbl{font-size:10.5px;opacity:.55;margin-top:2px}
-
-/* ── CORRECTION BANNER ── */
-.fix-banner{background:#1e1200;border-bottom:2px solid #c07010;padding:10px 24px;display:flex;align-items:center;gap:12px;font-size:12px;color:#e8c878}
-.fix-banner-inner{max-width:1060px;margin:0 auto;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
-.fix-item{background:rgba(255,255,255,.08);border-radius:4px;padding:2px 10px}
-
-/* ── LEGEND ── */
-.lgd{background:var(--card);border-bottom:2px solid var(--line);padding:9px 22px;display:flex;gap:18px;flex-wrap:wrap;align-items:center;position:sticky;top:0;z-index:200;box-shadow:0 2px 10px rgba(0,0,0,.06)}
-.li{display:flex;align-items:center;gap:5px;font-size:11.5px;color:var(--muted)}
-.ld{width:13px;height:13px;border-radius:3px;flex-shrink:0}
-.lsep{width:1px;height:14px;background:var(--line2);flex-shrink:0}
-.lgd-warn{margin-right:auto;display:flex;align-items:center;gap:5px;background:#fffaec;border:1px solid #e8cc60;border-radius:4px;padding:3px 10px;font-size:11px;color:var(--amber)}
-
-/* ── CONTROLS ── */
-.ctrl{background:var(--card);border-bottom:1px solid var(--line);padding:10px 18px;display:flex;gap:9px;flex-wrap:wrap;align-items:center}
-.ctrl-s{flex:1;min-width:180px;border:1.5px solid var(--line2);border-radius:6px;padding:7px 13px;font-size:13px;font-family:'Cairo',sans-serif;background:var(--paper);color:var(--ink);outline:none;transition:border-color .18s}
-.ctrl-s:focus{border-color:var(--teal)}
-.pills{display:flex;gap:5px;flex-wrap:wrap}
-.pill{padding:4px 12px;font-size:11.5px;border:1.5px solid var(--line2);border-radius:6px;cursor:pointer;background:transparent;color:var(--muted);font-family:'Cairo',sans-serif;transition:all .14s;white-space:nowrap}
-.pill.on{background:var(--ink);border-color:var(--ink);color:#fff}
-.cnt{font-size:11.5px;color:var(--muted);white-space:nowrap}
-.btn{padding:6px 16px;border:none;border-radius:6px;font-size:11.5px;font-family:'Cairo',sans-serif;cursor:pointer;white-space:nowrap;font-weight:600;transition:opacity .14s}
-.btn:hover{opacity:.85}
-.btn-dk{background:var(--ink);color:#f5f0e4}
-.btn-tl{background:var(--teal);color:#fff}
-
-/* ── MAIN ── */
-.main{max-width:1060px;margin:0 auto;padding:18px 14px 56px}
-
-/* ── INTRO ── */
-.intro{background:#fffcf0;border:1px solid #e8d47a;border-right:4px solid var(--amber);border-radius:6px;padding:13px 17px;margin-bottom:18px;font-size:12px;color:#6a4e08;line-height:1.85}
-.intro strong{color:var(--amber)}
-
-/* ── SEC HEADER ── */
-.sh{display:flex;align-items:center;gap:9px;padding:9px 15px;border-radius:6px;margin:20px 0 8px;border:1px solid;font-size:13px;font-weight:700}
-.sh-cnt{margin-right:auto;font-size:11px;font-weight:400;opacity:.65}
-
-/* ── PROGRAM CARD ── */
-.pl{display:grid;gap:6px}
-.pc{background:var(--card);border:1px solid var(--line);border-radius:8px;border-right:4px solid transparent;padding:11px 15px;display:grid;grid-template-columns:42px 1fr auto;gap:11px;align-items:start;transition:box-shadow .14s,transform .1s}
-.pc:hover{box-shadow:0 3px 14px rgba(0,0,0,.07);transform:translateY(-1px)}
-.td{border-right-color:var(--teal)}
-.tb{border-right-color:var(--blue)}
-.tv{border-right-color:var(--amber)}
-.tn{border-right-color:var(--rust)}
-.tx{border-right-color:var(--block);background:#fff8f8;opacity:.7}
-.rk{width:36px;height:36px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0;font-family:'Cairo',sans-serif}
-.pn{font-size:13px;font-weight:700;color:var(--ink);margin-bottom:2px;line-height:1.4}
-.pm{display:flex;align-items:center;gap:5px;flex-wrap:wrap;font-size:11px;color:var(--muted)}
-.pcd{font-family:'Cairo',sans-serif;background:#f0ece0;padding:0 6px;border-radius:3px;font-size:10px;color:var(--ink);font-weight:700;letter-spacing:.4px}
-.pcs{display:flex;gap:4px;flex-wrap:wrap;margin-top:5px}
-.cd{display:inline-flex;align-items:center;gap:3px;font-size:10px;padding:2px 7px;border-radius:4px;font-weight:600;border:1px solid;white-space:nowrap}
-.cd-ok{background:#e4f5ee;color:var(--teal);border-color:#9ad4be}
-.cd-warn{background:#fff5e0;color:var(--amber);border-color:#e8cc60}
-.cd-bad{background:var(--block-l);color:var(--block);border-color:var(--block-m)}
-.cd-info{background:var(--blue-l);color:var(--blue);border-color:var(--blue-m)}
-.pr{display:flex;flex-direction:column;align-items:flex-end;gap:4px;flex-shrink:0}
-.bdg{font-size:10px;padding:2px 8px;border-radius:4px;white-space:nowrap;font-weight:700;border:1px solid}
-.bt{background:var(--teal-l);color:var(--teal);border-color:var(--teal-m)}
-.bb{background:var(--blue-l);color:var(--blue);border-color:var(--blue-m)}
-.ba{background:var(--amber-l);color:var(--amber);border-color:var(--amber-m)}
-.br{background:var(--rust-l);color:var(--rust);border-color:var(--rust-m)}
-.bx{background:var(--block-l);color:var(--block);border-color:var(--block-m)}
-.bg{background:var(--teal-l);color:var(--teal);border-color:var(--teal-m)}
-.bj{background:var(--amber-l);color:var(--amber);border-color:var(--amber-m)}
-.gw{display:flex;align-items:center;gap:5px}
-.gb{width:50px;height:4px;background:#ece8dc;border-radius:2px;overflow:hidden}
-.gf{height:100%;border-radius:2px}
-.gn{font-size:10px;font-weight:700}
-
-/* ── FOOTER ── */
-footer{text-align:center;padding:22px;font-size:11px;color:var(--muted);border-top:1px solid var(--line);margin-top:20px}
-
-@media print{
-  .lgd,.ctrl,.intro,.fix-banner{display:none!important}
-  .mast{background:#1c1a14!important;-webkit-print-color-adjust:exact}
-  .pc{break-inside:avoid;border:1px solid #ccc;margin-bottom:4px;font-size:10px}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Cairo', sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  font-size: 14px;
+  line-height: 1.65;
 }
-@media(max-width:560px){
-  .pc{grid-template-columns:34px 1fr}
-  .pr{grid-column:1/-1;flex-direction:row;flex-wrap:wrap}
+
+/* ════════════════════════════ MASTHEAD ════════════════════════════ */
+.mast {
+  background: var(--ink);
+  color: #f0ece0;
+  padding: 40px 28px 30px;
+  position: relative;
+  overflow: hidden;
+}
+.mast::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-linear-gradient(-55deg, transparent, transparent 36px,
+      rgba(255,255,255,.015) 36px, rgba(255,255,255,.015) 37px),
+    radial-gradient(ellipse 70% 80% at 90% 50%, rgba(176,104,0,.18) 0%, transparent 60%);
+  pointer-events: none;
+}
+.mast-inner {
+  max-width: 1060px; margin: 0 auto;
+  display: flex; gap: 24px;
+  align-items: flex-start; flex-wrap: wrap;
+  position: relative;
+}
+.mast-left { flex: 1; min-width: 260px; }
+.mast-tag {
+  display: inline-flex; align-items: center; gap: 6px;
+  border: 1px solid rgba(176,104,0,.5);
+  color: #d4a040; font-size: 10px;
+  letter-spacing: 2px; padding: 3px 12px;
+  border-radius: 2px; margin-bottom: 12px;
+  text-transform: uppercase;
+}
+.mast h1 {
+  font-family: 'Amiri', serif;
+  font-size: clamp(22px, 4vw, 36px);
+  font-weight: 700; line-height: 1.2;
+  color: #f5f0e4; margin-bottom: 6px;
+}
+.mast-sub { font-size: 11.5px; opacity: .55; margin-bottom: 16px; }
+.mast-chips { display: flex; gap: 7px; flex-wrap: wrap; }
+.mc {
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 4px; padding: 3px 12px; font-size: 11px;
+}
+.mc b { color: #d4a040; }
+.score-box {
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 10px; padding: 16px 26px;
+  text-align: center; flex-shrink: 0;
+}
+.score-n {
+  font-size: 44px; font-weight: 900;
+  font-family: 'Amiri', serif;
+  color: #d4a040; line-height: 1;
+}
+.score-lbl { font-size: 10px; opacity: .5; margin-top: 3px; }
+
+/* ════════════ CORRECTIONS BANNER ════════════ */
+.corr-bar {
+  background: #1a1200;
+  border-bottom: 2px solid var(--gold);
+  padding: 8px 20px;
+}
+.corr-inner {
+  max-width: 1060px; margin: 0 auto;
+  display: flex; gap: 6px; flex-wrap: wrap; align-items: center;
+  font-size: 11px; color: #d4b040;
+}
+.corr-lbl { font-weight: 700; margin-left: 4px; }
+.ctag {
+  background: rgba(255,255,255,.07);
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 3px; padding: 1px 8px;
+  font-size: 10.5px;
+}
+
+/* ════════════ LEGEND ════════════ */
+.lgd {
+  background: var(--card);
+  border-bottom: 2px solid var(--line);
+  padding: 9px 20px;
+  display: flex; gap: 16px; flex-wrap: wrap; align-items: center;
+  position: sticky; top: 0; z-index: 200;
+  box-shadow: 0 2px 12px rgba(0,0,0,.07);
+}
+.li { display: flex; align-items: center; gap: 5px; font-size: 11px; color: var(--muted); }
+.ld { width: 12px; height: 12px; border-radius: 3px; flex-shrink: 0; }
+.lsep { width: 1px; height: 14px; background: var(--line2); flex-shrink: 0; }
+.lgd-note {
+  margin-right: auto;
+  background: #fffcec; border: 1px solid var(--am);
+  border-radius: 4px; padding: 2px 10px;
+  font-size: 10.5px; color: var(--amber);
+  display: flex; align-items: center; gap: 4px;
+}
+
+/* ════════════ CONTROLS ════════════ */
+.ctrl {
+  background: var(--card);
+  border-bottom: 1px solid var(--line);
+  padding: 10px 18px;
+  display: flex; gap: 8px; flex-wrap: wrap; align-items: center;
+}
+.cs {
+  flex: 1; min-width: 200px;
+  border: 1.5px solid var(--line2); border-radius: 6px;
+  padding: 7px 13px; font-size: 13px;
+  font-family: 'Cairo', sans-serif;
+  background: var(--paper); color: var(--ink); outline: none;
+  transition: border-color .18s;
+}
+.cs:focus { border-color: var(--teal); }
+.pills { display: flex; gap: 5px; flex-wrap: wrap; }
+.pill {
+  padding: 4px 12px; font-size: 11px;
+  border: 1.5px solid var(--line2); border-radius: 5px;
+  cursor: pointer; background: transparent; color: var(--muted);
+  font-family: 'Cairo', sans-serif; transition: all .14s; white-space: nowrap;
+}
+.pill.on { background: var(--ink); border-color: var(--ink); color: #fff; }
+.pill.on-x { background: var(--block); border-color: var(--block); color: #fff; }
+.cnt-lbl { font-size: 11px; color: var(--muted); }
+.btn {
+  padding: 6px 16px; border: none; border-radius: 5px;
+  font-size: 11.5px; font-family: 'Cairo', sans-serif;
+  cursor: pointer; white-space: nowrap; font-weight: 700;
+  transition: opacity .14s;
+}
+.btn:hover { opacity: .85; }
+.btn-dk { background: var(--ink); color: #f0ece0; }
+.btn-tl { background: var(--teal); color: #fff; }
+
+/* ════════════ MAIN ════════════ */
+.main { max-width: 1060px; margin: 0 auto; padding: 18px 14px 60px; }
+
+/* ════════════ INTRO NOTE ════════════ */
+.intro {
+  background: #fffdf0;
+  border: 1px solid var(--am); border-right: 4px solid var(--amber);
+  border-radius: 6px; padding: 14px 18px; margin-bottom: 20px;
+  font-size: 12px; color: #6a4e08; line-height: 1.85;
+}
+.intro strong { color: var(--amber); }
+
+/* ════════════ SECTION HEADER ════════════ */
+.sh {
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 16px; border-radius: 6px;
+  margin: 22px 0 9px; border: 1px solid;
+  font-size: 13px; font-weight: 700;
+}
+.sh-n { margin-right: auto; font-size: 11px; font-weight: 400; opacity: .65; }
+
+/* ════════════ PROGRAM CARD ════════════ */
+.pl { display: grid; gap: 6px; }
+.pc {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  border-right: 4px solid transparent;
+  padding: 11px 15px;
+  display: grid;
+  grid-template-columns: 42px 1fr auto;
+  gap: 11px; align-items: start;
+  transition: box-shadow .14s, transform .1s;
+}
+.pc:hover { box-shadow: 0 3px 14px rgba(0,0,0,.07); transform: translateY(-1px); }
+
+/* tier stripes */
+.td { border-right-color: var(--teal); }
+.tp { border-right-color: var(--blue); }
+.tv { border-right-color: var(--amber); }
+.tn { border-right-color: var(--rust); }
+.tx { border-right-color: var(--block); background: #fff8f8; }
+
+/* rank badge */
+.rk {
+  width: 36px; height: 36px; border-radius: 7px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; font-weight: 700; flex-shrink: 0;
+}
+
+/* name & meta */
+.pn { font-size: 13px; font-weight: 700; color: var(--ink); margin-bottom: 2px; line-height: 1.4; }
+.pm { display: flex; align-items: center; gap: 5px; flex-wrap: wrap; font-size: 11px; color: var(--muted); }
+.pcd {
+  font-family: 'Cairo', sans-serif;
+  background: #eee8d8; padding: 0 6px; border-radius: 3px;
+  font-size: 10px; color: var(--ink); font-weight: 700; letter-spacing: .4px;
+}
+
+/* conditions */
+.pcs { display: flex; gap: 4px; flex-wrap: wrap; margin-top: 5px; }
+.cd {
+  display: inline-flex; align-items: center; gap: 3px;
+  font-size: 10px; padding: 2px 7px; border-radius: 4px;
+  font-weight: 600; border: 1px solid; white-space: nowrap;
+}
+.cd-ok   { background: #ddf5ec; color: var(--teal); border-color: var(--tm); }
+.cd-warn { background: #fff5dc; color: var(--amber); border-color: var(--am); }
+.cd-bad  { background: var(--xl); color: var(--block); border-color: var(--xm); }
+.cd-info { background: var(--bl); color: var(--blue); border-color: var(--bm); }
+
+/* right column */
+.pr { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; flex-shrink: 0; }
+.bdg {
+  font-size: 10px; padding: 2px 8px; border-radius: 4px;
+  white-space: nowrap; font-weight: 700; border: 1px solid;
+}
+.bt  { background: var(--tl); color: var(--teal); border-color: var(--tm); }
+.bbl { background: var(--bl); color: var(--blue); border-color: var(--bm); }
+.bam { background: var(--al); color: var(--amber); border-color: var(--am); }
+.bru { background: var(--rl); color: var(--rust); border-color: var(--rm); }
+.bx  { background: var(--xl); color: var(--block); border-color: var(--xm); }
+.bg  { background: var(--tl); color: var(--teal); border-color: var(--tm); }
+.bj  { background: var(--al); color: var(--amber); border-color: var(--am); }
+
+/* gap bar */
+.gw { display: flex; align-items: center; gap: 5px; }
+.gb { width: 52px; height: 4px; background: #e8e0d0; border-radius: 2px; overflow: hidden; }
+.gf { height: 100%; border-radius: 2px; }
+.gn { font-size: 10px; font-weight: 700; }
+
+/* ════════════ FOOTER ════════════ */
+footer {
+  text-align: center; padding: 24px;
+  font-size: 11px; color: var(--muted);
+  border-top: 1px solid var(--line); margin-top: 24px;
+}
+
+/* ════════════ PRINT ════════════ */
+@media print {
+  .lgd,.ctrl,.intro,.corr-bar { display: none !important; }
+  .mast { background: #16140f !important; -webkit-print-color-adjust: exact; }
+  .pc { break-inside: avoid; border: 1px solid #ccc; margin-bottom: 4px; font-size: 10px; }
+  body { font-size: 10px; }
+}
+@media (max-width: 560px) {
+  .pc { grid-template-columns: 34px 1fr; }
+  .pr { grid-column: 1/-1; flex-direction: row; flex-wrap: wrap; }
 }
 </style>
 </head>
@@ -122,17 +278,17 @@ footer{text-align:center;padding:22px;font-size:11px;color:var(--muted);border-t
 <!-- MASTHEAD -->
 <div class="mast">
   <div class="mast-inner">
-    <div class="mast-text">
-      <div class="mast-tag">مركز القبول الموحد · سلطنة عُمان · 2026/2027</div>
-      <h1>دليل الاختيارات الجامعية المُرتَّبة والمُحقَّقة<br>— النسخة المُصحَّحة النهائية</h1>
-      <p class="mast-sub">هنادي موسى إبراهيم البلوشية · رقم المستخدم: 22055206 · 8 مايو 2026</p>
+    <div class="mast-left">
+      <div class="mast-tag">📋 مركز القبول الموحد · سلطنة عُمان · 2026/2027</div>
+      <h1>دليل الاختيارات الجامعية المُرتَّبة<br>والمُحقَّقة من المصادر الرسمية</h1>
+      <p class="mast-sub">هنادي موسى إبراهيم البلوشية · رقم المستخدم: 22055206 · النسخة النهائية — 8 مايو 2026</p>
       <div class="mast-chips">
-        <div class="mc">إجمالي البرامج: <b>157</b></div>
-        <div class="mc">مؤهلة مباشرةً: <b>28</b></div>
-        <div class="mc">عبر دبلوم التأهيل: <b>43</b></div>
-        <div class="mc">بعثات: <b>2</b></div>
-        <div class="mc">احتياطي: <b>83</b></div>
-        <div class="mc">غير مؤهل نهائياً: <b>1</b></div>
+        <div class="mc">الإجمالي: <b>157</b></div>
+        <div class="mc">🎓 مباشر: <b>28</b></div>
+        <div class="mc">📚 دبلوم تأهيل: <b>17</b></div>
+        <div class="mc">🏛 بعثات: <b>2</b></div>
+        <div class="mc">🛡 احتياطي: <b>83</b></div>
+        <div class="mc">🚫 غير مؤهل: <b>27</b></div>
       </div>
     </div>
     <div class="score-box">
@@ -142,63 +298,73 @@ footer{text-align:center;padding:22px;font-size:11px;color:var(--muted);border-t
   </div>
 </div>
 
-<!-- CORRECTION BANNER -->
-<div class="fix-banner">
-  <div class="fix-banner-inner">
-    <span>✅ التصحيحات المُطبَّقة بعد التحقق من دليل المساقات:</span>
-    <span class="fix-item">SQ706 الترجمة(SQ) → غير مؤهل نهائياً</span>
-    <span class="fix-item">IG092 القانون التجاري → دبلوم تأهيل</span>
-    <span class="fix-item">BS036/IG036 الترجمة(ظفار) → مؤهل مباشرةً</span>
-    <span class="fix-item">IG075 آداب ترجمة(البريمي) → مؤهل مباشرةً ✓</span>
+<!-- CORRECTIONS BANNER -->
+<div class="corr-bar">
+  <div class="corr-inner">
+    <span class="corr-lbl">✅ التصحيحات المُطبَّقة (مقارنةً بثلاثة مصادر رسمية):</span>
+    <span class="ctag">16 برنامج قانوني → ❌ غير مؤهل</span>
+    <span class="ctag">SQ710/SQ709/SQ702 → ❌ لا مادة دراسية</span>
+    <span class="ctag">7 برامج اقتصاد → ❌ غير مؤهل</span>
+    <span class="ctag">SQ706 الترجمة-SQ → ❌ مذكور في غير المؤهلين</span>
+    <span class="ctag">BS036/IG036 آداب ترجمة-ظفار → ✅ مباشر</span>
   </div>
 </div>
 
 <!-- LEGEND -->
 <div class="lgd">
-  <div class="li"><div class="ld" style="background:var(--teal)"></div>مؤهلة مباشرةً لوظيفة معلمة</div>
-  <div class="li"><div class="ld" style="background:var(--blue)"></div>مؤهلة عبر دبلوم التأهيل التربوي</div>
+  <div class="li"><div class="ld" style="background:var(--teal)"></div>مؤهل مباشرةً لوظيفة معلمة</div>
+  <div class="li"><div class="ld" style="background:var(--blue)"></div>عبر دبلوم التأهيل التربوي</div>
   <div class="li"><div class="ld" style="background:var(--amber)"></div>بعثات داخلية</div>
   <div class="li"><div class="ld" style="background:var(--rust)"></div>احتياطي (غير تعليمي)</div>
-  <div class="li"><div class="ld" style="background:var(--block)"></div>غير مؤهل نهائياً</div>
+  <div class="li"><div class="ld" style="background:var(--block)"></div>غير مؤهل للتدريس نهائياً</div>
   <div class="lsep"></div>
-  <div class="lgd-warn">⚠ الشروط من دليل الطالب الرسمي 2026 — تحقق من درجاتك في المواد المحددة</div>
+  <div class="lgd-note">⚠ الشروط من دليل الطالب الرسمي 2026 — تحقق من درجاتك قبل تثبيت الاختيار</div>
 </div>
 
 <!-- CONTROLS -->
 <div class="ctrl">
-  <input class="ctrl-s" type="text" id="srch" placeholder="🔍  ابحث بالاسم أو الرمز أو الجامعة أو المادة..." oninput="render()">
+  <input class="cs" type="text" id="srch" placeholder="🔍  ابحث بالاسم أو الرمز أو الجامعة أو المادة..." oninput="R()">
   <div class="pills">
-    <button class="pill on"  onclick="sp(this,'all')">الكل (157)</button>
-    <button class="pill"     onclick="sp(this,'d')">مباشر (28)</button>
-    <button class="pill"     onclick="sp(this,'p')">دبلوم (43)</button>
-    <button class="pill"     onclick="sp(this,'n')">احتياطي (83)</button>
-    <button class="pill"     onclick="sp(this,'warn')">⚠ بها شروط</button>
-    <button class="pill"     onclick="sp(this,'g')">حكومي</button>
-    <button class="pill"     onclick="sp(this,'j')">جامعي ذاتي</button>
-    <button class="pill"     onclick="sp(this,'x')">❌ غير مؤهل</button>
+    <button class="pill on"  onclick="SP(this,'all')">الكل (157)</button>
+    <button class="pill"     onclick="SP(this,'d')">🎓 مباشر (28)</button>
+    <button class="pill"     onclick="SP(this,'p')">📚 دبلوم (17)</button>
+    <button class="pill"     onclick="SP(this,'n')">🛡 احتياطي (85)</button>
+    <button class="pill"     onclick="SP(this,'warn')">⚠ بها شروط</button>
+    <button class="pill"     onclick="SP(this,'g')">حكومي</button>
+    <button class="pill"     onclick="SP(this,'j')">جامعي ذاتي</button>
+    <button class="pill"     onclick="SP(this,'x')">🚫 غير مؤهل (27)</button>
   </div>
-  <span id="cnt" class="cnt"></span>
-  <button class="btn btn-tl" onclick="copyList()">📋 نسخ للنظام</button>
+  <span id="cnt" class="cnt-lbl"></span>
+  <button class="btn btn-tl" onclick="CP()">📋 نسخ للنظام</button>
   <button class="btn btn-dk" onclick="window.print()">🖨 طباعة</button>
 </div>
 
 <div class="main">
-  <div class="intro">
-    <strong>📋 منهجية الفرز والتحقق (النسخة المُصحَّحة):</strong><br>
-    ① <strong>المصدر:</strong> دليل الطالب الرسمي 2026 (272 صفحة) + دليل المساقات الدراسية للخريجين العُمانيين (تحديث 8 مايو 2025).<br>
-    ② <strong>التصنيف:</strong> فُحص كل برنامج بمطابقة اسمه واسم جامعته مع قوائم التخصصات المؤهلة مباشرةً، والمؤهلة عبر دبلوم، وغير المؤهلة.<br>
-    ③ <strong>التصحيحات:</strong> SQ706 (الترجمة-SQ) نُقل إلى "غير مؤهل نهائياً" لوروده صراحةً في عمود غير المؤهلين. IG092 (القانون التجاري) نُقل إلى "دبلوم تأهيل". BS036/IG036 و IG075 رُفعا إلى "مباشر" بعد التثبت.<br>
-    ④ <strong>الشروط (⚠):</strong> تعني أن على هنادي التحقق من درجتها في تلك المادة قبل تثبيت الاختيار.
-  </div>
-  <div id="container"></div>
+<div class="intro">
+  <strong>📋 المصادر والمنهجية:</strong> بُنيت هذه القائمة بمقارنة ثلاثة مصادر رسمية:
+  <strong>(١)</strong> دليل الطالب – مركز القبول الموحد 2026 (272 صفحة) ·
+  <strong>(٢)</strong> دليل المساقات الدراسية للخريجين العُمانيين – وزارة التربية والتعليم (تحديث 8 مايو 2025) ·
+  <strong>(٣)</strong> ملف البرامج الموصى بها مع المعدلات التنافسية.
+  <br>
+  <strong>التصنيف:</strong>
+  🎓 <strong>مباشر</strong> = التخصص ورد في عمود المؤهلين مباشرة في دليل المساقات ·
+  📚 <strong>دبلوم تأهيل</strong> = يحتاج سنة دبلوم تأهيل تربوي بعد التخرج ·
+  🚫 <strong>غير مؤهل</strong> = مذكور في عمود غير المؤهلين أو لا يقابله تخصص تدريسي في المنهج.
+  <br>
+  <strong>تحذير:</strong> القانون والاجتماع والإعلام والاقتصاد — برامج نافعة مهنياً لكنها <strong>لا تؤهل للتدريس</strong> وفق القوائم الرسمية المحدثة.
+</div>
+<div id="container"></div>
 </div>
 
-<textarea id="cpta" style="position:absolute;left:-9999px;top:0"></textarea>
-<footer>أُعدّ بواسطة الأستاذ خليل البلوشي · omk811.github.io · @teacherKhalil811<br>
-المصادر: دليل الطالب – مركز القبول الموحد 2026 · دليل المساقات – وزارة التربية والتعليم 2025</footer>
+<textarea id="cpta" style="position:absolute;left:-9999px;top:0;width:1px;height:1px"></textarea>
+
+<footer>
+  أُعدّ بواسطة الأستاذ خليل البلوشي · omk811.github.io · @teacherKhalil811<br>
+  المصادر: دليل الطالب 2026 · دليل المساقات وزارة التربية والتعليم (مايو 2025) · ملف البرامج الموصى بها
+</footer>
 
 <script>
-const SCORE=93.45;
+const SC=93.45;
 const P=[
 {r:1,c:'U2101',n:'تربية مجال أول (إناث) – فرع مسندم',u:'جامعة التقنية والعلوم التطبيقية',m:93.45,f:'g',t:'d',s:'معلمة مجال أول',conds:[{l:'للإناث فقط ✓',c:'ok'},{l:'مقابلة شخصية',c:'warn'},{l:'رياضيات متقدمة',c:'warn'},{l:'دبلوم 80%+ ✓',c:'ok'}]},
 {r:2,c:'SQ708',n:'كلية الآداب والعلوم الاجتماعية (التاريخ)',u:'جامعة السلطان قابوس',m:93.45,f:'g',t:'d',s:'معلمة تاريخ',conds:[{l:'عربي 65%+ ✓',c:'ok'},{l:'دبلوم 75%+ ✓',c:'ok'}]},
@@ -228,31 +394,31 @@ const P=[
 {r:26,c:'IG915',n:'علوم الحاسوب',u:'جامعة نزوى',m:85.45,f:'j',t:'d',s:'معلمة تقنية معلومات',conds:[{l:'دبلوم 65%+ ✓',c:'ok'}]},
 {r:27,c:'BS927',n:'بكالوريوس مرتبة شرف – اللغة الإنجليزية وآدابها',u:'الجامعة العربية المفتوحة',m:85.45,f:'g',t:'d',s:'معلمة إنجليزية',conds:[{l:'إنجليزي وآدابها المفتوحة ✓',c:'ok'},{l:'دبلوم 65%+ ✓',c:'ok'}]},
 {r:28,c:'IG927',n:'بكالوريوس مرتبة شرف – اللغة الإنجليزية وآدابها',u:'الجامعة العربية المفتوحة',m:85.45,f:'j',t:'d',s:'معلمة إنجليزية',conds:[{l:'إنجليزي وآدابها المفتوحة ✓',c:'ok'}]},
-{r:29,c:'SQ710',n:'كلية الآداب والعلوم الاجتماعية (العمل الاجتماعي)',u:'جامعة السلطان قابوس',m:93.45,f:'g',t:'p',s:'دبلوم → اجتماعيات',conds:[{l:'عربي 65%+ ✓',c:'ok'},{l:'دبلوم 75%+ ✓',c:'ok'}]},
-{r:30,c:'SQ709',n:'كلية الآداب والعلوم الاجتماعية (علم الاجتماع)',u:'جامعة السلطان قابوس',m:93.45,f:'g',t:'p',s:'دبلوم → اجتماعيات',conds:[{l:'عربي 65%+ ✓',c:'ok'},{l:'دبلوم 75%+ ✓',c:'ok'}]},
-{r:31,c:'SQ800',n:'كلية الحقوق',u:'جامعة السلطان قابوس',m:92.05,f:'g',t:'p',s:'دبلوم → اجتماعيات/قانون',conds:[{l:'⚠ رياضيات متقدمة/أساسية',c:'warn'},{l:'إنجليزي 65%+ ✓',c:'ok'},{l:'دبلوم 75%+ ✓',c:'ok'}]},
-{r:32,c:'SQ702',n:'كلية الآداب والعلوم الاجتماعية (الإعلام)',u:'جامعة السلطان قابوس',m:90.25,f:'g',t:'p',s:'دبلوم → اجتماعيات',conds:[{l:'⚠ رياضيات متقدمة/أساسية',c:'warn'},{l:'دبلوم 75%+ ✓',c:'ok'}]},
-{r:33,c:'IG092',n:'القانون التجاري',u:'الكلية الحديثة للتجارة والعلوم',m:90.85,f:'j',t:'p',s:'دبلوم → اجتماعيات (تصحيح)',conds:[{l:'تصحيح: ليس تقنية معلومات',c:'bad'},{l:'يحتاج دبلوم تأهيل',c:'info'},{l:'دبلوم 65%+ ✓',c:'ok'}]},
-{r:34,c:'BS111',n:'الحقوق',u:'كلية الزهراء للبنات',m:90.85,f:'g',t:'p',s:'دبلوم → قانون/اجتماعيات',conds:[{l:'دبلوم 65%+ ✓',c:'ok'},{l:'إنجليزي 55%+ ✓',c:'ok'}]},
-{r:35,c:'BS077',n:'القانون',u:'الجامعة العربية المفتوحة',m:90.85,f:'g',t:'p',s:'دبلوم → اجتماعيات',conds:[{l:'دبلوم 65%+ ✓',c:'ok'}]},
-{r:36,c:'IG231',n:'القانون',u:'جامعة البريمي',m:90.85,f:'j',t:'p',s:'دبلوم → اجتماعيات',conds:[{l:'دبلوم 65%+ ✓',c:'ok'}]},
-{r:37,c:'BS033',n:'الحقوق',u:'جامعة ظفار',m:90.85,f:'g',t:'p',s:'دبلوم → قانون/اجتماعيات',conds:[{l:'دبلوم 65%+ ✓',c:'ok'}]},
+{r:29,c:'SQ710',n:'كلية الآداب والعلوم الاجتماعية (العمل الاجتماعي)',u:'جامعة السلطان قابوس',m:93.45,f:'g',t:'x',s:'❌ لا مادة دراسية مقابلة في المنهج',conds:[{l:'لا يقابله تخصص تدريسي في المنهج',c:'bad'},{l:'وظيفة أخصائي لا معلم',c:'info'}]},
+{r:30,c:'SQ709',n:'كلية الآداب والعلوم الاجتماعية (علم الاجتماع)',u:'جامعة السلطان قابوس',m:93.45,f:'g',t:'x',s:'❌ لا مادة دراسية مقابلة في المنهج',conds:[{l:'لا يقابله تخصص تدريسي في المنهج',c:'bad'},{l:'وظيفة أخصائي لا معلم',c:'info'}]},
+{r:31,c:'SQ800',n:'كلية الحقوق',u:'جامعة السلطان قابوس',m:92.05,f:'g',t:'x',s:'❌ القانون غير مؤهل للتدريس',conds:[{l:'القانون في عمود غير المؤهلين',c:'bad'},{l:'لا مادة دراسية مقابلة',c:'bad'}]},
+{r:32,c:'SQ702',n:'كلية الآداب والعلوم الاجتماعية (الإعلام)',u:'جامعة السلطان قابوس',m:90.25,f:'g',t:'x',s:'❌ لا مادة دراسية مقابلة في المنهج',conds:[{l:'لا يقابله تخصص تدريسي في المنهج',c:'bad'},{l:'وظيفة أخصائي لا معلم',c:'info'}]},
+{r:33,c:'IG092',n:'القانون التجاري',u:'الكلية الحديثة للتجارة والعلوم',m:90.85,f:'j',t:'x',s:'❌ القانون غير مؤهل للتدريس',conds:[{l:'القانون في عمود غير المؤهلين',c:'bad'},{l:'لا مادة دراسية مقابلة',c:'bad'}]},
+{r:34,c:'BS111',n:'الحقوق',u:'كلية الزهراء للبنات',m:90.85,f:'g',t:'x',s:'❌ القانون غير مؤهل للتدريس',conds:[{l:'القانون في عمود غير المؤهلين',c:'bad'},{l:'لا مادة دراسية مقابلة',c:'bad'}]},
+{r:35,c:'BS077',n:'القانون',u:'الجامعة العربية المفتوحة',m:90.85,f:'g',t:'x',s:'❌ القانون غير مؤهل للتدريس',conds:[{l:'القانون في عمود غير المؤهلين',c:'bad'},{l:'لا مادة دراسية مقابلة',c:'bad'}]},
+{r:36,c:'IG231',n:'القانون',u:'جامعة البريمي',m:90.85,f:'j',t:'x',s:'❌ القانون غير مؤهل للتدريس',conds:[{l:'القانون في عمود غير المؤهلين',c:'bad'},{l:'لا مادة دراسية مقابلة',c:'bad'}]},
+{r:37,c:'BS033',n:'الحقوق',u:'جامعة ظفار',m:90.85,f:'g',t:'x',s:'❌ القانون غير مؤهل للتدريس',conds:[{l:'القانون في عمود غير المؤهلين',c:'bad'},{l:'لا مادة دراسية مقابلة',c:'bad'}]},
 {r:38,c:'BS075',n:'الترجمة',u:'كلية البريمي',m:90.85,f:'g',t:'p',s:'دبلوم → إنجليزية',conds:[{l:'دبلوم 65%+ ✓',c:'ok'},{l:'راجع IG075 للنسخة المباشرة',c:'info'}]},
-{r:39,c:'IG219',n:'القانون',u:'جامعة الشرقية',m:90.85,f:'j',t:'p',s:'دبلوم → اجتماعيات',conds:[{l:'دبلوم 65%+ ✓',c:'ok'}]},
-{r:40,c:'IG021',n:'القانون',u:'جامعة صحار',m:90.85,f:'j',t:'p',s:'دبلوم → اجتماعيات',conds:[{l:'دبلوم 65%+ ✓',c:'ok'}]},
-{r:41,c:'BS231',n:'القانون',u:'جامعة البريمي',m:90.85,f:'g',t:'p',s:'دبلوم → اجتماعيات',conds:[{l:'دبلوم 65%+ ✓',c:'ok'}]},
+{r:39,c:'IG219',n:'القانون',u:'جامعة الشرقية',m:90.85,f:'j',t:'x',s:'❌ القانون غير مؤهل للتدريس',conds:[{l:'القانون في عمود غير المؤهلين',c:'bad'},{l:'لا مادة دراسية مقابلة',c:'bad'}]},
+{r:40,c:'IG021',n:'القانون',u:'جامعة صحار',m:90.85,f:'j',t:'x',s:'❌ القانون غير مؤهل للتدريس',conds:[{l:'القانون في عمود غير المؤهلين',c:'bad'},{l:'لا مادة دراسية مقابلة',c:'bad'}]},
+{r:41,c:'BS231',n:'القانون',u:'جامعة البريمي',m:90.85,f:'g',t:'x',s:'❌ القانون غير مؤهل للتدريس',conds:[{l:'القانون في عمود غير المؤهلين',c:'bad'},{l:'لا مادة دراسية مقابلة',c:'bad'}]},
 {r:42,c:'IG074',n:'اللغة الإنجليزية وآدابها والترجمة',u:'كلية البريمي',m:90.85,f:'j',t:'p',s:'دبلوم → إنجليزية',conds:[{l:'إنجليزي 65%+ ✓',c:'ok'}]},
 {r:43,c:'BS011',n:'اللغة الفرنسية / الألمانية / الإنجليزية والترجمة',u:'جامعة نزوى',m:90.85,f:'g',t:'p',s:'دبلوم → إنجليزية/فرنسية/ألمانية',conds:[{l:'إنجليزي 65%+ ✓',c:'ok'}]},
-{r:44,c:'IG073',n:'القانون',u:'جامعة البريمي',m:90.85,f:'j',t:'p',s:'دبلوم → اجتماعيات',conds:[{l:'دبلوم 65%+ ✓',c:'ok'}]},
-{r:45,c:'BS021',n:'القانون',u:'جامعة صحار',m:90.85,f:'g',t:'p',s:'دبلوم → اجتماعيات',conds:[{l:'دبلوم 65%+ ✓',c:'ok'}]},
+{r:44,c:'IG073',n:'القانون',u:'جامعة البريمي',m:90.85,f:'j',t:'x',s:'❌ القانون غير مؤهل للتدريس',conds:[{l:'القانون في عمود غير المؤهلين',c:'bad'},{l:'لا مادة دراسية مقابلة',c:'bad'}]},
+{r:45,c:'BS021',n:'القانون',u:'جامعة صحار',m:90.85,f:'g',t:'x',s:'❌ القانون غير مؤهل للتدريس',conds:[{l:'القانون في عمود غير المؤهلين',c:'bad'},{l:'لا مادة دراسية مقابلة',c:'bad'}]},
 {r:46,c:'BS197',n:'الأدب الإنجليزي – كتابة اللغة الإنجليزية الاحترافية',u:'كلية البيان',m:90.85,f:'g',t:'p',s:'دبلوم → إنجليزية',conds:[{l:'إنجليزي 65%+ ✓',c:'ok'}]},
 {r:47,c:'IG011',n:'اللغة الفرنسية والترجمة',u:'جامعة نزوى',m:90.85,f:'j',t:'p',s:'دبلوم → فرنسية',conds:[{l:'دبلوم 65%+ ✓',c:'ok'}]},
 {r:48,c:'IG127',n:'آداب اللغة الإنجليزية',u:'كلية مزون',m:90.85,f:'j',t:'p',s:'دبلوم → إنجليزية',conds:[{l:'إنجليزي 65%+ ✓',c:'ok'}]},
-{r:49,c:'BS073',n:'القانون',u:'جامعة البريمي',m:90.85,f:'g',t:'p',s:'دبلوم → اجتماعيات',conds:[{l:'دبلوم 65%+ ✓',c:'ok'}]},
-{r:50,c:'BS092',n:'القانون التجاري',u:'الكلية الحديثة للتجارة والعلوم',m:90.85,f:'g',t:'p',s:'دبلوم → اجتماعيات',conds:[{l:'دبلوم 65%+ ✓',c:'ok'}]},
-{r:51,c:'BS219',n:'القانون',u:'جامعة الشرقية',m:90.85,f:'g',t:'p',s:'دبلوم → اجتماعيات',conds:[{l:'دبلوم 65%+ ✓',c:'ok'}]},
-{r:52,c:'IG033',n:'الحقوق',u:'جامعة ظفار',m:90.85,f:'j',t:'p',s:'دبلوم → قانون/اجتماعيات',conds:[{l:'دبلوم 65%+ ✓',c:'ok'}]},
-{r:53,c:'IG077',n:'القانون',u:'الجامعة العربية المفتوحة',m:90.85,f:'j',t:'p',s:'دبلوم → اجتماعيات',conds:[{l:'دبلوم 65%+ ✓',c:'ok'}]},
+{r:49,c:'BS073',n:'القانون',u:'جامعة البريمي',m:90.85,f:'g',t:'x',s:'❌ القانون غير مؤهل للتدريس',conds:[{l:'القانون في عمود غير المؤهلين',c:'bad'},{l:'لا مادة دراسية مقابلة',c:'bad'}]},
+{r:50,c:'BS092',n:'القانون التجاري',u:'الكلية الحديثة للتجارة والعلوم',m:90.85,f:'g',t:'x',s:'❌ القانون غير مؤهل للتدريس',conds:[{l:'القانون في عمود غير المؤهلين',c:'bad'},{l:'لا مادة دراسية مقابلة',c:'bad'}]},
+{r:51,c:'BS219',n:'القانون',u:'جامعة الشرقية',m:90.85,f:'g',t:'x',s:'❌ القانون غير مؤهل للتدريس',conds:[{l:'القانون في عمود غير المؤهلين',c:'bad'},{l:'لا مادة دراسية مقابلة',c:'bad'}]},
+{r:52,c:'IG033',n:'الحقوق',u:'جامعة ظفار',m:90.85,f:'j',t:'x',s:'❌ القانون غير مؤهل للتدريس',conds:[{l:'القانون في عمود غير المؤهلين',c:'bad'},{l:'لا مادة دراسية مقابلة',c:'bad'}]},
+{r:53,c:'IG077',n:'القانون',u:'الجامعة العربية المفتوحة',m:90.85,f:'j',t:'x',s:'❌ القانون غير مؤهل للتدريس',conds:[{l:'القانون في عمود غير المؤهلين',c:'bad'},{l:'لا مادة دراسية مقابلة',c:'bad'}]},
 {r:54,c:'BS110',n:'العدالة الجنائية',u:'كلية مزون',m:87.25,f:'g',t:'p',s:'دبلوم → اجتماعيات',conds:[{l:'دبلوم 65%+ ✓',c:'ok'}]},
 {r:55,c:'IG128',n:'علم النفس',u:'كلية مزون',m:87.25,f:'j',t:'p',s:'دبلوم → تربية خاصة/إرشاد',conds:[{l:'دبلوم 65%+ ✓',c:'ok'}]},
 {r:56,c:'BS221',n:'الإرشاد النفسي',u:'جامعة الشرقية',m:87.25,f:'g',t:'p',s:'دبلوم → إرشاد تربوي',conds:[{l:'دبلوم 65%+ ✓',c:'ok'}]},
@@ -263,14 +429,14 @@ const P=[
 {r:61,c:'IG076',n:'هندسة البرمجيات – الأمن السيبراني – الذكاء الاصطناعي',u:'كلية البريمي',m:85.45,f:'j',t:'p',s:'دبلوم → تقنية معلومات',conds:[{l:'دبلوم 65%+ ✓',c:'ok'}]},
 {r:62,c:'BS287',n:'تصميم الويب وأمن المعلومات – نظم المعلومات',u:'جامعة نزوى',m:85.45,f:'g',t:'p',s:'دبلوم → تقنية معلومات',conds:[{l:'دبلوم 65%+ ✓',c:'ok'}]},
 {r:63,c:'BS076',n:'هندسة البرمجيات – الأمن السيبراني',u:'كلية البريمي',m:85.45,f:'g',t:'p',s:'دبلوم → تقنية معلومات',conds:[{l:'دبلوم 65%+ ✓',c:'ok'}]},
-{r:64,c:'IG129',n:'الاقتصاد – اقتصاديات الطاقة والعالمية',u:'كلية مزون',m:85.45,f:'j',t:'p',s:'دبلوم → اجتماعيات',conds:[{l:'دبلوم 65%+ ✓',c:'ok'}]},
-{r:65,c:'IG072',n:'اقتصاد الأعمال',u:'كلية البريمي',m:85.45,f:'j',t:'p',s:'دبلوم → اجتماعيات',conds:[{l:'دبلوم 65%+ ✓',c:'ok'}]},
+{r:64,c:'IG129',n:'الاقتصاد – اقتصاديات الطاقة والعالمية',u:'كلية مزون',m:85.45,f:'j',t:'x',s:'❌ الاقتصاد غير مؤهل للتدريس',conds:[{l:'لا يظهر في قائمة المؤهلين لأي مادة',c:'bad'},{l:'وظيفة إدارية لا تدريسية',c:'info'}]},
+{r:65,c:'IG072',n:'اقتصاد الأعمال',u:'كلية البريمي',m:85.45,f:'j',t:'x',s:'❌ الاقتصاد غير مؤهل للتدريس',conds:[{l:'لا يظهر في قائمة المؤهلين لأي مادة',c:'bad'},{l:'وظيفة إدارية لا تدريسية',c:'info'}]},
 {r:66,c:'IG198',n:'التنمية البشرية والدراسات الأسرية',u:'كلية البيان',m:85.45,f:'j',t:'p',s:'دبلوم → مهارات حياتية',conds:[{l:'دبلوم 65%+ ✓',c:'ok'}]},
-{r:67,c:'BS093',n:'بكالوريوس الآداب في الاقتصاد',u:'الكلية الحديثة للتجارة والعلوم',m:85.45,f:'g',t:'p',s:'دبلوم → اجتماعيات',conds:[{l:'دبلوم 65%+ ✓',c:'ok'}]},
-{r:68,c:'BS072',n:'اقتصاد الأعمال',u:'كلية البريمي',m:85.45,f:'g',t:'p',s:'دبلوم → اجتماعيات',conds:[{l:'دبلوم 65%+ ✓',c:'ok'}]},
-{r:69,c:'IG093',n:'بكالوريوس الآداب في الاقتصاد',u:'الكلية الحديثة للتجارة والعلوم',m:85.45,f:'j',t:'p',s:'دبلوم → اجتماعيات',conds:[{l:'دبلوم 65%+ ✓',c:'ok'}]},
-{r:70,c:'BS198',n:'التنمية البشرية والدراسات الأسرية',u:'كلية البيان',m:85.45,f:'g',t:'p',s:'دبلوم → مهارات حياتية',conds:[{l:'دبلوم 65%+ ✓',c:'ok'}]},
-{r:71,c:'BS129',n:'الاقتصاد – اقتصاديات الطاقة والعالمية',u:'كلية مزون',m:85.45,f:'g',t:'p',s:'دبلوم → اجتماعيات',conds:[{l:'دبلوم 65%+ ✓',c:'ok'}]},
+{r:67,c:'BS093',n:'بكالوريوس الآداب في الاقتصاد',u:'الكلية الحديثة للتجارة والعلوم',m:85.45,f:'g',t:'x',s:'❌ الاقتصاد غير مؤهل للتدريس',conds:[{l:'لا يظهر في قائمة المؤهلين لأي مادة',c:'bad'},{l:'وظيفة إدارية لا تدريسية',c:'info'}]},
+{r:68,c:'BS072',n:'اقتصاد الأعمال',u:'كلية البريمي',m:85.45,f:'g',t:'x',s:'❌ الاقتصاد غير مؤهل للتدريس',conds:[{l:'لا يظهر في قائمة المؤهلين لأي مادة',c:'bad'},{l:'وظيفة إدارية لا تدريسية',c:'info'}]},
+{r:69,c:'IG093',n:'بكالوريوس الآداب في الاقتصاد',u:'الكلية الحديثة للتجارة والعلوم',m:85.45,f:'j',t:'x',s:'❌ الاقتصاد غير مؤهل للتدريس',conds:[{l:'لا يظهر في قائمة المؤهلين لأي مادة',c:'bad'},{l:'وظيفة إدارية لا تدريسية',c:'info'}]},
+{r:70,c:'BS198',n:'التنمية البشرية والدراسات الأسرية',u:'كلية البيان',m:85.45,f:'g',t:'x',s:'❌ الاقتصاد غير مؤهل للتدريس',conds:[{l:'لا يظهر في قائمة المؤهلين لأي مادة',c:'bad'},{l:'وظيفة إدارية لا تدريسية',c:'info'}]},
+{r:71,c:'BS129',n:'الاقتصاد – اقتصاديات الطاقة والعالمية',u:'كلية مزون',m:85.45,f:'g',t:'x',s:'❌ الاقتصاد غير مؤهل للتدريس',conds:[{l:'لا يظهر في قائمة المؤهلين لأي مادة',c:'bad'},{l:'وظيفة إدارية لا تدريسية',c:'info'}]},
 {r:72,c:'SQ706',n:'كلية الآداب والعلوم الاجتماعية (الترجمة)',u:'جامعة السلطان قابوس',m:92.05,f:'g',t:'x',s:'غير مؤهل – مذكور صراحة',conds:[{l:'مذكور صراحة في غير المؤهلين',c:'bad'},{l:'لا يؤهل للتدريس حتى بدبلوم',c:'bad'}]},
 {r:73,c:'BS380',n:'البعثات الداخلية STEM',u:'الجامعات والكليات الخاصة',m:86.65,f:'g',t:'v',s:'يعتمد على التخصص',conds:[{l:'دبلوم 70%+ ✓',c:'ok'},{l:'التأهيل حسب التخصص المختار',c:'info'}]},
 {r:74,c:'BS390',n:'البعثات الداخلية ESAM',u:'الجامعات والكليات الخاصة',m:85.45,f:'g',t:'v',s:'يعتمد على التخصص',conds:[{l:'دبلوم 70%+ ✓',c:'ok'},{l:'التأهيل حسب التخصص المختار',c:'info'}]},
@@ -355,69 +521,73 @@ const P=[
 {r:153,c:'U0902',n:'تقنية المعلومات (صور)',u:'جامعة التقنية والعلوم التطبيقية',m:85.45,f:'g',t:'n',s:'تقنية',conds:[{l:'دبلوم 55%+ ✓',c:'ok'}]},
 {r:154,c:'BS952',n:'بكالوريوس العلوم في الذكاء الاصطناعي',u:'الجامعة العربية المفتوحة',m:85.45,f:'g',t:'n',s:'تقنية',conds:[{l:'دبلوم 65%+ ✓',c:'ok'}]},
 {r:155,c:'IG959',n:'الأمن السيبراني والأدلة الجنائية السيبرانية',u:'جامعة مسقط',m:85.45,f:'j',t:'n',s:'تقنية',conds:[{l:'دبلوم 65%+ ✓',c:'ok'}]},
-{r:156,c:'IG257',n:'علوم الحاسوب (عام) – الأمن السيبراني',u:'كلية الخليج',m:85.45,f:'j',t:'n',s:'تقنية',conds:[{l:'دبلوم 65%+ ✓',c:'ok'}]},
+{r:156,c:'IG257',n:'علوم الحاسوب (عام) – الأمن السيبراني',u:'كلية الخليج',m:85.45,f:'j',t:'n',s:'تقنية',conds:[{l:'دبلوم 65%+ ✓',c:'ok'}]}]}
 ];
 
 const TC={
-  d:{lbl:'الفئة الأولى — مؤهلة مباشرةً لوظيفة معلمة',ic:'🎓',clr:'var(--teal)',bg:'var(--teal-l)',br:'var(--teal-m)',sc:'td'},
-  p:{lbl:'الفئة الثانية — مؤهلة عبر دبلوم التأهيل التربوي',ic:'📚',clr:'var(--blue)',bg:'var(--blue-l)',br:'var(--blue-m)',sc:'tb'},
-  v:{lbl:'الفئة الثالثة — بعثات داخلية (التأهيل يعتمد على التخصص)',ic:'🏛️',clr:'var(--amber)',bg:'var(--amber-l)',br:'var(--amber-m)',sc:'tv'},
-  n:{lbl:'الفئة الرابعة — احتياطي (غير تعليمي)',ic:'🛡️',clr:'var(--rust)',bg:'var(--rust-l)',br:'var(--rust-m)',sc:'tn'},
-  x:{lbl:'غير مؤهل — مذكور صراحةً في قائمة غير المؤهلين',ic:'🚫',clr:'var(--block)',bg:'var(--block-l)',br:'var(--block-m)',sc:'tx'},
+  d:{lb:'الفئة الأولى — مؤهلة مباشرةً لوظيفة معلمة',         ic:'🎓',cl:'var(--teal)', bg:'var(--tl)',br:'var(--tm)',sc:'td'},
+  p:{lb:'الفئة الثانية — مؤهلة عبر دبلوم التأهيل التربوي',    ic:'📚',cl:'var(--blue)', bg:'var(--bl)',br:'var(--bm)',sc:'tp'},
+  v:{lb:'الفئة الثالثة — بعثات داخلية',                        ic:'🏛️',cl:'var(--amber)',bg:'var(--al)',br:'var(--am)',sc:'tv'},
+  n:{lb:'الفئة الرابعة — احتياطي (غير تعليمي)',                ic:'🛡️',cl:'var(--rust)', bg:'var(--rl)',br:'var(--rm)',sc:'tn'},
+  x:{lb:'غير مؤهل للتدريس — مذكور في القوائم الرسمية',         ic:'🚫',cl:'var(--block)',bg:'var(--xl)',br:'var(--xm)',sc:'tx'},
 };
+const TL={d:'مباشرةً',p:'دبلوم تأهيل',v:'بعثة',n:'احتياطي',x:'غير مؤهل'};
+const TB={d:'bt',p:'bbl',v:'bam',n:'bru',x:'bx'};
 
 let ap='all', sq='';
 
-function render(){
+function R(){
   sq=document.getElementById('srch').value.toLowerCase();
   const hw=p=>p.conds.some(c=>c.c==='warn'||c.c==='bad');
   const f=P.filter(p=>{
-    const mp=ap==='all'||(ap==='d'&&p.t==='d')||(ap==='p'&&p.t==='p')
-      ||(ap==='n'&&(p.t==='n'||p.t==='v'))||(ap==='warn'&&hw(p))
-      ||(ap==='g'&&p.f==='g')||(ap==='j'&&p.f==='j')||(ap==='x'&&p.t==='x');
-    const ms=!sq||p.n.includes(sq)||p.c.toLowerCase().includes(sq)||p.u.includes(sq)||p.s.includes(sq);
+    const mp=ap==='all'
+      ||(ap==='d'&&p.t==='d')||(ap==='p'&&p.t==='p')
+      ||(ap==='n'&&(p.t==='n'||p.t==='v'))
+      ||(ap==='warn'&&hw(p))
+      ||(ap==='g'&&p.f==='g')||(ap==='j'&&p.f==='j')
+      ||(ap==='x'&&p.t==='x');
+    const ms=!sq||p.n.includes(sq)||p.c.toLowerCase().includes(sq)
+              ||p.u.includes(sq)||p.s.includes(sq);
     return mp&&ms;
   });
   document.getElementById('cnt').textContent=f.length+' برنامجاً';
 
-  let html='',ct=null;
+  let html='', ct=null;
   f.forEach(p=>{
     if(p.t!==ct){
-      if(ct!==null)html+='</div>';
+      if(ct!==null) html+='</div>';
       ct=p.t;
       const tc=TC[p.t];
       const cnt=f.filter(x=>x.t===p.t).length;
-      html+=`<div class="sh" style="background:${tc.bg};color:${tc.clr};border-color:${tc.br}">
-        <span>${tc.ic}</span>${tc.lbl}
-        <span class="sh-cnt">${cnt} برنامجاً</span>
+      html+=`<div class="sh" style="background:${tc.bg};color:${tc.cl};border-color:${tc.br}">
+        <span>${tc.ic}</span>${tc.lb}
+        <span class="sh-n">${cnt} برنامجاً</span>
       </div><div class="pl">`;
     }
-    const gap=(SCORE-p.m).toFixed(2);
+
+    const gap=(SC-p.m).toFixed(2);
     const gn=parseFloat(gap);
     const gc=gn>=4?'var(--teal)':gn>=2?'var(--blue)':gn>=0?'var(--amber)':'var(--rust)';
     const bp=Math.min(100,Math.max(4,(gn/8)*100));
     const tc=TC[p.t];
-    const rb=tc.bg, rc=tc.clr;
-    const fb=p.f==='g'?'bg':'bj';
-    const tbl={'d':'bt','p':'bb','v':'ba','n':'br','x':'bx'};
-    const tla={'d':'مباشرةً','p':'دبلوم تأهيل','v':'بعثة','n':'احتياطي','x':'غير مؤهل'};
     const cs=p.conds.map(c=>`<span class="cd cd-${c.c}">${c.l}</span>`).join('');
+
     html+=`<div class="pc ${tc.sc}">
-      <div class="rk" style="background:${rb};color:${rc}">${p.r}</div>
+      <div class="rk" style="background:${tc.bg};color:${tc.cl}">${p.r}</div>
       <div>
         <div class="pn">${p.n}</div>
         <div class="pm">
           <span class="pcd">${p.c}</span>
           <span>${p.u}</span>
           <span style="color:var(--gold);font-weight:700">الحد الأدنى: ${p.m}</span>
-          <span style="color:var(--subtle)">|</span>
+          <span style="color:var(--faint)">·</span>
           <span>${p.s}</span>
         </div>
         ${cs?'<div class="pcs">'+cs+'</div>':''}
       </div>
       <div class="pr">
-        <span class="bdg ${fb}">${p.f==='g'?'حكومي':'جامعي ذاتي'}</span>
-        <span class="bdg ${tbl[p.t]}">${tla[p.t]}</span>
+        <span class="bdg ${p.f==='g'?'bg':'bj'}">${p.f==='g'?'حكومي':'جامعي'}</span>
+        <span class="bdg ${TB[p.t]}">${TL[p.t]}</span>
         <div class="gw">
           <span class="gn" style="color:${gc}">+${gap}</span>
           <div class="gb"><div class="gf" style="width:${bp}%;background:${gc}"></div></div>
@@ -425,27 +595,32 @@ function render(){
       </div>
     </div>`;
   });
-  if(ct!==null)html+='</div>';
+  if(ct!==null) html+='</div>';
+
   document.getElementById('container').innerHTML=html||
-    '<div style="text-align:center;padding:50px;color:var(--subtle);font-size:15px">لا توجد نتائج مطابقة</div>';
+    '<div style="text-align:center;padding:60px;color:var(--faint);font-size:15px">لا توجد نتائج مطابقة</div>';
+
   document.getElementById('cpta').value=
-    f.map(p=>`${p.r}. [${p.c}] ${p.n} — ${p.u} — الحد الأدنى: ${p.m} — ${tla[p.t]}`).join('\n');
+    f.map(p=>`${p.r}. [${p.c}] ${p.n} — ${p.u} — الحد الأدنى: ${p.m} — ${TL[p.t]}`).join('\n');
 }
 
-function sp(el,v){
-  document.querySelectorAll('.pill').forEach(p=>p.classList.remove('on'));
-  el.classList.add('on');ap=v;render();
+function SP(el,v){
+  document.querySelectorAll('.pill').forEach(p=>p.classList.remove('on','on-x'));
+  el.classList.add(v==='x'?'on-x':'on');
+  ap=v; R();
 }
-function copyList(){
+
+function CP(){
   const ta=document.getElementById('cpta');
   ta.style.cssText='position:fixed;left:0;top:0;width:200px;opacity:0';
-  ta.select();document.execCommand('copy');
-  ta.style.cssText='position:absolute;left:-9999px;top:0';
+  ta.select(); document.execCommand('copy');
+  ta.style.cssText='position:absolute;left:-9999px;top:0;width:1px;height:1px';
   const b=document.querySelector('.btn-tl');
   b.textContent='✅ تم النسخ!';
-  setTimeout(()=>b.textContent='📋 نسخ للنظام',2000);
+  setTimeout(()=>b.textContent='📋 نسخ للنظام',2200);
 }
-render();
+
+R();
 </script>
 </body>
 </html>
